@@ -93,44 +93,46 @@ html.platform-android #phone.dark .ms-ch {
 
 /* M3 color roles — light (seed primary #005f41 NETIO) */
 html.platform-android #phone {
-  --m3-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
-  --m3-elevation-2: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px 2px rgba(0, 0, 0, 0.15);
-  --m3-elevation-3: 0 4px 8px 3px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.3);
-  --m3-surface: #f7f9f9;
-  --m3-surface-dim: #e3e7e7;
+  /* Skutečné M3 jemné stíny (menší opacita, vzdušnější rozptyl) */
+  --m3-elevation-1: 0 1px 3px 1px rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  --m3-elevation-2: 0 2px 6px 2px rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  --m3-elevation-3: 0 4px 8px 3px rgba(0, 0, 0, 0.05), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --m3-surface: #f4f7f6;
+  --m3-surface-dim: #e1e4e3;
   --m3-surface-container: #ffffff;
   --m3-surface-container-low: #f0f4f3;
-  --m3-surface-container-high: #e8eeec;
-  --m3-on-surface: #1a1c1c;
-  --m3-on-surface-variant: #3f4946;
-  --m3-outline: #6f7979;
-  --m3-outline-variant: #bec9c5;
+  --m3-surface-container-high: #e8edea;
+  --m3-on-surface: #191c1b;
+  --m3-on-surface-variant: #404945;
+  --m3-outline: #707975;
+  --m3-outline-variant: #bfc9c4;
   --m3-primary: #005f41;
   --m3-on-primary: #ffffff;
-  --m3-primary-container: #a3f2d3;
-  --m3-on-primary-container: #002116;
+  --m3-primary-container: #9df2cf;
+  --m3-on-primary-container: #002114;
   --m3-error: #ba1a1a;
   --m3-on-error: #ffffff;
-  --m3-nav-rail: #f4f7f7;
+  --m3-nav-rail: #f0f4f3;
   --r-md: 16px;
   --r-md-sm: 12px;
 }
 
 html.platform-android #phone.dark {
-  --m3-surface: #121212;
-  --m3-surface-dim: #0c0f0f;
-  --m3-surface-container: #1e1e1e;
-  --m3-surface-container-high: #2a2a2a;
-  --m3-on-surface: #e3e3e3;
-  --m3-on-surface-variant: #bcc9c9;
-  --m3-outline: #8e9898;
-  --m3-primary: #00c878;
-  --m3-on-primary: #ffffff;
+  --m3-surface: #101412;
+  --m3-surface-dim: #0d1110;
+  --m3-surface-container: #1d211f;
+  --m3-surface-container-high: #272a29;
+  --m3-on-surface: #e0e3e1;
+  --m3-on-surface-variant: #bfc9c4;
+  --m3-outline: #89938f;
+  --m3-primary: #81d6b4;
+  --m3-on-primary: #003825;
   --m3-primary-container: #005234;
-  --m3-on-primary-container: #a3f2d3;
-  --m3-nav-rail: #1a1a1a;
-  --m3-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.5), 0 1px 3px 1px rgba(0, 0, 0, 0.35);
-  --m3-elevation-2: 0 1px 3px rgba(0, 0, 0, 0.55), 0 4px 8px 3px rgba(0, 0, 0, 0.35);
+  --m3-on-primary-container: #9df2cf;
+  --m3-nav-rail: #151918;
+  /* Dark mode stíny jsou na M3 extrémně slabé až neviditelné, dělí se barvou kontejnerů */
+  --m3-elevation-1: 0 1px 3px 1px rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --m3-elevation-2: 0 2px 6px 2px rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
 }
 
 /* Mapovat existující CSS proměnné na M3 (pro komponenty z ios.css) */
@@ -234,7 +236,7 @@ html.platform-android #phone:not(.dark) .nb {
   min-height: 64px;
   padding: 8px 4px 8px 8px;
   align-items: center;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: none;
   border-bottom: none;
 }
 
@@ -436,7 +438,8 @@ html.platform-android .tb-bar {
   padding-top: 12px;
   min-height: 80px;
   box-sizing: border-box;
-  border-top: 1px solid color-mix(in srgb, var(--m3-outline) 16%, transparent);
+  border-top: none;
+  box-shadow: 0 -1px 3px rgba(0,0,0,0.02); /* Extrémně jemný přechod místo tvrdé linky */
 }
 
 html.platform-android .tb-grp {
@@ -594,8 +597,8 @@ html.platform-android .sheet {
   background: var(--m3-surface-container-high);
   border-radius: 28px 28px 0 0;
   border: none;
-  border-top: 1px solid color-mix(in srgb, var(--m3-outline) 20%, transparent);
-  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.2);
+  border-top: none;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.05);
 }
 
 html.platform-android .snotch {
