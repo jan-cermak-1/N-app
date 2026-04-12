@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NETIO · iOS App</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="proto-rail" aria-label="Prototyp — navigace">
+  <a href="index.html" class="proto-rail-back">← Rozcestník</a>
+  <div class="proto-rail-seg" role="group" aria-label="Přepnout roli prototypu">
+    <span class="proto-rail-lbl">Role</span>
+    <a href="netio-technician.html" class="proto-rail-chip">Technik</a>
+    <a href="netio-enduser.html" class="proto-rail-chip" aria-current="page">Koncový</a>
+    <a href="netio-fieldtech.html" class="proto-rail-chip">Field</a>
+  </div>
+</nav>
+<div class="phone" id="phone">
+<!-- SVG SYMBOLS -->
+<svg style="display:none"><defs>
+<symbol id="i-plug" viewBox="0 0 24 24"><path d="M12 2a1 1 0 011 1v2h2a1 1 0 010 2h-.5v2.26A7 7 0 0119 16v1a2 2 0 01-2 2H7a2 2 0 01-2-2v-1a7 7 0 014.5-6.54V7H9a1 1 0 010-2h2V3a1 1 0 011-1z"/></symbol>
+<symbol id="i-dev" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="15" rx="2"/><path d="M7 5V3.5A1.5 1.5 0 018.5 2h7A1.5 1.5 0 0117 3.5V5"/><circle cx="12" cy="12.5" r="2.5"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/></symbol>
+<symbol id="i-bld" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="19" rx="1"/><path d="M9 22V12h6v10M3 9h18"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"><path d="M18 20V10M12 20V4M6 20v-6"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/></symbol>
+<symbol id="i-gear" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" fill="none"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></symbol>
+<symbol id="i-back" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" fill="none"><polyline points="15 18 9 12 15 6"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" fill="none"><polyline points="20 6 9 17 4 12"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="15.65" y2="15.65"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></symbol>
+<symbol id="i-card" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></symbol>
+<symbol id="i-fw" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+<symbol id="i-folder" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></symbol>
+<symbol id="i-timer" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/><path d="M9 2h6M12 2v3"/></symbol>
+<symbol id="i-dog" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="14" r="5"/><path d="M7 9l-3-4h4M17 9l3-4h-4M7 9h10M12 9v3"/></symbol>
+<symbol id="i-tag" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></symbol>
+<symbol id="i-ip" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></symbol>
+<symbol id="i-wifi" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><circle cx="12" cy="20" r="1"/></symbol>
+<symbol id="i-export" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></symbol>
+<symbol id="i-trash" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/></symbol>
+<symbol id="i-on" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M18.36 6.64a9 9 0 11-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></symbol>
+<symbol id="i-nfc" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+<symbol id="i-restart" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></symbol>
+<symbol id="i-logout" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></symbol>
+</defs></svg>
+<!-- ═══════════════════════════════════════════════
+     END USER VIEW
+     Marie Horáková · 1 organization · User role
+     Focus: rychlé ON/OFF, stav, spotřeba
+════════════════════════════════════════════════════ -->
+
+<!-- ═══════════ SCREEN: OUTPUTS (HOME) ═══════════ -->
+<div class="scr on" id="s-out">
+  <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"><svg width="17" height="11"><rect x="0" y="3" width="3" height="8" rx=".5" fill="white"/><rect x="4.5" y="2" width="3" height="9" rx=".5" fill="white"/><rect x="9" y="0" width="3" height="11" rx=".5" fill="white"/><rect x="13.5" y="0" width="3" height="11" rx=".5" fill="white" opacity=".3"/></svg><svg width="15" height="11"><path d="M7.5 2A7.5 7.5 0 0113 4.5L14.5 3A9.5 9.5 0 007.5 0 9.5 9.5 0 00.5 3L2 4.5A7.5 7.5 0 017.5 2z" fill="white"/><path d="M7.5 5A4.5 4.5 0 0111 6.5L12.5 5A6.7 6.7 0 007.5 3 6.7 6.7 0 002.5 5L4 6.5A4.5 4.5 0 017.5 5z" fill="white"/><circle cx="7.5" cy="9.5" r="1.5" fill="white"/></svg><svg width="25" height="11"><rect x=".5" y=".5" width="21" height="10" rx="3" stroke="white" stroke-opacity=".35" fill="none"/><rect x="2" y="2" width="16" height="7" rx="2" fill="white"/><path d="M23 3.5v4a2 2 0 000-4z" fill="white" opacity=".4"/></svg></div></div>
+  <div class="nb">
+    <span class="nb-logo">NETIO</span>
+    <!-- No org switcher — only 1 org -->
+    <div style="flex:1"></div>
+    <button class="nb-btn" onclick="go('s-search')"><svg viewBox="0 0 24 24"><use href="#i-search"/></svg></button>
+  </div>
+  <div class="cnt">
+    <!-- simple welcome + status -->
+    <div style="padding:16px 16px 0">
+      <div style="background:var(--bg1);border-radius:var(--r);padding:16px">
+        <div style="font-size:13px;color:var(--ls);margin-bottom:6px">Office Praha · Sunday</div>
+        <div style="display:flex;gap:20px">
+          <div><div style="font-size:11px;color:var(--ls);text-transform:uppercase;letter-spacing:.3px">Online</div><div style="font-size:28px;font-weight:700;color:var(--green);letter-spacing:-1px">6<span style="font-size:16px;font-weight:400;color:var(--ls)"> /8</span></div></div>
+          <div><div style="font-size:11px;color:var(--ls);text-transform:uppercase;letter-spacing:.3px">Energy</div><div style="font-size:28px;font-weight:700;color:var(--lp);letter-spacing:-1px">437<span style="font-size:16px;font-weight:400;color:var(--ls)"> W</span></div></div>
+          <div><div style="font-size:11px;color:var(--ls);text-transform:uppercase;letter-spacing:.3px">Today</div><div style="font-size:28px;font-weight:700;color:var(--lp);letter-spacing:-1px">18<span style="font-size:16px;font-weight:400;color:var(--ls)"> kWh</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec"><div class="sec-hdr">Outputs — Kancelář</div>
+      <div class="card">
+        <div class="oc" onclick="go('s-out-det')">
+          <div class="oi on"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div>
+          <div class="oinfo"><div class="on2">PC – desk 1</div><div class="od">Office · MonwerBOX 4Kx</div><div class="ow">124 W</div></div>
+          <button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button>
+        </div>
+        <div class="oc" onclick="go('s-out-det')">
+          <div class="oi on"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div>
+          <div class="oinfo"><div class="on2">Monitor – desk 1</div><div class="od">Office · MonwerBOX 4Kx</div><div class="ow">38 W</div></div>
+          <button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button>
+        </div>
+        <div class="oc" onclick="go('s-out-det')">
+          <div class="oi off"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div>
+          <div class="oinfo"><div class="on2">Printer</div><div class="od">Office · MonwerBOX 4Kx</div><div class="ow" style="color:var(--lt)">Off</div></div>
+          <button class="sw off" onclick="tapSw(this,event)"><div class="kn"></div></button>
+        </div>
+        <div class="oc" onclick="go('s-out-det')">
+          <div class="oi on"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div>
+          <div class="oinfo"><div class="on2">WiFi router</div><div class="od">Office · MonwerBOX 4Kx</div><div class="ow">18 W</div></div>
+          <button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec"><div class="sec-hdr">Zasedací místnost</div>
+      <div class="card">
+        <div class="oc" onclick="go('s-out-det')">
+          <div class="oi off"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div>
+          <div class="oinfo"><div class="on2">Projector</div><div class="od">Meeting Room · MonwerCable 2KZ</div><div class="ow" style="color:var(--lt)">Off</div></div>
+          <button class="sw off" onclick="tapSw(this,event)"><div class="kn"></div></button>
+        </div>
+        <div class="oc" onclick="go('s-out-det')">
+          <div class="oi on"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div>
+          <div class="oinfo"><div class="on2">Air conditioning</div><div class="od">Meeting Room · MonwerCable 2KZ</div><div class="ow">210 W</div></div>
+          <button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button>
+        </div>
+        <div class="oc" onclick="go('s-out-det')">
+          <div class="oi on"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div>
+          <div class="oinfo"><div class="on2">Lighting</div><div class="od">Meeting Room · MonwerCable 2KZ</div><div class="ow">47 W</div></div>
+          <button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button>
+        </div>
+        <div class="oc" onclick="go('s-out-det')">
+          <div class="oi off"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div>
+          <div class="oinfo"><div class="on2">TV panel</div><div class="od">Meeting Room · MonwerCable 2KZ</div><div class="ow" style="color:var(--lt)">Off</div></div>
+          <button class="sw off" onclick="tapSw(this,event)"><div class="kn"></div></button>
+        </div>
+      </div>
+    </div>
+    <div class="spc"></div>
+  </div>
+  <div class="tb-bar">
+    <div class="tb-grp">
+      <button class="ti on" onclick="tab('out')"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg><span>Outputs</span></button>
+      <button class="ti" onclick="tab('dev')"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg><span>Devices</span></button>
+      <button class="ti" onclick="tab('nrg')"><svg viewBox="0 0 24 24"><use href="#i-bolt"/></svg><span>Energy</span></button>
+      <button class="ti" onclick="tab('acc')"><svg viewBox="0 0 24 24"><use href="#i-user"/></svg><span>Account</span></button>
+    </div>
+    <!-- No FAB — user can't add devices -->
+  </div>
+</div>
+
+<!-- ═══════════ SCREEN: OUTPUT DETAIL (USER — simplified) ═══════════ -->
+<div class="scr" id="s-out-det">
+  <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#i-back"/></svg></button><span class="nb-title">PC – desk 1</span><div class="nb-spc"></div></div>
+  <div class="cnt">
+    <!-- status card -->
+    <div class="sec"><div class="card">
+      <div class="oc row-nc">
+        <div class="oi on" style="width:50px;height:50px;border-radius:14px"><svg viewBox="0 0 24 24" style="width:24px;height:24px"><use href="#i-plug"/></svg></div>
+        <div class="oinfo">
+          <div style="font-size:20px;font-weight:700;color:var(--lp);letter-spacing:-.5px">PC – desk 1</div>
+          <div class="od">Office Praha · MonwerBOX 4Kx</div>
+          <div style="display:flex;align-items:center;gap:4px;margin-top:4px"><div class="sdot" style="background:var(--green);width:7px;height:7px"></div><span style="font-size:13px;color:var(--green);font-weight:500">On</span></div>
+        </div>
+        <button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button>
+      </div>
+    </div></div>
+
+    <!-- 3 actions only -->
+    <div class="astrip">
+      <button class="at"><div class="ai" style="background:var(--brand)"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><span class="alb">Turn On</span></button>
+      <button class="at"><div class="ai" style="background:#8e8e93"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><span class="alb">Turn Off</span></button>
+      <button class="at"><div class="ai" style="background:var(--orange)"><svg viewBox="0 0 24 24"><use href="#i-restart"/></svg></div><span class="alb">Restart</span></button>
+    </div>
+
+    <!-- metering — simplified labels -->
+    <div class="mgrid">
+      <div class="mt"><div class="mlb">Monwer</div><div class="mv">124<span class="mu">W</span></div></div>
+      <div class="mt"><div class="mlb">Current</div><div class="mv">0.54<span class="mu">A</span></div></div>
+      <div class="mt"><div class="mlb">Voltage</div><div class="mv">230<span class="mu">V</span></div></div>
+      <div class="mt"><div class="mlb">Today</div><div class="mv">3.2<span class="mu">kWh</span></div></div>
+    </div>
+
+    <!-- scheduler — read only for user -->
+    <div class="sec"><div class="sec-hdr">Schedule</div>
+      <div class="card">
+        <div class="trow">
+          <div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-cal"/></svg></div>
+          <div class="tb"><div class="tt">Automatic schedule</div><div class="tsb">Mon–Fri 07:00–19:00 · Set by admin</div></div>
+          <!-- No toggle — user can only see, not change -->
+          <span class="tag tg">Aktivní</span>
+        </div>
+      </div>
+    </div>
+    <p class="fn" style="margin-top:6px">Schedule was configured by your admin. Contact IT to make changes.</p>
+    <div class="spc"></div>
+  </div>
+</div>
+
+<!-- ═══════════ SCREEN: ENERGY (USER) ═══════════ -->
+<div class="scr" id="s-nrg">
+  <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
+  <div class="nb"><span class="nb-logo">NETIO</span><div style="flex:1"></div><button class="nb-btn"><svg viewBox="0 0 24 24"><use href="#i-search"/></svg></button></div>
+  <div class="cnt">
+    <!-- friendly summary -->
+    <div style="margin:16px 16px 0;background:var(--bg1);border-radius:var(--r);padding:18px">
+      <div style="font-size:13px;color:var(--ls);margin-bottom:8px">Office Praha · This week</div>
+      <div style="font-size:36px;font-weight:700;color:var(--lp);letter-spacing:-2px;line-height:1">124 <span style="font-size:18px;font-weight:400;color:var(--ls)">kWh</span></div>
+      <div style="font-size:13px;color:var(--ls);margin-top:4px">Average 17.7 kWh / den</div>
+    </div>
+
+    <div class="cht">
+      <div class="ch-hdr"><span class="ch-ttl">Monsledních 7 dní</span><span class="ch-sub">total 124 kWh</span></div>
+      <div class="ch-bars">
+        <div class="bc"><div class="bf" style="height:55%"></div><span class="bl">Mon</span></div>
+        <div class="bc"><div class="bf" style="height:70%"></div><span class="bl">Tue</span></div>
+        <div class="bc"><div class="bf" style="height:62%"></div><span class="bl">Wed</span></div>
+        <div class="bc"><div class="bf" style="height:80%"></div><span class="bl">Thu</span></div>
+        <div class="bc"><div class="bf" style="height:45%"></div><span class="bl">Fri</span></div>
+        <div class="bc"><div class="bf" style="height:18%"></div><span class="bl">Sat</span></div>
+        <div class="bc"><div class="bf td" style="height:28%"></div><span class="bl td">Today</span></div>
+      </div>
+    </div>
+
+    <!-- simplified per-output, no tech details -->
+    <div class="sec"><div class="sec-hdr">Top consumers</div>
+      <div class="card">
+        <div class="row row-nc">
+          <div class="oi on" style="width:32px;height:32px;border-radius:8px;flex-shrink:0"><svg viewBox="0 0 24 24" style="width:16px;height:16px"><use href="#i-plug"/></svg></div>
+          <div class="rb"><div class="rt">Air conditioning</div><div class="pbar"><div class="pbf" style="width:68%"></div></div></div>
+          <div class="rv">8.4 kWh</div>
+        </div>
+        <div class="row row-nc">
+          <div class="oi on" style="width:32px;height:32px;border-radius:8px;flex-shrink:0"><svg viewBox="0 0 24 24" style="width:16px;height:16px"><use href="#i-plug"/></svg></div>
+          <div class="rb"><div class="rt">PC – desk 1</div><div class="pbar"><div class="pbf" style="width:48%"></div></div></div>
+          <div class="rv">5.9 kWh</div>
+        </div>
+        <div class="row row-nc">
+          <div class="oi on" style="width:32px;height:32px;border-radius:8px;flex-shrink:0"><svg viewBox="0 0 24 24" style="width:16px;height:16px"><use href="#i-plug"/></svg></div>
+          <div class="rb"><div class="rt">Lighting</div><div class="pbar"><div class="pbf" style="width:32%"></div></div></div>
+          <div class="rv">3.9 kWh</div>
+        </div>
+      </div>
+    </div>
+    <div class="spc"></div>
+  </div>
+  <div class="tb-bar">
+    <div class="tb-grp">
+      <button class="ti" onclick="tab('out')"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg><span>Outputs</span></button>
+      <button class="ti" onclick="tab('dev')"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg><span>Devices</span></button>
+      <button class="ti on" onclick="tab('nrg')"><svg viewBox="0 0 24 24"><use href="#i-bolt"/></svg><span>Energy</span></button>
+      <button class="ti" onclick="tab('acc')"><svg viewBox="0 0 24 24"><use href="#i-user"/></svg><span>Account</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ SCREEN: ACCOUNT (USER — minimal) ═══════════ -->
+<div class="scr" id="s-acc">
+  <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
+  <div class="nb"><span class="nb-logo">NETIO</span><div style="flex:1"></div><button class="nb-btn"><svg viewBox="0 0 24 24"><use href="#i-search"/></svg></button></div>
+  <div class="cnt">
+    <!-- profile header -->
+    <div class="ph">
+      <div class="av-lg" style="background:#007aff">MH</div>
+      <div class="pname">Marie Horáková</div>
+      <div class="pemail"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0e636f7c676b4e656f606d6b626f7c206d74">[email&#160;protected]</a></div>
+      <span class="tag tb2">User</span>
+    </div>
+
+    <!-- minimal account options -->
+    <div class="sec"><div class="card">
+      <div class="row" onclick="go('s-notif')">
+        <div class="ri ri-r"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></div>
+        <div class="rb"><div class="rt">Notifications</div></div>
+        <span class="badge" style="margin-right:6px;background:var(--orange)">1</span>
+        <svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg>
+      </div>
+      <div class="row" onclick="go('s-set')">
+        <div class="ri ri-gr"><svg viewBox="0 0 24 24"><use href="#i-gear"/></svg></div>
+        <div class="rb"><div class="rt">Settings</div></div>
+        <svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg>
+      </div>
+    </div></div>
+
+    <!-- org info — read only, no management -->
+    <div class="sec"><div class="sec-hdr">My organization</div>
+      <div class="card">
+        <div class="row row-nc">
+          <div class="av-sm" style="background:var(--brand)">K</div>
+          <div class="rb">
+            <div class="rt">Office Praha Ltd.</div>
+            <div class="rs">Role: User · 3 devices</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="fn" style="margin-top:6px">Organization is managed by your IT administrator.</p>
+
+    <div class="spc"></div>
+  </div>
+  <div class="tb-bar">
+    <div class="tb-grp">
+      <button class="ti" onclick="tab('out')"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg><span>Outputs</span></button>
+      <button class="ti" onclick="tab('dev')"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg><span>Devices</span></button>
+      <button class="ti" onclick="tab('nrg')"><svg viewBox="0 0 24 24"><use href="#i-bolt"/></svg><span>Energy</span></button>
+      <button class="ti on" onclick="tab('acc')"><svg viewBox="0 0 24 24"><use href="#i-user"/></svg><span>Account</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ SCREEN: NOTIFICATIONS (USER) ═══════════ -->
+<div class="scr" id="s-notif">
+  <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#i-back"/></svg></button><span class="nb-title">Notifications</span><div class="nb-spc"></div></div>
+  <div class="cnt">
+    <div class="sec"><div class="sec-hdr">Today</div>
+      <div class="card">
+        <div class="nc unread">
+          <div class="ndot" style="background:var(--orange)"></div>
+          <div class="nb2">
+            <div class="nt">Air conditioning je stále zapnutá</div>
+            <div class="nd">Meeting Room · on for more than 8 hours</div>
+            <div class="ntime">16:42</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sec"><div class="sec-hdr">Yesterday</div>
+      <div class="card">
+        <div class="nc">
+          <div class="ndot" style="background:var(--lt)"></div>
+          <div class="nb2">
+            <div class="nt">Projector byl automaticky vypnut</div>
+            <div class="nd">Meeting Room · plánovaný čas 19:00</div>
+            <div class="ntime">19:00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="spc"></div>
+  </div>
+</div>
+
+<!-- ═══════════ SCREEN: SETTINGS (USER — minimal) ═══════════ -->
+<div class="scr" id="s-set">
+  <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#i-back"/></svg></button><span class="nb-title">Settings</span><div class="nb-spc"></div></div>
+  <div class="cnt">
+    <div class="sec"><div class="sec-hdr">Appearance</div>
+      <div class="card">
+        <div class="row" onclick="go('s-appear')">
+          <div class="ri ri-p"><svg viewBox="0 0 24 24"><use href="#i-moon"/></svg></div>
+          <div class="rb"><div class="rt">Appearance</div></div>
+          <div class="rv" id="appear-val">System</div>
+          <svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg>
+        </div>
+        <div class="row">
+          <div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-globe"/></svg></div>
+          <div class="rb"><div class="rt">Language</div></div>
+          <div class="rv">English</div>
+          <svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg>
+        </div>
+      </div>
+    </div>
+    <div class="sec"><div class="sec-hdr">Notifications</div>
+      <div class="card">
+        <div class="trow"><div class="ri ri-r"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></div><div class="tb"><div class="tt">Push notifications</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
+      </div>
+    </div>
+    <div class="sec"><div class="sec-hdr">Password</div>
+      <div class="card">
+        <div class="row">
+          <div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-lock"/></svg></div>
+          <div class="rb"><div class="rt">Change password</div></div>
+          <svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg>
+        </div>
+      </div>
+    </div>
+    <div class="sec"><div class="card">
+      <div class="row dest" style="justify-content:center"><div class="rt">Log Out</div></div>
+    </div></div>
+    <div class="spc"></div>
+  </div>
+</div>
+
+<!-- ═══════════ SCREEN: APPEARANCE ═══════════ -->
+<div class="scr" id="s-appear">
+  <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#i-back"/></svg></button><span class="nb-title">Appearance</span><div class="nb-spc"></div></div>
+  <div class="cnt">
+    <div class="sec"><div class="card">
+      <div class="aptile" onclick="setAppear('light')"><div class="ap-preview" style="background:#f2f2f7"><div style="height:50%;background:#fff"></div></div><div class="rb"><div class="rt">Light</div></div><div class="ap-check" id="ap-light"></div></div>
+      <div class="aptile" onclick="setAppear('dark')"><div class="ap-preview" style="background:#000"><div style="height:50%;background:#1c1c1e"></div></div><div class="rb"><div class="rt">Dark</div></div><div class="ap-check" id="ap-dark"></div></div>
+      <div class="aptile" onclick="setAppear('system')"><div class="ap-preview" style="background:linear-gradient(135deg,#f2f2f7 50%,#000 50%)"></div><div class="rb"><div class="rt">System</div></div><div class="ap-check" id="ap-system" style="color:var(--brand);font-size:20px;font-weight:700">✓</div></div>
+    </div></div>
+    <div class="spc"></div>
+  </div>
+</div>
+
+<!-- ═══════════ SEARCH ═══════════ -->
+<div class="scr" id="s-search">
+  <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#i-back"/></svg></button><span class="nb-title">Search</span><div class="nb-spc"></div></div>
+  <div class="cnt" style="padding:16px">
+    <div style="background:var(--ft);border-radius:12px;padding:0 14px;display:flex;align-items:center;gap:10px;height:44px">
+      <svg width="16" height="16" viewBox="0 0 24 24" stroke="var(--ls)" stroke-width="2" fill="none"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="15.65" y2="15.65"/></svg>
+      <input style="flex:1;border:none;outline:none;font-size:17px;background:transparent;color:var(--lp);letter-spacing:-.3px" placeholder="Search zásuvky…" autofocus>
+    </div>
+    <div style="margin-top:32px;text-align:center;color:var(--lt);font-size:15px">Type to search outputs or rooms</div>
+  </div>
+</div>
+
+<!-- NO SHEETS needed for end user (can't add devices) -->
+
+
+<!-- ═══════════ SCREEN: DEVICES (USER — read only) ═══════════ -->
+<div class="scr" id="s-dev">
+  <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
+  <div class="nb">
+    <span class="nb-logo">NETIO</span>
+    <div style="flex:1"></div>
+    <button class="nb-btn" onclick="go('s-search')"><svg viewBox="0 0 24 24"><use href="#i-search"/></svg></button>
+  </div>
+  <div class="cnt">
+    <div class="sec"><div class="sec-hdr">Office Praha · devices</div>
+      <div class="card">
+        <div class="dc" onclick="go('s-dev-det')">
+          <div class="dib"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div>
+          <div class="dinfo">
+            <div class="dn">PowerBOX 4Kx</div>
+            <div class="dm">Office · 4 outputs</div>
+            <div class="dstat s-on"><div class="sdot"></div>Online · 227 W</div>
+          </div>
+          <svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg>
+        </div>
+        <div style="height:.5px;background:var(--sep);margin:0 14px 0 70px"></div>
+        <div class="dc" onclick="go('s-dev-det')">
+          <div class="dib"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div>
+          <div class="dinfo">
+            <div class="dn">PowerCable 2KZ</div>
+            <div class="dm">Meeting Room · 2 outputs</div>
+            <div class="dstat s-on"><div class="sdot"></div>Online · 210 W</div>
+          </div>
+          <svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg>
+        </div>
+        <div style="height:.5px;background:var(--sep);margin:0 14px 0 70px"></div>
+        <div class="dc" onclick="go('s-dev-det')">
+          <div class="dib" style="background:rgba(255,59,48,.1)"><svg viewBox="0 0 24 24" style="fill:var(--red)"><use href="#i-dev"/></svg></div>
+          <div class="dinfo">
+            <div class="dn">PowerCable 2KZ</div>
+            <div class="dm">Meeting Room · 2 outputs</div>
+            <div class="dstat s-off"><div class="sdot"></div>Offline</div>
+          </div>
+          <svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg>
+        </div>
+      </div>
+    </div>
+    <p class="fn" style="margin-top:8px">Device management is handled by your IT administrator.</p>
+    <div class="spc"></div>
+  </div>
+  <div class="tb-bar">
+    <div class="tb-grp">
+      <button class="ti" onclick="tab('out')"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg><span>Outputs</span></button>
+      <button class="ti on" onclick="tab('dev')"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg><span>Devices</span></button>
+      <button class="ti" onclick="tab('nrg')"><svg viewBox="0 0 24 24"><use href="#i-bolt"/></svg><span>Energy</span></button>
+      <button class="ti" onclick="tab('acc')"><svg viewBox="0 0 24 24"><use href="#i-user"/></svg><span>Account</span></button>
+    </div>
+    <!-- No FAB for end user -->
+  </div>
+</div>
+
+<!-- ═══════════ SCREEN: DEVICE DETAIL (USER — read only) ═══════════ -->
+<div class="scr" id="s-dev-det">
+  <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
+  <div class="nb">
+    <button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#i-back"/></svg></button>
+    <span class="nb-title">PowerBOX 4Kx</span>
+    <div class="nb-spc"></div>
+  </div>
+  <div class="cnt">
+    <div class="sec"><div class="card">
+      <div class="row row-nc"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-ip"/></svg></div><div class="rb"><div class="rt">IP Address</div></div><div class="rv">192.168.1.20</div></div>
+      <div class="row row-nc"><div class="ri ri-t"><svg viewBox="0 0 24 24"><use href="#i-tag"/></svg></div><div class="rb"><div class="rt">Model</div></div><div class="rv">PowerBOX 4Kx</div></div>
+      <div class="row row-nc"><div class="ri ri-gr"><svg viewBox="0 0 24 24"><use href="#i-tag"/></svg></div><div class="rb"><div class="rt">Location</div></div><div class="rv">Office</div></div>
+      <div class="row row-nc"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-cloud"/></svg></div><div class="rb"><div class="rt">Cloud status</div></div><span class="tag tg">Connected</span></div>
+    </div></div>
+    <div class="sec"><div class="sec-hdr">Outputs (4)</div>
+      <div class="card">
+        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="oinfo"><div class="on2">PC – desk 1</div><div class="ow">124 W</div></div><button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
+        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="oinfo"><div class="on2">Monitor – desk 1</div><div class="ow">38 W</div></div><button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
+        <div class="oc" onclick="go('s-out-det')"><div class="oi off"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="oinfo"><div class="on2">Printer</div><div class="ow" style="color:var(--lt)">Off</div></div><button class="sw off" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
+        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="oinfo"><div class="on2">WiFi router</div><div class="ow">18 W</div></div><button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
+      </div>
+    </div>
+    <p class="fn" style="margin-top:8px">Device settings are managed by your IT administrator. Contact IT to report issues.</p>
+    <div class="spc"></div>
+  </div>
+</div>
+
+</div><!-- /phone -->
+
+<script src="app.js"></script>
+</body>
+</html>
