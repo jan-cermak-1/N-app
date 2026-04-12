@@ -406,7 +406,6 @@ html.platform-android .card {
 html.platform-android .row:active,
 html.platform-android .trow:active,
 html.platform-android .oc:active {
-  background: color-mix(in srgb, var(--m3-on-surface) 12%, transparent);
   transform: none;
 }
 
@@ -688,4 +687,74 @@ html.platform-android .fi::placeholder {
 
 html.platform-android .ff + .ff::before {
   display: none;
+}
+
+/* Radio Button místo iOS zaškrtávátka (pro výběry např. v profile / appearance) */
+html.platform-android .ap-check {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--m3-outline);
+  color: transparent !important;
+  font-size: 0 !important;
+  margin-left: auto;
+  position: relative;
+  transition: border-color 0.2s;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+html.platform-android .ap-check:not(:empty) {
+  border-color: var(--m3-primary);
+}
+
+html.platform-android .ap-check:not(:empty)::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--m3-primary);
+}
+
+/* Vizuální Ripple effect (State layers přes pseudo-element) 
+   Místo prostého background na samotném prvku */
+html.platform-android .row,
+html.platform-android .trow,
+html.platform-android .oc,
+html.platform-android .dc,
+html.platform-android .nc,
+html.platform-android .sr,
+html.platform-android .aptile {
+  position: relative;
+  overflow: hidden;
+  background: transparent !important;
+}
+
+html.platform-android .row::after,
+html.platform-android .trow::after,
+html.platform-android .oc::after,
+html.platform-android .dc::after,
+html.platform-android .nc::after,
+html.platform-android .sr::after,
+html.platform-android .aptile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+
+html.platform-android .row:active::after,
+html.platform-android .trow:active::after,
+html.platform-android .oc:active::after,
+html.platform-android .dc:active::after,
+html.platform-android .nc:active::after,
+html.platform-android .sr:active::after,
+html.platform-android .aptile:active::after {
+  opacity: 0.12;
+  transition: opacity 0s;
 }
