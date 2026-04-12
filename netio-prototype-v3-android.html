@@ -343,7 +343,7 @@
 <!-- ═══════════ SCREEN: NOTIFICATIONS ═══════════ -->
 <div class="scr" id="s-notif">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">signal_cellular_4_bar</span><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">wifi</span><span class="ms ms-20" aria-hidden="true" style="transform:rotate(90deg)">battery_full_alt</span></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Notifications</span><button class="nb-btn"><span class="ms ms-24" aria-hidden="true">delete</span></button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Notifications</span><button class="nb-btn" onclick="document.querySelectorAll('#s-notif .nc.unread').forEach(e=>e.classList.remove('unread'));document.querySelectorAll('#s-notif .ndot').forEach(e=>e.style.background='var(--lt)');let b=document.querySelector('.badge');if(b)b.style.display='none';"><span class="ms ms-24" aria-hidden="true">done_all</span></button></div>
   <div class="cnt">
     <div class="sec"><div class="sec-hdr">Today</div>
       <div class="card">
