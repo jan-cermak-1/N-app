@@ -74,12 +74,28 @@ html.platform-android .dib .ms {
   color: inherit;
 }
 
+/* Kruhové ikony seznamů (M3 icon containers) místo iOS zaoblených čtverců */
+html.platform-android .ri {
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+}
+
 html.platform-android .ri .ms {
-  color: inherit;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+/* M3 Action ikony - kulaté místo iOS tvarů */
+html.platform-android .ai {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
 }
 
 html.platform-android .ai .ms {
   color: #fff;
+  font-size: 20px;
 }
 
 /* Trailing chevron v řádcích / sheet řádcích — v M3 typicky chybí, tak je skryjeme */
