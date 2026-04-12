@@ -38,7 +38,7 @@
     display:grid;
     grid-template-columns:1fr;
     gap:28px;
-    align-items:start;
+    align-items:stretch;
   }
   @media (min-width:700px){
     .grid{grid-template-columns:1fr 1fr;gap:32px}
@@ -63,6 +63,7 @@
     line-height:1.4;
     margin-top:-4px;
     padding:0 2px 4px;
+    flex-grow:1;
   }
   .col-links{
     display:flex;
