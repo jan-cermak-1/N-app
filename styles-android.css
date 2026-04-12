@@ -106,37 +106,37 @@ html.platform-android .scr {
   background: var(--m3-surface);
 }
 
-/* Status bar + Top app bar — M3 surface, ne plná brand výplň */
-html.platform-android .sb {
-  background: var(--m3-surface-container);
+/* Status bar + Top app bar — světlý režim: NETIO zelená (#005f41), světlý text */
+html.platform-android #phone:not(.dark) .sb {
+  background: var(--m3-primary);
   padding-bottom: 8px;
-  border-bottom: 1px solid color-mix(in srgb, var(--m3-outline) 18%, transparent);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-html.platform-android .sb-t {
-  color: var(--m3-on-surface);
+html.platform-android #phone:not(.dark) .sb-t {
+  color: #fff;
   font-weight: 500;
   font-size: 14px;
 }
 
-html.platform-android .sb-i svg {
-  fill: var(--m3-on-surface);
-  opacity: 0.9;
+html.platform-android #phone:not(.dark) .sb-i svg {
+  fill: #fff;
+  opacity: 1;
 }
 
-html.platform-android .nb {
-  background: var(--m3-surface-container);
+html.platform-android #phone:not(.dark) .nb {
+  background: var(--m3-primary);
   min-height: 64px;
   padding: 8px 4px 8px 8px;
   align-items: center;
-  box-shadow: var(--m3-elevation-1);
-  border-bottom: 1px solid color-mix(in srgb, var(--m3-outline) 14%, transparent);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+  border-bottom: none;
 }
 
-html.platform-android .nb-title {
+html.platform-android #phone:not(.dark) .nb-title {
   text-align: start;
   padding-left: 4px;
-  color: var(--m3-on-surface);
+  color: #fff;
   font-size: 22px;
   font-weight: 400;
   letter-spacing: 0;
@@ -146,7 +146,97 @@ html.platform-android .nb-logo {
   flex: 0 1 auto;
 }
 
-html.platform-android .nb-btn {
+html.platform-android #phone:not(.dark) .nb-logo img {
+  filter: brightness(0) invert(1);
+}
+
+html.platform-android #phone:not(.dark) .nb-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  border: none;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+html.platform-android #phone:not(.dark) .nb-btn:hover,
+html.platform-android #phone:not(.dark) .nb-btn:focus-visible {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+html.platform-android #phone:not(.dark) .nb-btn:active {
+  background: rgba(255, 255, 255, 0.28);
+  transform: none;
+}
+
+html.platform-android #phone:not(.dark) .nb-btn svg {
+  color: #fff;
+  stroke-width: 2;
+}
+
+html.platform-android #phone:not(.dark) .nb-pill {
+  border-radius: var(--r-md-sm);
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  font-weight: 500;
+}
+
+html.platform-android #phone:not(.dark) .nb-txt {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+html.platform-android .nb-spc {
+  width: 48px;
+}
+
+/* Tmavý režim: surface toolbar (ne plná zelená lišta) */
+html.platform-android #phone.dark .sb {
+  background: var(--m3-surface-container);
+  padding-bottom: 8px;
+  border-bottom: 1px solid color-mix(in srgb, var(--m3-outline) 18%, transparent);
+}
+
+html.platform-android #phone.dark .sb-t {
+  color: var(--m3-on-surface);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+html.platform-android #phone.dark .sb-i svg {
+  fill: var(--m3-on-surface);
+  opacity: 0.9;
+}
+
+html.platform-android #phone.dark .nb {
+  background: var(--m3-surface-container);
+  min-height: 64px;
+  padding: 8px 4px 8px 8px;
+  align-items: center;
+  box-shadow: var(--m3-elevation-1);
+  border-bottom: 1px solid color-mix(in srgb, var(--m3-outline) 14%, transparent);
+}
+
+html.platform-android #phone.dark .nb-title {
+  text-align: start;
+  padding-left: 4px;
+  color: var(--m3-on-surface);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+html.platform-android #phone.dark .nb-logo img {
+  filter: none;
+}
+
+html.platform-android #phone.dark .nb-btn {
   width: 48px;
   height: 48px;
   border-radius: 24px;
@@ -158,60 +248,34 @@ html.platform-android .nb-btn {
   color: var(--m3-on-surface);
 }
 
-html.platform-android .nb-btn:hover,
-html.platform-android .nb-btn:focus-visible {
+html.platform-android #phone.dark .nb-btn:hover,
+html.platform-android #phone.dark .nb-btn:focus-visible {
   background: color-mix(in srgb, var(--m3-on-surface) 8%, transparent);
 }
 
-html.platform-android .nb-btn:active {
+html.platform-android #phone.dark .nb-btn:active {
   background: color-mix(in srgb, var(--m3-on-surface) 12%, transparent);
   transform: none;
 }
 
-html.platform-android .nb-btn svg {
+html.platform-android #phone.dark .nb-btn svg {
   color: var(--m3-on-surface);
   stroke-width: 2;
 }
 
-html.platform-android .nb-pill {
+html.platform-android #phone.dark .nb-pill {
   border-radius: var(--r-md-sm);
   border: none;
-  background: color-mix(in srgb, var(--m3-primary) 14%, transparent);
-  color: var(--m3-primary);
+  background: color-mix(in srgb, var(--m3-primary) 18%, transparent);
+  color: #8ef0b8;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   box-shadow: none;
   font-weight: 500;
 }
 
-html.platform-android .nb-txt {
+html.platform-android #phone.dark .nb-txt {
   color: var(--m3-primary);
-}
-
-html.platform-android .nb-spc {
-  width: 48px;
-}
-
-/* Odstranit iOS dark override na #111 */
-html.platform-android .dark .sb,
-html.platform-android .dark .nb {
-  background: var(--m3-surface-container);
-}
-
-html.platform-android .dark .sb-t,
-html.platform-android .dark .nb-title {
-  color: var(--m3-on-surface);
-}
-
-html.platform-android .dark .nb-btn svg,
-html.platform-android .dark .nb-btn {
-  color: var(--m3-on-surface);
-}
-
-html.platform-android .dark .nb-pill {
-  background: color-mix(in srgb, var(--m3-primary) 18%, transparent);
-  color: #8ef0b8;
-  border-color: transparent;
 }
 
 /* Karty — tonal surface, žádný backdrop blur */
