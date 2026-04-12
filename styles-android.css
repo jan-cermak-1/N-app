@@ -199,6 +199,7 @@ html.platform-android .scr::before {
 
 html.platform-android .scr {
   background: var(--m3-surface);
+  transition: none !important;
 }
 
 html.platform-android .cnt {
