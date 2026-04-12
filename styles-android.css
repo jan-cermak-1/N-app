@@ -503,7 +503,33 @@ html.platform-android .nc,
 html.platform-android .sr {
   padding-left: 16px;
   padding-right: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   min-height: 56px;
+}
+
+/* M3: Dvouřádkové seznamy (Title + Subtitle) potřebují více prostoru, typicky výška 72px */
+html.platform-android .trow,
+html.platform-android .dc,
+html.platform-android .oc,
+html.platform-android .row:has(.rs) {
+  min-height: 72px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+/* Zvětšení vertikálních mezer mezi sekcemi pro vzdušnější Androidí layout */
+html.platform-android .sec {
+  margin-top: 32px;
+}
+html.platform-android .tsb {
+  margin-top: 4px; /* Větší odstup titulku od popisu */
+  line-height: 1.4;
+}
+
+html.platform-android .rs {
+  margin-top: 4px;
+  line-height: 1.4;
 }
 
 html.platform-android .row + .row::before,
@@ -747,6 +773,7 @@ html.platform-android .sec-hdr {
   letter-spacing: 0.1px;
   color: var(--m3-primary);
   margin-top: 8px;
+  margin-bottom: 4px;
   padding-left: 16px;
   text-transform: none;
 }
@@ -794,7 +821,7 @@ html.platform-android .fc {
   padding: 0 16px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
 }
 
 html.platform-android .ff {
