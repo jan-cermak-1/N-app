@@ -7,10 +7,10 @@ All prototypes are single-file HTML applications with no external dependencies. 
 ### File structure
 
 ```
-netio-prototype-v3.html   ~99 KB   Base prototype (all roles combined)
-netio-technician.html    ~107 KB   Admin/Technician role
-netio-enduser.html        ~54 KB   End User role
-netio-fieldtech.html      ~74 KB   Field Technician (temp access)
+netio-prototype-v3-ios.html   ~99 KB   Base prototype (all roles combined)
+netio-technician-ios.html    ~107 KB   Admin/Technician role
+netio-enduser-ios.html        ~54 KB   End User role
+netio-fieldtech-ios.html      ~74 KB   Field Technician (temp access)
 README.md                          Overview and role comparison
 CONTEXT.md                         Full project context
 TECHNICAL.md                       This file

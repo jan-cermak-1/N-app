@@ -8,10 +8,10 @@ Clickable HTML prototypes for the new NETIO mobile application, replacing NETIO 
 
 | File | Role | Description |
 |------|------|-------------|
-| `netio-prototype-v3.html` | General / base | Full app prototype with all screens |
-| `netio-technician.html` | Admin · Technician | Multi-org, device management, groups, config |
-| `netio-enduser.html` | End User | Single org, outputs only, read-only schedule |
-| `netio-fieldtech.html` | Field Technician | Temporary access, device setup, NFC focus |
+| `netio-prototype-v3-ios.html` | General / base | Full app prototype with all screens |
+| `netio-technician-ios.html` | Admin · Technician | Multi-org, device management, groups, config |
+| `netio-enduser-ios.html` | End User | Single org, outputs only, read-only schedule |
+| `netio-fieldtech-ios.html` | Field Technician | Temporary access, device setup, NFC focus |
 
 ---
 
@@ -49,7 +49,7 @@ Open any `.html` file in a browser — no server needed, no dependencies. Tap/cl
 
 ## Screens in each prototype
 
-### netio-technician.html (29 screens)
+### netio-technician-ios.html (29 screens)
 - Devices home (groups + ungrouped)
 - Group detail + sub-groups
 - New group / Edit group
@@ -67,7 +67,7 @@ Open any `.html` file in a browser — no server needed, no dependencies. Tap/cl
 - Reports + Account + Settings + Appearance
 - Find devices / NFC / Add manual / Add success
 
-### netio-enduser.html (7 screens)
+### netio-enduser-ios.html (7 screens)
 - Outputs home (by room, local names)
 - Output detail (ON/OFF/Restart + metering, read-only schedule)
 - Energy (simplified, week chart)
@@ -76,7 +76,7 @@ Open any `.html` file in a browser — no server needed, no dependencies. Tap/cl
 - Settings (appearance, language, password)
 - Appearance picker
 
-### netio-fieldtech.html (14 screens)
+### netio-fieldtech-ios.html (14 screens)
 - Devices home (attention banner, quick actions, all devices)
 - Device detail (diagnostics first, fw alert)
 - Output detail (setup mode)
