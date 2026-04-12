@@ -11,9 +11,9 @@
   <a href="index.html" class="proto-rail-back">← Rozcestník</a>
   <div class="proto-rail-seg" role="group" aria-label="Přepnout roli prototypu">
     <span class="proto-rail-lbl">Role</span>
-    <a href="netio-technician.html" class="proto-rail-chip">Technik</a>
-    <a href="netio-enduser.html" class="proto-rail-chip">Koncový</a>
-    <a href="netio-fieldtech.html" class="proto-rail-chip" aria-current="page">Field</a>
+    <a href="netio-technician.html" class="proto-rail-chip">Admin</a>
+    <a href="netio-enduser.html" class="proto-rail-chip">User</a>
+    <a href="netio-fieldtech.html" class="proto-rail-chip" aria-current="page">Support technik</a>
   </div>
 </nav>
 <div class="phone" id="phone">
@@ -93,27 +93,6 @@
       </div>
     </div>
 
-    <!-- Quick actions — most used by field tech -->
-    <div class="sec"><div class="sec-hdr">Quick actions</div>
-      <div class="card">
-        <div class="row" onclick="go('s-nfc')">
-          <div class="ri ri-p"><svg viewBox="0 0 24 24"><use href="#i-nfc"/></svg></div>
-          <div class="rb"><div class="rt">Configure via NFC</div><div class="rs">Transfer config to new device instantly</div></div>
-          <svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg>
-        </div>
-        <div class="row" onclick="go('s-find')">
-          <div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-search"/></svg></div>
-          <div class="rb"><div class="rt">Find devices on LAN</div><div class="rs">Scan local network for NETIO devices</div></div>
-          <svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg>
-        </div>
-        <div class="row" onclick="go('s-add-man')">
-          <div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-plus"/></svg></div>
-          <div class="rb"><div class="rt">Add device manually</div><div class="rs">Enter IP address and credentials</div></div>
-          <svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg>
-        </div>
-      </div>
-    </div>
-
     <!-- Devices needing attention -->
     <div class="sec">
       <div style="display:flex;align-items:center;justify-content:space-between;padding:0 4px 6px">
@@ -144,7 +123,7 @@
     </div>
 
     <!-- All devices read-only list -->
-    <div class="sec"><div class="sec-hdr">All devices · DataCenter s.r.o.</div>
+    <div class="sec"><div class="sec-hdr">All devices (10) · DataCenter s.r.o.</div>
       <div class="card">
         <div class="dc" onclick="go('s-dev-det')"><div class="dib"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="dinfo"><div class="dn">PowerPDU 8KS</div><div class="dm">192.168.1.10 · Server Room A</div><div class="dstat s-on"><div class="sdot"></div>Online · fw 3.4.1</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
         <div style="height:.5px;background:var(--sep);margin:0 14px 0 70px"></div>
@@ -153,6 +132,18 @@
         <div class="dc" onclick="go('s-dev-det')"><div class="dib" style="background:rgba(255,149,0,.1)"><svg viewBox="0 0 24 24" style="fill:var(--orange)"><use href="#i-dev"/></svg></div><div class="dinfo"><div class="dn">PowerBOX 4Kx</div><div class="dm">192.168.1.12 · Server Room A</div><div class="dstat s-warn"><div class="sdot"></div>Fw update needed</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
         <div style="height:.5px;background:var(--sep);margin:0 14px 0 70px"></div>
         <div class="dc" onclick="go('s-dev-det')"><div class="dib" style="background:rgba(255,59,48,.1)"><svg viewBox="0 0 24 24" style="fill:var(--red)"><use href="#i-dev"/></svg></div><div class="dinfo"><div class="dn">PowerCable 2KZ</div><div class="dm">192.168.1.45 · ungrouped</div><div class="dstat s-off"><div class="sdot"></div>Offline · needs config</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div style="height:.5px;background:var(--sep);margin:0 14px 0 70px"></div>
+        <div class="dc" onclick="go('s-dev-det')"><div class="dib"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="dinfo"><div class="dn">PowerBOX 4Kx</div><div class="dm">192.168.1.46 · 4 outputs</div><div class="dstat s-on"><div class="sdot"></div>Online · ungrouped</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div style="height:.5px;background:var(--sep);margin:0 14px 0 70px"></div>
+        <div class="dc" onclick="go('s-dev-det')"><div class="dib"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="dinfo"><div class="dn">PowerBOX 2KZ</div><div class="dm">192.168.1.13 · Network Cabinet</div><div class="dstat s-on"><div class="sdot"></div>Online · fw 3.4.0</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div style="height:.5px;background:var(--sep);margin:0 14px 0 70px"></div>
+        <div class="dc" onclick="go('s-dev-det')"><div class="dib"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="dinfo"><div class="dn">PowerCable 4GZ</div><div class="dm">192.168.1.14 · UPS &amp; Power</div><div class="dstat s-on"><div class="sdot"></div>Online · fw 3.4.1</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div style="height:.5px;background:var(--sep);margin:0 14px 0 70px"></div>
+        <div class="dc" onclick="go('s-dev-det')"><div class="dib"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="dinfo"><div class="dn">PowerPDU 8KS</div><div class="dm">192.168.1.15 · Lab rack</div><div class="dstat s-on"><div class="sdot"></div>Online · fw 3.4.1</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div style="height:.5px;background:var(--sep);margin:0 14px 0 70px"></div>
+        <div class="dc" onclick="go('s-dev-det')"><div class="dib" style="background:rgba(255,149,0,.1)"><svg viewBox="0 0 24 24" style="fill:var(--orange)"><use href="#i-dev"/></svg></div><div class="dinfo"><div class="dn">PowerPDU 4KS</div><div class="dm">192.168.1.16 · Reception</div><div class="dstat s-warn"><div class="sdot"></div>Firmware update pending</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div style="height:.5px;background:var(--sep);margin:0 14px 0 70px"></div>
+        <div class="dc" onclick="go('s-dev-det')"><div class="dib"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="dinfo"><div class="dn">PowerCable 2KZ</div><div class="dm">192.168.1.17 · 2 outputs</div><div class="dstat s-on"><div class="sdot"></div>Online · ungrouped</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="spc"></div>
@@ -163,7 +154,7 @@
       <button class="ti" onclick="tab('dev')"><svg viewBox="0 0 24 24"><use href="#sf-plug"/></svg><span>Outputs</span></button>
       <button class="ti" onclick="tab('acc')"><svg viewBox="0 0 24 24"><use href="#sf-user"/></svg><span>Account</span></button>
     </div>
-    <button class="tb-fab" onclick="openSheet('sh-add')"><svg viewBox="0 0 24 24"><use href="#sf-nfc"/></svg></button>
+    <button type="button" class="tb-fab" onclick="openSheet('sh-add')" aria-label="Přidat"><svg viewBox="0 0 24 24"><use href="#sf-plus"/></svg></button>
   </div>
 </div>
 
@@ -462,7 +453,7 @@
       <button class="ti on" onclick="tab('dev')"><svg viewBox="0 0 24 24"><use href="#sf-plug"/></svg><span>Outputs</span></button>
       <button class="ti" onclick="tab('acc')"><svg viewBox="0 0 24 24"><use href="#sf-user"/></svg><span>Account</span></button>
     </div>
-    <button class="tb-fab" onclick="openSheet('sh-add')"><svg viewBox="0 0 24 24"><use href="#sf-nfc"/></svg></button>
+    <button type="button" class="tb-fab" onclick="openSheet('sh-add')" aria-label="Přidat"><svg viewBox="0 0 24 24"><use href="#sf-plus"/></svg></button>
   </div>
 </div>
 
@@ -510,7 +501,7 @@
       <button class="ti" onclick="tab('dev')"><svg viewBox="0 0 24 24"><use href="#sf-plug"/></svg><span>Outputs</span></button>
       <button class="ti on" onclick="tab('acc')"><svg viewBox="0 0 24 24"><use href="#sf-user"/></svg><span>Account</span></button>
     </div>
-    <button class="tb-fab" onclick="openSheet('sh-add')"><svg viewBox="0 0 24 24"><use href="#sf-nfc"/></svg></button>
+    <button type="button" class="tb-fab" onclick="openSheet('sh-add')" aria-label="Přidat"><svg viewBox="0 0 24 24"><use href="#sf-plus"/></svg></button>
   </div>
 </div>
 
