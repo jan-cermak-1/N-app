@@ -275,7 +275,12 @@ html.platform-android #phone:not(.dark) .sb-t {
 }
 
 html.platform-android #phone:not(.dark) .sb-i svg {
-  fill: #fff;
+  fill: #fff !important;
+  opacity: 1;
+}
+
+html.platform-android #phone:not(.dark) .sb-i .ms {
+  color: #fff !important;
   opacity: 1;
 }
 
@@ -365,7 +370,12 @@ html.platform-android #phone.dark .sb-t {
 }
 
 html.platform-android #phone.dark .sb-i svg {
-  fill: var(--m3-on-surface);
+  fill: var(--m3-on-surface) !important;
+  opacity: 0.9;
+}
+
+html.platform-android #phone.dark .sb-i .ms {
+  color: var(--m3-on-surface) !important;
   opacity: 0.9;
 }
 
