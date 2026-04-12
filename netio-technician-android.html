@@ -439,7 +439,7 @@
   <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Organizations</span><div class="nb-spc"></div></div>
   <div class="cnt">
     <div class="sec"><div class="card">
-      <div class="row" onclick="go('s-org-det')"><div class="av-sm" style="background:var(--brand)">D</div><div class="rb"><div class="rt">DataCenter s.r.o.</div><div class="rs">Admin · 14 devices · 3.2M cr</div></div><span style="color:var(--brand);font-weight:700;font-size:17px;margin-right:6px">✓</span><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
+      <div class="row" onclick="go('s-org-det')"><div class="av-sm" style="background:var(--brand)">D</div><div class="rb"><div class="rt">DataCenter s.r.o.</div><div class="rs">Admin · 14 devices · 3.2M cr</div></div><span class="ms ms-24" style="color:var(--m3-primary);margin-right:6px" aria-hidden="true">check</span><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
       <div class="row" onclick="go('s-org-det')"><div class="av-sm" style="background:#5856d6">N</div><div class="rb"><div class="rt">NetServ Praha</div><div class="rs">Technician · 6 devices · 890k cr</div></div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
       <div class="row" onclick="go('s-org-det')"><div class="av-sm" style="background:#ff9500">H</div><div class="rb"><div class="rt">Hotel Imperia</div><div class="rs">Technician · 3 devices · 450k cr</div></div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
     </div></div>
@@ -486,9 +486,9 @@
     <div class="sec"><div class="fc"><div class="ff"><div class="flb">Email address</div><input class="fi" type="email" placeholder="colleague@company.com"></div></div></div>
     <div class="sec"><div class="sec-hdr">Role</div>
       <div class="card">
-        <div class="row" onclick="setIRole('admin')"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">shield</span></div><div class="rb"><div class="rt">Admin</div><div class="rs">Full access</div></div><div id="ir-admin"></div></div>
-        <div class="row" onclick="setIRole('user')"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">person</span></div><div class="rb"><div class="rt">User</div><div class="rs">Control outputs, view devices</div></div><div id="ir-user" style="color:var(--brand);font-size:20px;font-weight:700">✓</div></div>
-        <div class="row" onclick="setIRole('custom')"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">settings</span></div><div class="rb"><div class="rt">Custom</div><div class="rs">Per-output permissions</div></div><div id="ir-custom"></div></div>
+        <div class="row" onclick="setIRole('admin')"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">shield</span></div><div class="rb"><div class="rt">Admin</div><div class="rs">Full access</div></div><div id="ir-admin" class="ap-check"></div></div>
+        <div class="row" onclick="setIRole('user')"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">person</span></div><div class="rb"><div class="rt">User</div><div class="rs">Control outputs, view devices</div></div><div id="ir-user" class="ap-check" style="color:var(--brand);font-size:20px;font-weight:700">✓</div></div>
+        <div class="row" onclick="setIRole('custom')"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">settings</span></div><div class="rb"><div class="rt">Custom</div><div class="rs">Per-output permissions</div></div><div id="ir-custom" class="ap-check"></div></div>
         <div class="row" onclick="go('s-custom-role')" style="padding-left:28px"><div class="ri" style="background:transparent;width:30px"></div><div class="rb"><div class="rt" style="font-size:15px;color:var(--brand)">Configure custom role →</div></div></div>
       </div>
     </div>
