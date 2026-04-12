@@ -75,8 +75,12 @@ html.platform-android .dib {
   border-radius: 50% !important; /* !important potlačuje hardcoded inline styly v HTML z iOS prototypu */
 }
 
+html.platform-android .oi.on {
+  background: color-mix(in srgb, var(--m3-primary) 12%, transparent) !important;
+}
+
 html.platform-android .oi.on .ms {
-  color: var(--green);
+  color: var(--m3-primary) !important;
 }
 html.platform-android .oi.off .ms {
   color: var(--lt);
@@ -210,10 +214,10 @@ html.platform-android #phone {
   --pbtn-shadow: var(--m3-elevation-1);
   --cbanner-bg: var(--m3-primary);
   --cbanner-text: var(--m3-on-primary);
-  /* Kontrastní M3 status barvy (Light mode) */
-  --green: #146c2e;
+  /* Kontrastní M3 status barvy (Light mode) — laděno primárně do brand zelené */
+  --green: var(--m3-primary);
   --red: #ba1a1a;
-  --orange: #8c5000;
+  --orange: #995b00;
   --blue: #0061a4;
   --purple: #744bb6;
 }
@@ -228,10 +232,10 @@ html.platform-android #phone.dark {
   --pbtn-fg: #fff;
   --cbanner-bg: #0d1f1a;
   --cbanner-text: #fff;
-  /* Kontrastní M3 status barvy (Dark mode) */
-  --green: #70d876;
-  --red: #ffb4ab;
-  --orange: #ffb86f;
+  /* Kontrastní M3 status barvy (Dark mode) — laděno primárně do brand zelené */
+  --green: var(--m3-primary);
+  --red: #ffb4a9;
+  --orange: #ffb776;
   --blue: #9ecaef;
   --purple: #d0bcff;
 }
