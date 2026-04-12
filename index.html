@@ -8,112 +8,129 @@
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{
     min-height:100vh;
-    background:#0d0d14;
+    background: radial-gradient(circle at top, #002116 0%, #0a0e0c 100%);
+    background-color: #0a0e0c;
     color:#f2f2f7;
-    font-family:-apple-system,'Helvetica Neue',sans-serif;
+    font-family:Roboto, "Google Sans", -apple-system, sans-serif;
     -webkit-font-smoothing:antialiased;
-    padding:40px 20px 64px;
+    padding:60px 20px 64px;
     display:flex;
     flex-direction:column;
     align-items:center;
   }
+  .logo-wrap {
+    margin-bottom: 24px;
+  }
   h1{
-    font-size:22px;
+    font-size:28px;
     font-weight:700;
-    letter-spacing:-0.4px;
-    margin-bottom:8px;
+    letter-spacing:-0.5px;
+    margin-bottom:12px;
     color:#fff;
   }
   .sub{
-    font-size:14px;
-    color:rgba(235,235,245,.55);
-    margin-bottom:28px;
+    font-size:15px;
+    color:rgba(255,255,255,.6);
+    margin-bottom:48px;
     text-align:center;
     max-width:520px;
-    line-height:1.45;
+    line-height:1.5;
   }
   .grid{
     width:100%;
-    max-width:880px;
+    max-width:920px;
     display:grid;
     grid-template-columns:1fr;
-    gap:28px;
+    gap:32px;
     align-items:stretch;
   }
   @media (min-width:700px){
-    .grid{grid-template-columns:1fr 1fr;gap:32px}
+    .grid{grid-template-columns:1fr 1fr;gap:40px}
   }
   .col{
     min-width:0;
     display:flex;
     flex-direction:column;
-    gap:12px;
+    gap:16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 32px 24px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
   }
   .col-title{
-    font-size:13px;
-    font-weight:600;
-    letter-spacing:0.35px;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:1px;
     text-transform:uppercase;
-    color:rgba(235,235,245,.45);
-    padding:0 2px;
+    color:#81d6b4; /* NETIO M3 Dark Primary */
+    padding:0 4px;
   }
   .col-meta{
-    font-size:13px;
-    color:rgba(235,235,245,.42);
-    line-height:1.4;
-    margin-top:-4px;
-    padding:0 2px 4px;
+    font-size:14px;
+    color:rgba(255,255,255,.55);
+    line-height:1.5;
+    margin-top:-8px;
+    padding:0 4px 8px;
     flex-grow:1;
   }
   .col-links{
     display:flex;
     flex-direction:column;
-    gap:10px;
+    gap:12px;
   }
   .col-links a{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:14px 16px;
-    border-radius:14px;
-    background:#1c1c1e;
-    border:1px solid rgba(255,255,255,.08);
+    padding:16px 20px;
+    border-radius:16px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,.05);
     color:#fff;
     text-decoration:none;
-    font-size:15px;
+    font-size:16px;
     font-weight:600;
-    letter-spacing:-0.3px;
-    transition:background .15s,border-color .15s;
+    letter-spacing:-0.2px;
+    transition:all .2s ease;
   }
   .col-links a:hover,.col-links a:focus-visible{
-    background:#2c2c2e;
-    border-color:rgba(0,200,120,.35);
+    background:rgba(255,255,255,0.08);
+    border-color:rgba(129, 214, 180, 0.4);
+    transform: translateY(-2px);
     outline:none;
   }
   .col-links a span.desc{
-    font-size:12px;
-    font-weight:500;
-    color:rgba(235,235,245,.5);
-    margin-top:3px;
+    font-size:13px;
+    font-weight:400;
+    color:rgba(255,255,255,.5);
+    margin-top:4px;
     display:block;
   }
   .col-links a .arrow{
-    color:#00c878;
-    font-size:17px;
+    color:#81d6b4;
+    font-size:20px;
     flex-shrink:0;
-    margin-left:10px;
+    margin-left:16px;
+    transition: transform .2s ease;
+  }
+  .col-links a:hover .arrow{
+    transform: translateX(4px);
   }
   .wrap{flex:1;min-width:0}
   footer{
     margin-top:auto;
-    padding-top:36px;
-    font-size:12px;
-    color:rgba(235,235,245,.35);
+    padding-top:48px;
+    font-size:13px;
+    color:rgba(255,255,255,.3);
   }
 </style>
 </head>
 <body>
-  <h1>NETIO · Prototypy</h1>
+  <div class="logo-wrap">
+    <img src="assets/netio-logo.svg" alt="NETIO" height="28" style="display:block; margin:0 auto;">
+  </div>
+  <h1>App Prototypy</h1>
   <p class="sub">Vyber platformu a roli — otevře se interaktivní náhled (stejná složka jako tento soubor).</p>
 
   <div class="grid" role="navigation" aria-label="Rozcestník podle platformy">
