@@ -577,9 +577,11 @@ html.platform-android .snotch {
   opacity: 0.45;
 }
 
-/* Primární tlačítka — M3 Filled */
+/* Tlačítka — M3 (plně kulatá) */
 html.platform-android .pbtn,
-html.platform-android .spbtn {
+html.platform-android .spbtn,
+html.platform-android .btn,
+html.platform-android .sbtn {
   border-radius: 100px;
   font-weight: 500;
   letter-spacing: 0.1px;
