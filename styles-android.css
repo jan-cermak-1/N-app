@@ -452,6 +452,7 @@ html.platform-android .card,
 html.platform-android .mt,
 html.platform-android .cht,
 html.platform-android .at,
+html.platform-android .sst,
 html.platform-android .fc {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
@@ -462,8 +463,8 @@ html.platform-android .fc {
 }
 
 /* Zrušení iOS inset-karet v Bottom Sheetu (.scard, .sst) */
-html.platform-android .sst,
-html.platform-android .scard {
+html.platform-android .sheet .sst,
+html.platform-android .sheet .scard {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   background: transparent !important;
