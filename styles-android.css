@@ -426,15 +426,37 @@ html.platform-android .card,
 html.platform-android .mt,
 html.platform-android .cht,
 html.platform-android .at,
-html.platform-android .fc,
-html.platform-android .sst,
-html.platform-android .scard {
+html.platform-android .fc {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   background: var(--m3-surface-container);
   border: none;
   border-radius: var(--r-md);
   box-shadow: var(--m3-elevation-1);
+}
+
+/* Zrušení iOS inset-karet v Bottom Sheetu (.scard, .sst) */
+html.platform-android .sst,
+html.platform-android .scard {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+}
+
+/* M3 kruhové ikony uvnitř Bottom sheet seznamu (.srich) */
+html.platform-android .srich {
+  border-radius: 50% !important;
+  width: 40px !important;
+  height: 40px !important;
+}
+
+html.platform-android .srich .ms {
+  color: #ffffff;
+  font-size: 20px;
 }
 
 html.platform-android .card {
