@@ -308,6 +308,7 @@ html.platform-android #phone:not(.dark) .nb-title {
 
 html.platform-android .nb-logo {
   flex: 0 1 auto;
+  margin-right: auto;
 }
 
 html.platform-android #phone:not(.dark) .nb-logo img {
