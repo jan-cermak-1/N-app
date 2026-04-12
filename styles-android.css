@@ -69,9 +69,29 @@ html.platform-android .ti .ms {
   flex-shrink: 0;
 }
 
-html.platform-android .oi .ms,
+/* Kruhové kontejnery pro ikony seznamů a zařízení místo iOS zaoblených čtverců */
+html.platform-android .oi,
+html.platform-android .dib {
+  border-radius: 50% !important; /* !important potlačuje hardcoded inline styly v HTML z iOS prototypu */
+}
+
+html.platform-android .oi.on .ms {
+  color: var(--green);
+}
+html.platform-android .oi.off .ms {
+  color: var(--lt);
+}
 html.platform-android .dib .ms {
-  color: inherit;
+  color: var(--brand); /* defaultní barva */
+}
+/* Detekce inline background barev pro DIB (ikony zařízení v chybovém/varovném stavu) */
+html.platform-android .dib[style*="255,149,0"] .ms,
+html.platform-android .dib[style*="var(--orange)"] .ms {
+  color: var(--orange);
+}
+html.platform-android .dib[style*="255,59,48"] .ms,
+html.platform-android .dib[style*="var(--red)"] .ms {
+  color: var(--red);
 }
 
 /* Kruhové ikony seznamů (M3 icon containers) místo iOS zaoblených čtverců */
