@@ -680,12 +680,21 @@ html.platform-android .snotch {
 
 /* Tlačítka — M3 (plně kulatá) */
 html.platform-android .pbtn,
-html.platform-android .spbtn,
 html.platform-android .btn,
 html.platform-android .sbtn {
   border-radius: 100px;
   font-weight: 500;
   letter-spacing: 0.1px;
+}
+
+/* Sekundární Sheet Tlačítka (původně primární .spbtn z iOS) - Tonal styl místo Solid */
+html.platform-android .spbtn {
+  border-radius: 100px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  background: color-mix(in srgb, var(--m3-primary) 12%, transparent);
+  color: var(--m3-primary);
+  box-shadow: none;
 }
 
 /* M3 Text Button (např. v sekčních hlavičkách místo iOS "+ New group") */
