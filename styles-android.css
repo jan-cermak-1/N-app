@@ -129,6 +129,8 @@ html.platform-android #phone.dark {
   --m3-outline: #8e9898;
   --m3-primary: #00c878;
   --m3-on-primary: #ffffff;
+  --m3-primary-container: #005234;
+  --m3-on-primary-container: #a3f2d3;
   --m3-nav-rail: #1a1a1a;
   --m3-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.5), 0 1px 3px 1px rgba(0, 0, 0, 0.35);
   --m3-elevation-2: 0 1px 3px rgba(0, 0, 0, 0.55), 0 4px 8px 3px rgba(0, 0, 0, 0.35);
@@ -207,37 +209,37 @@ html.platform-android .scr:has(.tb-bar) .cnt {
   padding-bottom: calc(84px + max(24px, env(safe-area-inset-bottom, 0px)));
 }
 
-/* Status bar + Top app bar — světlý režim: NETIO zelená (#005f41), světlý text */
+/* Status bar + Top app bar — světlý režim: Surface, tmavý text */
 html.platform-android #phone:not(.dark) .sb {
-  background: var(--m3-primary);
+  background: var(--m3-surface);
   padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid color-mix(in srgb, var(--m3-outline) 18%, transparent);
 }
 
 html.platform-android #phone:not(.dark) .sb-t {
-  color: #fff;
+  color: var(--m3-on-surface);
   font-weight: 500;
   font-size: 14px;
 }
 
 html.platform-android #phone:not(.dark) .sb-i svg {
-  fill: #fff;
-  opacity: 1;
+  fill: var(--m3-on-surface);
+  opacity: 0.9;
 }
 
 html.platform-android #phone:not(.dark) .nb {
-  background: var(--m3-primary);
+  background: var(--m3-surface);
   min-height: 64px;
   padding: 8px 4px 8px 8px;
   align-items: center;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
-  border-bottom: none;
+  box-shadow: var(--m3-elevation-1);
+  border-bottom: 1px solid color-mix(in srgb, var(--m3-outline) 14%, transparent);
 }
 
 html.platform-android #phone:not(.dark) .nb-title {
   text-align: start;
   padding-left: 4px;
-  color: #fff;
+  color: var(--m3-on-surface);
   font-size: 22px;
   font-weight: 400;
   letter-spacing: 0;
@@ -248,7 +250,7 @@ html.platform-android .nb-logo {
 }
 
 html.platform-android #phone:not(.dark) .nb-logo img {
-  filter: brightness(0) invert(1);
+  filter: none;
 }
 
 html.platform-android #phone:not(.dark) .nb-btn {
@@ -256,8 +258,8 @@ html.platform-android #phone:not(.dark) .nb-btn {
   height: 48px;
   border-radius: 24px;
   border: none;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.15);
+  color: var(--m3-on-surface);
+  background: transparent;
   box-shadow: none;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
@@ -265,24 +267,24 @@ html.platform-android #phone:not(.dark) .nb-btn {
 
 html.platform-android #phone:not(.dark) .nb-btn:hover,
 html.platform-android #phone:not(.dark) .nb-btn:focus-visible {
-  background: rgba(255, 255, 255, 0.22);
+  background: color-mix(in srgb, var(--m3-on-surface) 8%, transparent);
 }
 
 html.platform-android #phone:not(.dark) .nb-btn:active {
-  background: rgba(255, 255, 255, 0.28);
+  background: color-mix(in srgb, var(--m3-on-surface) 12%, transparent);
   transform: none;
 }
 
 html.platform-android #phone:not(.dark) .nb-btn svg {
-  color: #fff;
+  color: var(--m3-on-surface);
   stroke-width: 2;
 }
 
 html.platform-android #phone:not(.dark) .nb-pill {
   border-radius: var(--r-md-sm);
   border: none;
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  background: color-mix(in srgb, var(--m3-primary) 12%, transparent);
+  color: var(--m3-primary);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   box-shadow: none;
@@ -290,7 +292,7 @@ html.platform-android #phone:not(.dark) .nb-pill {
 }
 
 html.platform-android #phone:not(.dark) .nb-txt {
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--m3-primary);
 }
 
 html.platform-android .nb-spc {
@@ -402,7 +404,8 @@ html.platform-android .card {
 html.platform-android .row:active,
 html.platform-android .trow:active,
 html.platform-android .oc:active {
-  background: color-mix(in srgb, var(--m3-on-surface) 8%, transparent);
+  background: color-mix(in srgb, var(--m3-on-surface) 12%, transparent);
+  transform: none;
 }
 
 /* Bottom navigation — M3 NavigationBar (ikona + label, aktivní indikátor; výška s bezpečnou zónou) */
@@ -416,7 +419,7 @@ html.platform-android .tb-bar {
 
 html.platform-android .tb-grp {
   border-radius: 0;
-  padding: 0 8px 4px;
+  padding: 0 4px 4px;
   gap: 0;
   background: transparent;
   backdrop-filter: none;
@@ -427,29 +430,31 @@ html.platform-android .tb-grp {
 
 html.platform-android .ti {
   border-radius: 0;
-  padding: 8px 12px 10px;
+  padding: 8px 4px 10px;
   gap: 4px;
   position: relative;
   color: var(--m3-on-surface-variant);
+  min-width: 48px;
+}
+
+html.platform-android .ti .ms {
+  width: 64px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  border-radius: 16px;
+  transition: background 0.2s, color 0.2s;
 }
 
 html.platform-android .ti.on {
-  color: var(--m3-primary);
+  color: var(--m3-on-surface);
   background: transparent;
   box-shadow: none;
 }
 
-html.platform-android .ti.on::after {
-  content: "";
-  position: absolute;
-  bottom: 4px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 56px;
-  max-width: 80%;
-  height: 3px;
-  border-radius: 3px 3px 0 0;
-  background: var(--m3-primary);
+html.platform-android .ti.on .ms {
+  background: var(--m3-primary-container);
+  color: var(--m3-on-primary-container);
 }
 
 html.platform-android .ti > span:not(.ms) {
@@ -457,6 +462,10 @@ html.platform-android .ti > span:not(.ms) {
   font-weight: 500;
   letter-spacing: 0.1px;
   font-family: var(--font-sf);
+}
+
+html.platform-android .ti.on > span:not(.ms) {
+  font-weight: 700;
 }
 
 html.platform-android .tb-fab {
@@ -468,11 +477,14 @@ html.platform-android .tb-fab {
   border: none;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
-  box-shadow: var(--m3-elevation-2);
+  box-shadow: var(--m3-elevation-3);
+  transition: background 0.2s, box-shadow 0.2s;
 }
 
 html.platform-android .tb-fab:active {
-  transform: scale(0.96);
+  background: color-mix(in srgb, var(--m3-on-primary) 12%, var(--m3-primary));
+  box-shadow: var(--m3-elevation-1);
+  transform: none;
 }
 
 html.platform-android .dark .tb-grp,
@@ -485,38 +497,61 @@ html.platform-android .dark .tb-fab {
 }
 
 html.platform-android .dark .ti.on {
-  color: #8ef0b8;
+  color: var(--m3-on-surface);
   background: transparent;
 }
 
-html.platform-android .dark .ti.on::after {
-  background: #8ef0b8;
+html.platform-android .dark .ti.on .ms {
+  background: var(--m3-primary-container);
+  color: var(--m3-on-primary-container);
 }
 
-/* Přepínač — přiblížení Material Switch (větší track) */
+/* M3 Switch (Přepínač) */
 html.platform-android .tog,
 html.platform-android .sw {
-  --sw-track-w: 52px;
-  --sw-track-h: 32px;
-  --sw-thumb-w: 26px;
-  --sw-thumb-h: 26px;
-  --sw-pad: 3px;
-  --sw-travel: 17px;
+  width: 52px !important;
+  height: 32px !important;
+  box-sizing: border-box !important;
+  background: var(--m3-surface-container-high) !important;
+  border: 2px solid var(--m3-outline) !important;
+  box-shadow: none !important;
 }
 
-html.platform-android .tog.on::before,
-html.platform-android .sw.on::before {
-  display: none;
+html.platform-android .tog.on,
+html.platform-android .sw.on {
+  background: var(--m3-primary) !important;
+  border-color: var(--m3-primary) !important;
 }
 
-html.platform-android .tog:not(.on)::after,
-html.platform-android .sw.off::after {
-  display: none;
-}
-
+/* Kulička (Thumb) */
 html.platform-android .tog .kn,
 html.platform-android .sw .kn {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  width: 16px !important;
+  height: 16px !important;
+  top: 6px !important;
+  left: 6px !important;
+  background: var(--m3-outline);
+  box-shadow: none !important;
+  transform: translateX(0) !important;
+  transition: transform 0.25s cubic-bezier(0.2, 0.0, 0, 1), width 0.25s, height 0.25s, top 0.25s, left 0.25s, background 0.25s;
+}
+
+html.platform-android .tog.on .kn,
+html.platform-android .sw.on .kn {
+  width: 24px !important;
+  height: 24px !important;
+  top: 2px !important;
+  left: 2px !important;
+  background: var(--m3-on-primary) !important;
+  transform: translateX(20px) !important;
+}
+
+/* Skrýt staré iOS glyfy (čárka / kolečko) */
+html.platform-android .tog::before,
+html.platform-android .sw::before,
+html.platform-android .tog::after,
+html.platform-android .sw::after {
+  display: none !important;
 }
 
 /* Bottom sheet */
