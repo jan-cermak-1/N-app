@@ -552,7 +552,7 @@ html.platform-android .ti.on > span:not(.ms) {
 }
 
 html.platform-android .tb-fab {
-  border-radius: 16px;
+  border-radius: 50%;
   width: 56px;
   height: 56px;
   background: var(--m3-primary);
