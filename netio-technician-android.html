@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NETIO · Android · Admin</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <link rel="stylesheet" href="styles-ios.css">
 <link rel="stylesheet" href="styles-android.css">
 </head>
@@ -78,7 +79,7 @@
   <div class="nb">
     <span class="nb-logo"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span>
     <button class="nb-pill" onclick="openSheet('sh-orgs')">DataCenter s.r.o.</button>
-    <button class="nb-btn" onclick="go('s-search')"><svg viewBox="0 0 24 24"><use href="#sf-search"/></svg></button>
+    <button class="nb-btn" onclick="go('s-search')"><span class="ms ms-24" aria-hidden="true">search</span></button>
   </div>
   <div class="cnt">
     <!-- org summary -->
@@ -95,19 +96,19 @@
       </div>
       <div class="card">
         <div class="row" onclick="go('s-grp')">
-          <div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div>
+          <div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">folder</span></div>
           <div class="rb"><div class="rt">Server Room A</div><div class="rs">6 devices · 48 outputs</div></div>
           <div class="dstat s-on" style="gap:4px;margin:0;flex-shrink:0"><div class="sdot"></div>All online</div>
           <svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg>
         </div>
         <div class="row" onclick="go('s-grp')">
-          <div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div>
+          <div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">folder</span></div>
           <div class="rb"><div class="rt">Network Cabinet</div><div class="rs">4 devices · 24 outputs</div></div>
           <div class="dstat s-warn" style="gap:4px;margin:0;flex-shrink:0"><div class="sdot"></div>1 offline</div>
           <svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg>
         </div>
         <div class="row" onclick="go('s-grp')">
-          <div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div>
+          <div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">folder</span></div>
           <div class="rb"><div class="rt">UPS &amp; Power</div><div class="rs">4 devices · 16 outputs</div></div>
           <div class="dstat s-on" style="gap:4px;margin:0;flex-shrink:0"><div class="sdot"></div>All online</div>
           <svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg>
@@ -121,12 +122,12 @@
       </div>
       <div class="card">
         <div class="dc" onclick="go('s-dev-det')">
-          <div class="dib"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div>
+          <div class="dib"><span class="ms ms-24" aria-hidden="true">devices</span></div>
           <div class="dinfo"><div class="dn">PowerCable 2KZ</div><div class="dm">192.168.1.45 · 2 outputs</div><div class="dstat s-off"><div class="sdot"></div>Offline · needs config</div></div>
           <svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg>
         </div>
         <div class="dc" onclick="go('s-dev-det')">
-          <div class="dib"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div>
+          <div class="dib"><span class="ms ms-24" aria-hidden="true">devices</span></div>
           <div class="dinfo"><div class="dn">PowerBOX 4Kx</div><div class="dm">192.168.1.46 · 4 outputs</div><div class="dstat s-on"><div class="sdot"></div>Online · ungrouped</div></div>
           <svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg>
         </div>
@@ -136,12 +137,12 @@
   </div>
   <div class="tb-bar">
     <div class="tb-grp">
-      <button class="ti on" onclick="tab('out')"><svg viewBox="0 0 24 24"><use href="#sf-dev"/></svg><span>Devices</span></button>
-      <button class="ti" onclick="tab('dev')"><svg viewBox="0 0 24 24"><use href="#sf-plug"/></svg><span>Outputs</span></button>
-      <button class="ti" onclick="tab('nrg')"><svg viewBox="0 0 24 24"><use href="#sf-dashboard"/></svg><span>Dashboard</span></button>
-      <button class="ti" onclick="tab('acc')"><svg viewBox="0 0 24 24"><use href="#sf-ellipsis"/></svg><span>More</span></button>
+      <button class="ti on" onclick="tab('out')"><span class="ms ms-24" aria-hidden="true">devices</span><span>Devices</span></button>
+      <button class="ti" onclick="tab('dev')"><span class="ms ms-24" aria-hidden="true">electrical_services</span><span>Outputs</span></button>
+      <button class="ti" onclick="tab('nrg')"><span class="ms ms-24" aria-hidden="true">dashboard</span><span>Dashboard</span></button>
+      <button class="ti" onclick="tab('acc')"><span class="ms ms-24" aria-hidden="true">more_horiz</span><span>More</span></button>
     </div>
-    <button class="tb-fab" onclick="openSheet('sh-add')"><svg viewBox="0 0 24 24"><use href="#sf-plus"/></svg></button>
+    <button class="tb-fab" onclick="openSheet('sh-add')"><span class="ms ms-24" aria-hidden="true">add</span></button>
   </div>
 </div>
 
@@ -149,7 +150,7 @@
 <div class="scr" id="s-grp">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
   <div class="nb">
-    <button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button>
+    <button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button>
     <span class="nb-title">Server Room A</span>
     <button class="nb-btn" onclick="go('s-grp-edit')"><svg viewBox="0 0 24 24" stroke="white" stroke-width="2" fill="none"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></button>
   </div>
@@ -161,10 +162,10 @@
       <div class="mt"><div class="mlb">Status</div><div class="mv" style="color:var(--green);font-size:18px">All OK</div></div>
     </div>
     <div class="astrip">
-      <button class="at"><div class="ai" style="background:var(--brand)"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><span class="alb">All ON</span></button>
-      <button class="at"><div class="ai" style="background:#8e8e93"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><span class="alb">All OFF</span></button>
-      <button class="at"><div class="ai" style="background:var(--orange)"><svg viewBox="0 0 24 24"><use href="#i-restart"/></svg></div><span class="alb">Restart all</span></button>
-      <button class="at" onclick="go('s-sched')"><div class="ai" style="background:var(--blue)"><svg viewBox="0 0 24 24"><use href="#i-cal"/></svg></div><span class="alb">Scheduler</span></button>
+      <button class="at"><div class="ai" style="background:var(--brand)"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><span class="alb">All ON</span></button>
+      <button class="at"><div class="ai" style="background:#8e8e93"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><span class="alb">All OFF</span></button>
+      <button class="at"><div class="ai" style="background:var(--orange)"><span class="ms ms-24" aria-hidden="true">restart_alt</span></div><span class="alb">Restart all</span></button>
+      <button class="at" onclick="go('s-sched')"><div class="ai" style="background:var(--blue)"><span class="ms ms-24" aria-hidden="true">calendar_month</span></div><span class="alb">Scheduler</span></button>
     </div>
 
     <div class="sec">
@@ -173,18 +174,18 @@
         <button onclick="go('s-grp-new')" style="border:none;background:transparent;color:var(--brand);font-size:14px;font-weight:600;cursor:pointer">+ Add</button>
       </div>
       <div class="card">
-        <div class="row" onclick="go('s-grp')"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">Row A — PDUs</div><div class="rs">3 devices</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row" onclick="go('s-grp')"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">Row B — Cables</div><div class="rs">3 devices</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="go('s-grp')"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">folder</span></div><div class="rb"><div class="rt">Row A — PDUs</div><div class="rs">3 devices</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="go('s-grp')"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">folder</span></div><div class="rb"><div class="rt">Row B — Cables</div><div class="rs">3 devices</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
 
     <div class="sec"><div class="sec-hdr">Devices in group</div>
       <div class="card">
-        <div class="dc" onclick="go('s-dev-det')"><div class="dib"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="dinfo"><div class="dn">PowerPDU 8KS</div><div class="dm">192.168.1.10 · fw 3.4.1</div><div class="dstat s-on"><div class="sdot"></div>Online · 372 W</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="dc" onclick="go('s-dev-det')"><div class="dib"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="dinfo"><div class="dn">PowerPDU 8KS</div><div class="dm">192.168.1.10 · fw 3.4.1</div><div class="dstat s-on"><div class="sdot"></div>Online · 372 W</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
         <div style="height:.5px;background:var(--sep);margin:0 14px 0 70px"></div>
-        <div class="dc" onclick="go('s-dev-det')"><div class="dib"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="dinfo"><div class="dn">PowerPDU 4KS</div><div class="dm">192.168.1.11 · fw 3.4.1</div><div class="dstat s-on"><div class="sdot"></div>Online · 89 W</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="dc" onclick="go('s-dev-det')"><div class="dib"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="dinfo"><div class="dn">PowerPDU 4KS</div><div class="dm">192.168.1.11 · fw 3.4.1</div><div class="dstat s-on"><div class="sdot"></div>Online · 89 W</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
         <div style="height:.5px;background:var(--sep);margin:0 14px 0 70px"></div>
-        <div class="dc" onclick="go('s-dev-det')"><div class="dib"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="dinfo"><div class="dn">PowerBOX 4Kx</div><div class="dm">192.168.1.12 · fw 3.2.0</div><div class="dstat s-warn"><div class="sdot"></div>Needs fw update</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="dc" onclick="go('s-dev-det')"><div class="dib"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="dinfo"><div class="dn">PowerBOX 4Kx</div><div class="dm">192.168.1.12 · fw 3.2.0</div><div class="dstat s-warn"><div class="sdot"></div>Needs fw update</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="spc"></div>
@@ -194,7 +195,7 @@
 <!-- ═══════════ SCREEN: NEW GROUP ═══════════ -->
 <div class="scr" id="s-grp-new">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">New group</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">New group</span><div class="nb-spc"></div></div>
   <div class="cnt" style="padding-bottom:24px">
     <div class="sec">
       <div class="fc">
@@ -205,8 +206,8 @@
     </div>
     <div class="sec"><div class="sec-hdr">Add devices</div>
       <div class="card">
-        <div class="row"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="rb"><div class="rt">PowerBOX 4Kx</div><div class="rs">192.168.1.46</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
-        <div class="row"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="rb"><div class="rt">PowerCable 2KZ</div><div class="rs">192.168.1.45</div></div><button class="tog" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
+        <div class="row"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="rb"><div class="rt">PowerBOX 4Kx</div><div class="rs">192.168.1.46</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
+        <div class="row"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="rb"><div class="rt">PowerCable 2KZ</div><div class="rs">192.168.1.45</div></div><button class="tog" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
       </div>
     </div>
     <div style="margin:16px 16px 0"><button class="pbtn" onclick="back()">Create group</button></div>
@@ -216,7 +217,7 @@
 <!-- ═══════════ SCREEN: EDIT GROUP ═══════════ -->
 <div class="scr" id="s-grp-edit">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Edit group</span><button class="nb-txt">Save</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Edit group</span><button class="nb-txt">Save</button></div>
   <div class="cnt" style="padding-bottom:24px">
     <div class="sec">
       <div class="fc">
@@ -226,9 +227,9 @@
     </div>
     <div class="sec"><div class="sec-hdr">Devices</div>
       <div class="card">
-        <div class="row"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="rb"><div class="rt">PowerPDU 8KS</div><div class="rs">192.168.1.10</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
-        <div class="row"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="rb"><div class="rt">PowerPDU 4KS</div><div class="rs">192.168.1.11</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
-        <div class="row"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="rb"><div class="rt">PowerBOX 4Kx</div><div class="rs">192.168.1.12</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
+        <div class="row"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="rb"><div class="rt">PowerPDU 8KS</div><div class="rs">192.168.1.10</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
+        <div class="row"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="rb"><div class="rt">PowerPDU 4KS</div><div class="rs">192.168.1.11</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
+        <div class="row"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="rb"><div class="rt">PowerBOX 4Kx</div><div class="rs">192.168.1.12</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
       </div>
     </div>
     <div class="sec">
@@ -243,36 +244,36 @@
 <!-- ═══════════ SCREEN: DEVICE DETAIL (TECH) ═══════════ -->
 <div class="scr" id="s-dev-det">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">PowerPDU 8KS</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">PowerPDU 8KS</span><div class="nb-spc"></div></div>
   <div class="cnt">
     <div class="sec">
       <div class="card">
-        <div class="row row-nc"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-ip"/></svg></div><div class="rb"><div class="rt">IP Address</div></div><div class="rv">192.168.1.10</div></div>
-        <div class="row row-nc"><div class="ri ri-t"><svg viewBox="0 0 24 24"><use href="#i-tag"/></svg></div><div class="rb"><div class="rt">Model</div></div><div class="rv">PowerPDU 8KS</div></div>
-        <div class="row row-nc"><div class="ri ri-gr"><svg viewBox="0 0 24 24"><use href="#i-tag"/></svg></div><div class="rb"><div class="rt">Serial number</div></div><div class="rv">NPS8-2024-0042</div></div>
+        <div class="row row-nc"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">lan</span></div><div class="rb"><div class="rt">IP Address</div></div><div class="rv">192.168.1.10</div></div>
+        <div class="row row-nc"><div class="ri ri-t"><span class="ms ms-24" aria-hidden="true">label</span></div><div class="rb"><div class="rt">Model</div></div><div class="rv">PowerPDU 8KS</div></div>
+        <div class="row row-nc"><div class="ri ri-gr"><span class="ms ms-24" aria-hidden="true">label</span></div><div class="rb"><div class="rt">Serial number</div></div><div class="rv">NPS8-2024-0042</div></div>
         <div class="row" onclick="go('s-fw')">
-          <div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-fw"/></svg></div>
+          <div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">swap_horiz</span></div>
           <div class="rb"><div class="rt">Firmware</div><div class="rs">Update available: 3.4.2</div></div>
           <span class="tag" style="background:rgba(255,149,0,.12);color:var(--orange);margin-right:6px">Update</span>
           <svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg>
         </div>
-        <div class="row" onclick="go('s-grp')"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">Group</div></div><div class="rv">Server Room A</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="go('s-grp')"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">folder</span></div><div class="rb"><div class="rt">Group</div></div><div class="rv">Server Room A</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="sec"><div class="sec-hdr">Outputs (8)</div>
       <div class="card">
-        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="oinfo"><div class="on2">Main Server</div><div class="od">Output 1</div><div class="ow">372 W</div></div><button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
-        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="oinfo"><div class="on2">Backup Server</div><div class="od">Output 2</div><div class="ow">284 W</div></div><button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
-        <div class="oc" onclick="go('s-out-det')"><div class="oi off"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="oinfo"><div class="on2">Output 3</div><div class="od">Unassigned</div><div class="ow" style="color:var(--lt)">Off</div></div><button class="sw off" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
-        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="oinfo"><div class="on2">KVM Switch</div><div class="od">Output 4</div><div class="ow">48 W</div></div><button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
+        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><span class="ms ms-24" aria-hidden="true">electrical_services</span></div><div class="oinfo"><div class="on2">Main Server</div><div class="od">Output 1</div><div class="ow">372 W</div></div><button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
+        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><span class="ms ms-24" aria-hidden="true">electrical_services</span></div><div class="oinfo"><div class="on2">Backup Server</div><div class="od">Output 2</div><div class="ow">284 W</div></div><button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
+        <div class="oc" onclick="go('s-out-det')"><div class="oi off"><span class="ms ms-24" aria-hidden="true">electrical_services</span></div><div class="oinfo"><div class="on2">Output 3</div><div class="od">Unassigned</div><div class="ow" style="color:var(--lt)">Off</div></div><button class="sw off" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
+        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><span class="ms ms-24" aria-hidden="true">electrical_services</span></div><div class="oinfo"><div class="on2">KVM Switch</div><div class="od">Output 4</div><div class="ow">48 W</div></div><button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
       </div>
     </div>
     <div class="sec"><div class="sec-hdr">Management</div>
       <div class="card">
-        <div class="row" onclick="go('s-dev-config')"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-gear"/></svg></div><div class="rb"><div class="rt">Device configuration</div><div class="rs">Network, MQTT, alerts</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row" onclick="go('s-fw')"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-fw"/></svg></div><div class="rb"><div class="rt">Firmware update</div></div><span class="tag" style="background:rgba(255,149,0,.12);color:var(--orange);margin-right:6px">3.4.2 available</span><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row" onclick="go('s-alerts-cfg')"><div class="ri ri-r"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></div><div class="rb"><div class="rt">Connection alerts</div><div class="rs">Email on disconnect</div></div><span class="tag tg" style="margin-right:6px">On</span><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row dest"><div class="ri ri-r"><svg viewBox="0 0 24 24"><use href="#i-trash"/></svg></div><div class="rb"><div class="rt">Remove device</div></div></div>
+        <div class="row" onclick="go('s-dev-config')"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">settings</span></div><div class="rb"><div class="rt">Device configuration</div><div class="rs">Network, MQTT, alerts</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="go('s-fw')"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">swap_horiz</span></div><div class="rb"><div class="rt">Firmware update</div></div><span class="tag" style="background:rgba(255,149,0,.12);color:var(--orange);margin-right:6px">3.4.2 available</span><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="go('s-alerts-cfg')"><div class="ri ri-r"><span class="ms ms-24" aria-hidden="true">notifications</span></div><div class="rb"><div class="rt">Connection alerts</div><div class="rs">Email on disconnect</div></div><span class="tag tg" style="margin-right:6px">On</span><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row dest"><div class="ri ri-r"><span class="ms ms-24" aria-hidden="true">delete</span></div><div class="rb"><div class="rt">Remove device</div></div></div>
       </div>
     </div>
     <div class="spc"></div>
@@ -282,19 +283,19 @@
 <!-- ═══════════ SCREEN: OUTPUT DETAIL (TECH) ═══════════ -->
 <div class="scr" id="s-out-det">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Main Server</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Main Server</span><div class="nb-spc"></div></div>
   <div class="cnt">
     <div class="sec"><div class="card">
       <div class="oc row-nc">
-        <div class="oi on" style="width:50px;height:50px;border-radius:14px"><svg viewBox="0 0 24 24" style="width:24px;height:24px"><use href="#i-plug"/></svg></div>
+        <div class="oi on" style="width:50px;height:50px;border-radius:14px"><span class="ms ms-24" aria-hidden="true">electrical_services</span></div>
         <div class="oinfo"><div style="font-size:20px;font-weight:700;color:var(--lp);letter-spacing:-.5px">Main Server</div><div class="od">PowerPDU 8KS · Output 1</div><div style="display:flex;align-items:center;gap:4px;margin-top:4px"><div class="sdot" style="background:var(--green);width:7px;height:7px"></div><span style="font-size:13px;color:var(--green);font-weight:500">Online · Active</span></div></div>
         <button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button>
       </div>
     </div></div>
     <div class="astrip">
-      <button class="at"><div class="ai" style="background:var(--brand)"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><span class="alb">Turn On</span></button>
-      <button class="at"><div class="ai" style="background:#8e8e93"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><span class="alb">Turn Off</span></button>
-      <button class="at"><div class="ai" style="background:var(--orange)"><svg viewBox="0 0 24 24"><use href="#i-restart"/></svg></div><span class="alb">Restart</span></button>
+      <button class="at"><div class="ai" style="background:var(--brand)"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><span class="alb">Turn On</span></button>
+      <button class="at"><div class="ai" style="background:#8e8e93"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><span class="alb">Turn Off</span></button>
+      <button class="at"><div class="ai" style="background:var(--orange)"><span class="ms ms-24" aria-hidden="true">restart_alt</span></div><span class="alb">Restart</span></button>
     </div>
     <div class="mgrid">
       <div class="mt"><div class="mlb">Power</div><div class="mv">372<span class="mu">W</span></div></div>
@@ -306,12 +307,12 @@
     </div>
     <div class="sec"><div class="sec-hdr">Configuration</div>
       <div class="card">
-        <div class="row"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-tag"/></svg></div><div class="rb"><div class="rt">Output name</div></div><div class="rv">Main Server</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="trow"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-cal"/></svg></div><div class="tb"><div class="tt">Scheduler</div><div class="tsb">Mon–Fri 00:00–24:00</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
+        <div class="row"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">label</span></div><div class="rb"><div class="rt">Output name</div></div><div class="rv">Main Server</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="trow"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">calendar_month</span></div><div class="tb"><div class="tt">Scheduler</div><div class="tsb">Mon–Fri 00:00–24:00</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
         <div class="row" onclick="go('s-sched')"><div style="width:30px;flex-shrink:0"></div><div class="rb"><div class="rt" style="font-size:15px">Configure schedule</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="trow"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-dog"/></svg></div><div class="tb"><div class="tt">WatchDog</div><div class="tsb">Ping 10.0.0.1 / 30s · Restart on fail</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
+        <div class="trow"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">pets</span></div><div class="tb"><div class="tt">WatchDog</div><div class="tsb">Ping 10.0.0.1 / 30s · Restart on fail</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
         <div class="row" onclick="go('s-wdog')"><div style="width:30px;flex-shrink:0"></div><div class="rb"><div class="rt" style="font-size:15px">Configure WatchDog</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="trow"><div class="ri ri-r"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></div><div class="tb"><div class="tt">Connection alert</div><div class="tsb">Email on disconnect</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
+        <div class="trow"><div class="ri ri-r"><span class="ms ms-24" aria-hidden="true">notifications</span></div><div class="tb"><div class="tt">Connection alert</div><div class="tsb">Email on disconnect</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
       </div>
     </div>
     <div class="spc"></div>
@@ -321,7 +322,7 @@
 <!-- ═══════════ SCREEN: DEVICE CONFIG ═══════════ -->
 <div class="scr" id="s-dev-config">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Device config</span><button class="nb-txt">Save</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Device config</span><button class="nb-txt">Save</button></div>
   <div class="cnt" style="padding-bottom:24px">
     <div class="sec"><div class="sec-hdr">Network</div>
       <div class="fc">
@@ -333,14 +334,14 @@
     </div>
     <div class="sec"><div class="sec-hdr">MQTT / Cloud</div>
       <div class="card">
-        <div class="trow" onclick="go('s-cloud-setup')" style="cursor:pointer"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-cloud"/></svg></div><div class="tb"><div class="tt">NETIO Cloud</div><div class="tsb">broker.cloud.netio.eu : 8883</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
-        <div class="row row-nc"><div class="ri ri-gr"><svg viewBox="0 0 24 24"><use href="#i-tag"/></svg></div><div class="rb"><div class="rt">MQTT status</div></div><span class="tag tg">Connected</span></div>
+        <div class="trow" onclick="go('s-cloud-setup')" style="cursor:pointer"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">cloud</span></div><div class="tb"><div class="tt">NETIO Cloud</div><div class="tsb">broker.cloud.netio.eu : 8883</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
+        <div class="row row-nc"><div class="ri ri-gr"><span class="ms ms-24" aria-hidden="true">label</span></div><div class="rb"><div class="rt">MQTT status</div></div><span class="tag tg">Connected</span></div>
       </div>
     </div>
     <div class="sec"><div class="sec-hdr">Power-up defaults</div>
       <div class="card">
-        <div class="row"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><div class="rb"><div class="rt">Output 1 power-up state</div></div><div class="rv">ON</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-gr"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><div class="rb"><div class="rt">Output 2 power-up state</div></div><div class="rv">Last</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><div class="rb"><div class="rt">Output 1 power-up state</div></div><div class="rv">ON</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-gr"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><div class="rb"><div class="rt">Output 2 power-up state</div></div><div class="rv">Last</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="spc"></div>
@@ -350,11 +351,11 @@
 <!-- ═══════════ SCREEN: ALERTS CONFIG ═══════════ -->
 <div class="scr" id="s-alerts-cfg">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Connection alerts</span><button class="nb-txt">Save</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Connection alerts</span><button class="nb-txt">Save</button></div>
   <div class="cnt">
     <div class="sec">
       <div class="card">
-        <div class="trow"><div class="ri ri-r"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></div><div class="tb"><div class="tt">Alert enabled</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
+        <div class="trow"><div class="ri ri-r"><span class="ms ms-24" aria-hidden="true">notifications</span></div><div class="tb"><div class="tt">Alert enabled</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
       </div>
     </div>
     <div class="sec"><div class="sec-hdr">Notify when</div>
@@ -365,8 +366,8 @@
     </div>
     <div class="sec"><div class="sec-hdr">Notify via</div>
       <div class="card">
-        <div class="row"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-globe"/></svg></div><div class="rb"><div class="rt">Email</div></div><div class="rv"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ea808b84aa8e8b9e8b898f849e8f98c48990">[email&#160;protected]</a></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="trow"><div class="ri ri-p"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></div><div class="tb"><div class="tt">Push notification</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
+        <div class="row"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">language</span></div><div class="rb"><div class="rt">Email</div></div><div class="rv"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ea808b84aa8e8b9e8b898f849e8f98c48990">[email&#160;protected]</a></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="trow"><div class="ri ri-p"><span class="ms ms-24" aria-hidden="true">notifications</span></div><div class="tb"><div class="tt">Push notification</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
       </div>
     </div>
     <div class="spc"></div>
@@ -376,7 +377,7 @@
 <!-- ═══════════ SCREEN: OUTPUTS TAB ═══════════ -->
 <div class="scr" id="s-dev">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><span class="nb-logo"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" onclick="openSheet('sh-orgs')">DataCenter s.r.o.</button><button class="nb-btn" onclick="go('s-search')"><svg viewBox="0 0 24 24"><use href="#sf-search"/></svg></button></div>
+  <div class="nb"><span class="nb-logo"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" onclick="openSheet('sh-orgs')">DataCenter s.r.o.</button><button class="nb-btn" onclick="go('s-search')"><span class="ms ms-24" aria-hidden="true">search</span></button></div>
   <div class="cnt">
     <div class="sstrip">
       <div class="sst"><div class="ssl">Online</div><div class="ssv" style="color:var(--green)">42<span class="ssu"> /48</span></div></div>
@@ -385,30 +386,30 @@
     </div>
     <div class="sec"><div class="sec-hdr">All outputs</div>
       <div class="card">
-        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="oinfo"><div class="on2">Main Server</div><div class="od">PowerPDU 8KS · Server Room A</div><div class="ow">372 W</div></div><button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
-        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="oinfo"><div class="on2">Backup Server</div><div class="od">PowerPDU 8KS · Server Room A</div><div class="ow">284 W</div></div><button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
-        <div class="oc" onclick="go('s-out-det')"><div class="oi off"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="oinfo"><div class="on2">Output 3</div><div class="od">PowerPDU 8KS · Server Room A</div><div class="ow" style="color:var(--lt)">Off · Unassigned</div></div><button class="sw off" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
-        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="oinfo"><div class="on2">Core Switch</div><div class="od">PowerBOX 4Kx · Network Cabinet</div><div class="ow">48 W</div></div><button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
-        <div class="oc" onclick="go('s-out-det')"><div class="oi off"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="oinfo"><div class="on2">Firewall</div><div class="od">PowerBOX 4Kx · Network Cabinet</div><div class="ow" style="color:var(--red)">Offline</div></div><button class="sw off" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
+        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><span class="ms ms-24" aria-hidden="true">electrical_services</span></div><div class="oinfo"><div class="on2">Main Server</div><div class="od">PowerPDU 8KS · Server Room A</div><div class="ow">372 W</div></div><button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
+        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><span class="ms ms-24" aria-hidden="true">electrical_services</span></div><div class="oinfo"><div class="on2">Backup Server</div><div class="od">PowerPDU 8KS · Server Room A</div><div class="ow">284 W</div></div><button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
+        <div class="oc" onclick="go('s-out-det')"><div class="oi off"><span class="ms ms-24" aria-hidden="true">electrical_services</span></div><div class="oinfo"><div class="on2">Output 3</div><div class="od">PowerPDU 8KS · Server Room A</div><div class="ow" style="color:var(--lt)">Off · Unassigned</div></div><button class="sw off" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
+        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><span class="ms ms-24" aria-hidden="true">electrical_services</span></div><div class="oinfo"><div class="on2">Core Switch</div><div class="od">PowerBOX 4Kx · Network Cabinet</div><div class="ow">48 W</div></div><button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
+        <div class="oc" onclick="go('s-out-det')"><div class="oi off"><span class="ms ms-24" aria-hidden="true">electrical_services</span></div><div class="oinfo"><div class="on2">Firewall</div><div class="od">PowerBOX 4Kx · Network Cabinet</div><div class="ow" style="color:var(--red)">Offline</div></div><button class="sw off" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
       </div>
     </div>
     <div class="spc"></div>
   </div>
   <div class="tb-bar">
     <div class="tb-grp">
-      <button class="ti" onclick="tab('out')"><svg viewBox="0 0 24 24"><use href="#sf-dev"/></svg><span>Devices</span></button>
-      <button class="ti on" onclick="tab('dev')"><svg viewBox="0 0 24 24"><use href="#sf-plug"/></svg><span>Outputs</span></button>
-      <button class="ti" onclick="tab('nrg')"><svg viewBox="0 0 24 24"><use href="#sf-dashboard"/></svg><span>Dashboard</span></button>
-      <button class="ti" onclick="tab('acc')"><svg viewBox="0 0 24 24"><use href="#sf-ellipsis"/></svg><span>More</span></button>
+      <button class="ti" onclick="tab('out')"><span class="ms ms-24" aria-hidden="true">devices</span><span>Devices</span></button>
+      <button class="ti on" onclick="tab('dev')"><span class="ms ms-24" aria-hidden="true">electrical_services</span><span>Outputs</span></button>
+      <button class="ti" onclick="tab('nrg')"><span class="ms ms-24" aria-hidden="true">dashboard</span><span>Dashboard</span></button>
+      <button class="ti" onclick="tab('acc')"><span class="ms ms-24" aria-hidden="true">more_horiz</span><span>More</span></button>
     </div>
-    <button class="tb-fab" onclick="openSheet('sh-add')"><svg viewBox="0 0 24 24"><use href="#sf-plus"/></svg></button>
+    <button class="tb-fab" onclick="openSheet('sh-add')"><span class="ms ms-24" aria-hidden="true">add</span></button>
   </div>
 </div>
 
 <!-- ═══════════ SCREEN: ENERGY ═══════════ -->
 <div class="scr" id="s-nrg">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><span class="nb-logo"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" onclick="openSheet('sh-orgs')">DataCenter s.r.o.</button><button class="nb-btn"><svg viewBox="0 0 24 24"><use href="#sf-search"/></svg></button></div>
+  <div class="nb"><span class="nb-logo"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" onclick="openSheet('sh-orgs')">DataCenter s.r.o.</button><button class="nb-btn"><span class="ms ms-24" aria-hidden="true">search</span></button></div>
   <div class="cnt">
     <div class="mgrid">
       <div class="mt"><div class="mlb">Today</div><div class="mv">124<span class="mu">kWh</span></div></div>
@@ -430,29 +431,29 @@
     </div>
     <div class="sec"><div class="sec-hdr">By group</div>
       <div class="card">
-        <div class="row row-nc"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">Server Room A</div><div class="pbar"><div class="pbf" style="width:68%"></div></div></div><div class="rv">84 kWh</div></div>
-        <div class="row row-nc"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">Network Cabinet</div><div class="pbar"><div class="pbf" style="width:22%"></div></div></div><div class="rv">27 kWh</div></div>
-        <div class="row row-nc"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">UPS &amp; Power</div><div class="pbar"><div class="pbf" style="width:10%"></div></div></div><div class="rv">13 kWh</div></div>
+        <div class="row row-nc"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">folder</span></div><div class="rb"><div class="rt">Server Room A</div><div class="pbar"><div class="pbf" style="width:68%"></div></div></div><div class="rv">84 kWh</div></div>
+        <div class="row row-nc"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">folder</span></div><div class="rb"><div class="rt">Network Cabinet</div><div class="pbar"><div class="pbf" style="width:22%"></div></div></div><div class="rv">27 kWh</div></div>
+        <div class="row row-nc"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">folder</span></div><div class="rb"><div class="rt">UPS &amp; Power</div><div class="pbar"><div class="pbf" style="width:10%"></div></div></div><div class="rv">13 kWh</div></div>
       </div>
     </div>
-    <div class="sec"><div class="card"><div class="row"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-export"/></svg></div><div class="rb"><div class="rt">Export data</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div></div></div>
+    <div class="sec"><div class="card"><div class="row"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">upload</span></div><div class="rb"><div class="rt">Export data</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div></div></div>
     <div class="spc"></div>
   </div>
   <div class="tb-bar">
     <div class="tb-grp">
-      <button class="ti" onclick="tab('out')"><svg viewBox="0 0 24 24"><use href="#sf-dev"/></svg><span>Devices</span></button>
-      <button class="ti" onclick="tab('dev')"><svg viewBox="0 0 24 24"><use href="#sf-plug"/></svg><span>Outputs</span></button>
-      <button class="ti on" onclick="tab('nrg')"><svg viewBox="0 0 24 24"><use href="#sf-dashboard"/></svg><span>Dashboard</span></button>
-      <button class="ti" onclick="tab('acc')"><svg viewBox="0 0 24 24"><use href="#sf-ellipsis"/></svg><span>More</span></button>
+      <button class="ti" onclick="tab('out')"><span class="ms ms-24" aria-hidden="true">devices</span><span>Devices</span></button>
+      <button class="ti" onclick="tab('dev')"><span class="ms ms-24" aria-hidden="true">electrical_services</span><span>Outputs</span></button>
+      <button class="ti on" onclick="tab('nrg')"><span class="ms ms-24" aria-hidden="true">dashboard</span><span>Dashboard</span></button>
+      <button class="ti" onclick="tab('acc')"><span class="ms ms-24" aria-hidden="true">more_horiz</span><span>More</span></button>
     </div>
-    <button class="tb-fab" onclick="openSheet('sh-add')"><svg viewBox="0 0 24 24"><use href="#sf-plus"/></svg></button>
+    <button class="tb-fab" onclick="openSheet('sh-add')"><span class="ms ms-24" aria-hidden="true">add</span></button>
   </div>
 </div>
 
 <!-- ═══════════ SCREEN: ACCOUNT (TECH) ═══════════ -->
 <div class="scr" id="s-acc">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><span class="nb-logo"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" onclick="openSheet('sh-orgs')">DataCenter s.r.o.</button><button class="nb-btn"><svg viewBox="0 0 24 24"><use href="#sf-search"/></svg></button></div>
+  <div class="nb"><span class="nb-logo"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" onclick="openSheet('sh-orgs')">DataCenter s.r.o.</button><button class="nb-btn"><span class="ms ms-24" aria-hidden="true">search</span></button></div>
   <div class="cnt">
     <div class="sec"><div class="card">
       <div class="row" onclick="go('s-user')">
@@ -462,29 +463,29 @@
       </div>
     </div></div>
     <div class="sec"><div class="card">
-      <div class="row" onclick="go('s-orgs')"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-bld"/></svg></div><div class="rb"><div class="rt">Organizations</div><div class="rs" style="color:var(--brand);font-weight:500">3 organizations</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-      <div class="row" onclick="go('s-notif')"><div class="ri ri-r"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></div><div class="rb"><div class="rt">Notifications</div></div><span class="badge" style="margin-right:6px">5</span><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-      <div class="row" onclick="go('s-reps')"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-doc"/></svg></div><div class="rb"><div class="rt">Reports</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-      <div class="row" onclick="go('s-members')"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-users"/></svg></div><div class="rb"><div class="rt">Team members</div></div><div class="rv">8</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-      <div class="row" onclick="go('s-set')"><div class="ri ri-gr"><svg viewBox="0 0 24 24"><use href="#i-gear"/></svg></div><div class="rb"><div class="rt">Settings</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+      <div class="row" onclick="go('s-orgs')"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">apartment</span></div><div class="rb"><div class="rt">Organizations</div><div class="rs" style="color:var(--brand);font-weight:500">3 organizations</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+      <div class="row" onclick="go('s-notif')"><div class="ri ri-r"><span class="ms ms-24" aria-hidden="true">notifications</span></div><div class="rb"><div class="rt">Notifications</div></div><span class="badge" style="margin-right:6px">5</span><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+      <div class="row" onclick="go('s-reps')"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">description</span></div><div class="rb"><div class="rt">Reports</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+      <div class="row" onclick="go('s-members')"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">groups</span></div><div class="rb"><div class="rt">Team members</div></div><div class="rv">8</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+      <div class="row" onclick="go('s-set')"><div class="ri ri-gr"><span class="ms ms-24" aria-hidden="true">settings</span></div><div class="rb"><div class="rt">Settings</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
     </div></div>
     <div class="spc"></div>
   </div>
   <div class="tb-bar">
     <div class="tb-grp">
-      <button class="ti" onclick="tab('out')"><svg viewBox="0 0 24 24"><use href="#sf-dev"/></svg><span>Devices</span></button>
-      <button class="ti" onclick="tab('dev')"><svg viewBox="0 0 24 24"><use href="#sf-plug"/></svg><span>Outputs</span></button>
-      <button class="ti" onclick="tab('nrg')"><svg viewBox="0 0 24 24"><use href="#sf-dashboard"/></svg><span>Dashboard</span></button>
-      <button class="ti on" onclick="tab('acc')"><svg viewBox="0 0 24 24"><use href="#sf-ellipsis"/></svg><span>More</span></button>
+      <button class="ti" onclick="tab('out')"><span class="ms ms-24" aria-hidden="true">devices</span><span>Devices</span></button>
+      <button class="ti" onclick="tab('dev')"><span class="ms ms-24" aria-hidden="true">electrical_services</span><span>Outputs</span></button>
+      <button class="ti" onclick="tab('nrg')"><span class="ms ms-24" aria-hidden="true">dashboard</span><span>Dashboard</span></button>
+      <button class="ti on" onclick="tab('acc')"><span class="ms ms-24" aria-hidden="true">more_horiz</span><span>More</span></button>
     </div>
-    <button class="tb-fab" onclick="openSheet('sh-add')"><svg viewBox="0 0 24 24"><use href="#sf-plus"/></svg></button>
+    <button class="tb-fab" onclick="openSheet('sh-add')"><span class="ms ms-24" aria-hidden="true">add</span></button>
   </div>
 </div>
 
 <!-- ═══════════ ORGS LIST (TECH — 3 orgs) ═══════════ -->
 <div class="scr" id="s-orgs">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Organizations</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Organizations</span><div class="nb-spc"></div></div>
   <div class="cnt">
     <div class="sec"><div class="card">
       <div class="row" onclick="go('s-org-det')"><div class="av-sm" style="background:var(--brand)">D</div><div class="rb"><div class="rt">DataCenter s.r.o.</div><div class="rs">Admin · 14 devices · 3.2M cr</div></div><span style="color:var(--brand);font-weight:700;font-size:17px;margin-right:6px">✓</span><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
@@ -498,7 +499,7 @@
 <!-- ═══════════ ORG DETAIL / MEMBERS / SCHEDULER / WDOG / FW / SEARCH / NOTIF / SETTINGS / REPORTS (reused) ═══════════ -->
 <div class="scr" id="s-org-det">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">DataCenter s.r.o.</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">DataCenter s.r.o.</span><div class="nb-spc"></div></div>
   <div class="cnt">
     <div class="cbanner">
       <div class="cs">DataCenter s.r.o. · Credits</div>
@@ -507,16 +508,16 @@
       <div class="cbar-t"><div class="cbar-f" style="width:70%"></div></div>
     </div>
     <div class="sec"><div class="card">
-      <div class="row" onclick="go('s-members')"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-users"/></svg></div><div class="rb"><div class="rt">Members</div></div><div class="rv">8</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-      <div class="row" onclick="tab('out')"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="rb"><div class="rt">Devices</div></div><div class="rv">14</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-      <div class="row"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-card"/></svg></div><div class="rb"><div class="rt">Subscription</div></div><span class="tag tg" style="margin-right:6px">Pro</span><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+      <div class="row" onclick="go('s-members')"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">groups</span></div><div class="rb"><div class="rt">Members</div></div><div class="rv">8</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+      <div class="row" onclick="tab('out')"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="rb"><div class="rt">Devices</div></div><div class="rv">14</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+      <div class="row"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">credit_card</span></div><div class="rb"><div class="rt">Subscription</div></div><span class="tag tg" style="margin-right:6px">Pro</span><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
     </div></div>
     <div class="spc"></div>
   </div>
 </div>
 <div class="scr" id="s-members">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Team members</span><button class="nb-btn" onclick="go('s-invite')"><svg viewBox="0 0 24 24"><use href="#i-plus"/></svg></button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Team members</span><button class="nb-btn" onclick="go('s-invite')"><span class="ms ms-24" aria-hidden="true">add</span></button></div>
   <div class="cnt">
     <div class="sec"><div class="card">
       <div class="row"><div class="av-sm" style="background:var(--brand)">J</div><div class="rb"><div class="rt">Jan Novák</div><div class="rs"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cfa5aea18fabaebbaeacaaa1bbaabde1acb5">[email&#160;protected]</a></div></div><span class="tag tg">Admin</span></div>
@@ -529,14 +530,14 @@
 </div>
 <div class="scr" id="s-invite">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Invite member</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Invite member</span><div class="nb-spc"></div></div>
   <div class="cnt" style="padding-bottom:24px">
     <div class="sec"><div class="fc"><div class="ff"><div class="flb">Email address</div><input class="fi" type="email" placeholder="colleague@company.com"></div></div></div>
     <div class="sec"><div class="sec-hdr">Role</div>
       <div class="card">
-        <div class="row" onclick="setIRole('admin')"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-shield"/></svg></div><div class="rb"><div class="rt">Admin</div><div class="rs">Full access</div></div><div id="ir-admin"></div></div>
-        <div class="row" onclick="setIRole('user')"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-user"/></svg></div><div class="rb"><div class="rt">User</div><div class="rs">Control outputs, view devices</div></div><div id="ir-user" style="color:var(--brand);font-size:20px;font-weight:700">✓</div></div>
-        <div class="row" onclick="setIRole('custom')"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-gear"/></svg></div><div class="rb"><div class="rt">Custom</div><div class="rs">Per-output permissions</div></div><div id="ir-custom"></div></div>
+        <div class="row" onclick="setIRole('admin')"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">shield</span></div><div class="rb"><div class="rt">Admin</div><div class="rs">Full access</div></div><div id="ir-admin"></div></div>
+        <div class="row" onclick="setIRole('user')"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">person</span></div><div class="rb"><div class="rt">User</div><div class="rs">Control outputs, view devices</div></div><div id="ir-user" style="color:var(--brand);font-size:20px;font-weight:700">✓</div></div>
+        <div class="row" onclick="setIRole('custom')"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">settings</span></div><div class="rb"><div class="rt">Custom</div><div class="rs">Per-output permissions</div></div><div id="ir-custom"></div></div>
         <div class="row" onclick="go('s-custom-role')" style="padding-left:28px"><div class="ri" style="background:transparent;width:30px"></div><div class="rb"><div class="rt" style="font-size:15px;color:var(--brand)">Configure custom role →</div></div></div>
       </div>
     </div>
@@ -545,27 +546,27 @@
 </div>
 <div class="scr" id="s-sched">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Scheduler</span><button class="nb-txt">Save</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Scheduler</span><button class="nb-txt">Save</button></div>
   <div class="cnt">
     <div class="sec"><div class="sec-hdr">Weekly plan</div></div>
     <div style="background:var(--bg1);border-radius:var(--r);padding:14px;margin:8px 16px 0;overflow-x:auto"><div class="sgrid" id="sgrid"></div></div>
-    <div class="sec"><div class="card"><div class="row"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-timer"/></svg></div><div class="rb"><div class="rt">Mon–Sun 00:00–24:00</div><div class="rs">Always ON</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div></div></div>
+    <div class="sec"><div class="card"><div class="row"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">schedule</span></div><div class="rb"><div class="rt">Mon–Sun 00:00–24:00</div><div class="rs">Always ON</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div></div></div>
     <div style="margin:12px 16px 0"><button class="sbtn">+ Add interval</button></div>
     <div class="spc"></div>
   </div>
 </div>
 <div class="scr" id="s-wdog">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">WatchDog</span><button class="nb-txt">Save</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">WatchDog</span><button class="nb-txt">Save</button></div>
   <div class="cnt">
-    <div class="sec"><div class="card"><div class="trow"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-dog"/></svg></div><div class="tb"><div class="tt">WatchDog enabled</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div></div></div>
+    <div class="sec"><div class="card"><div class="trow"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">pets</span></div><div class="tb"><div class="tt">WatchDog enabled</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div></div></div>
     <div class="sec"><div class="sec-hdr">Configuration</div>
       <div class="card">
-        <div class="row"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-ip"/></svg></div><div class="rb"><div class="rt">IP address</div></div><div class="rv">10.0.0.1</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-t"><svg viewBox="0 0 24 24"><use href="#i-timer"/></svg></div><div class="rb"><div class="rt">Check interval</div></div><div class="rv">30 s</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-restart"/></svg></div><div class="rb"><div class="rt">Action on fail</div></div><div class="rv">Restart</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-p"><svg viewBox="0 0 24 24"><use href="#i-timer"/></svg></div><div class="rb"><div class="rt">Restart delay</div></div><div class="rv">10 s</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-gr"><svg viewBox="0 0 24 24"><use href="#i-timer"/></svg></div><div class="rb"><div class="rt">Max retries</div></div><div class="rv">3</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">lan</span></div><div class="rb"><div class="rt">IP address</div></div><div class="rv">10.0.0.1</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-t"><span class="ms ms-24" aria-hidden="true">schedule</span></div><div class="rb"><div class="rt">Check interval</div></div><div class="rv">30 s</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">restart_alt</span></div><div class="rb"><div class="rt">Action on fail</div></div><div class="rv">Restart</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-p"><span class="ms ms-24" aria-hidden="true">schedule</span></div><div class="rb"><div class="rt">Restart delay</div></div><div class="rv">10 s</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-gr"><span class="ms ms-24" aria-hidden="true">schedule</span></div><div class="rb"><div class="rt">Max retries</div></div><div class="rv">3</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="spc"></div>
@@ -573,16 +574,16 @@
 </div>
 <div class="scr" id="s-fw">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Firmware update</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Firmware update</span><div class="nb-spc"></div></div>
   <div class="cnt">
     <div style="display:flex;flex-direction:column;align-items:center;padding:36px 28px 24px;gap:12px;text-align:center">
-      <div style="width:62px;height:62px;border-radius:17px;background:rgba(255,149,0,.12);display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24"><use href="#i-fw" stroke="var(--orange)" stroke-width="2" fill="none"/></svg></div>
+      <div style="width:62px;height:62px;border-radius:17px;background:rgba(255,149,0,.12);display:flex;align-items:center;justify-content:center"><span class="ms ms-28" style="color:var(--orange)" aria-hidden="true">swap_horiz</span></div>
       <div style="font-size:20px;font-weight:700;color:var(--lp);letter-spacing:-.4px">Update available</div>
       <div style="font-size:15px;color:var(--ls)">3.4.1 → 3.4.2 · Released April 2026</div>
     </div>
     <div class="sec"><div class="card">
-      <div class="row row-nc"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-tag"/></svg></div><div class="rb"><div class="rt">Current</div></div><div class="rv">3.4.1</div></div>
-      <div class="row row-nc"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-fw"/></svg></div><div class="rb"><div class="rt">Available</div></div><span class="tag" style="background:rgba(255,149,0,.12);color:var(--orange)">3.4.2</span></div>
+      <div class="row row-nc"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">label</span></div><div class="rb"><div class="rt">Current</div></div><div class="rv">3.4.1</div></div>
+      <div class="row row-nc"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">swap_horiz</span></div><div class="rb"><div class="rt">Available</div></div><span class="tag" style="background:rgba(255,149,0,.12);color:var(--orange)">3.4.2</span></div>
     </div></div>
     <div style="margin:16px 16px 0;display:flex;flex-direction:column;gap:10px">
       <button class="pbtn" onclick="back()">Install update</button>
@@ -593,7 +594,7 @@
 </div>
 <div class="scr" id="s-notif">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Notifications</span><button class="nb-txt" style="font-size:14px">Clear</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Notifications</span><button class="nb-txt" style="font-size:14px">Clear</button></div>
   <div class="cnt">
     <div class="sec"><div class="sec-hdr">Today</div>
       <div class="card">
@@ -609,13 +610,13 @@
 </div>
 <div class="scr" id="s-reps">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Reports</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Reports</span><div class="nb-spc"></div></div>
   <div class="cnt">
     <div class="sec"><div class="sec-hdr">Daily billing</div>
       <div class="card">
-        <div class="row"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-doc"/></svg></div><div class="rb"><div class="rt">April 11, 2026</div><div class="rs">3 840 credits · 14 devices</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-doc"/></svg></div><div class="rb"><div class="rt">April 10, 2026</div><div class="rs">3 720 credits · 14 devices</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-doc"/></svg></div><div class="rb"><div class="rt">April 9, 2026</div><div class="rs">3 540 credits · 13 devices</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">description</span></div><div class="rb"><div class="rt">April 11, 2026</div><div class="rs">3 840 credits · 14 devices</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">description</span></div><div class="rb"><div class="rt">April 10, 2026</div><div class="rs">3 720 credits · 14 devices</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">description</span></div><div class="rb"><div class="rt">April 9, 2026</div><div class="rs">3 540 credits · 13 devices</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="spc"></div>
@@ -623,19 +624,19 @@
 </div>
 <div class="scr" id="s-set">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Settings</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Settings</span><div class="nb-spc"></div></div>
   <div class="cnt">
     <div class="sec"><div class="sec-hdr">Appearance</div>
       <div class="card">
-        <div class="row" onclick="go('s-appear')"><div class="ri ri-p"><svg viewBox="0 0 24 24"><use href="#i-moon"/></svg></div><div class="rb"><div class="rt">Appearance</div></div><div class="rv" id="appear-val">System</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-globe"/></svg></div><div class="rb"><div class="rt">Language</div></div><div class="rv">Czech</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="go('s-appear')"><div class="ri ri-p"><span class="ms ms-24" aria-hidden="true">dark_mode</span></div><div class="rb"><div class="rt">Appearance</div></div><div class="rv" id="appear-val">System</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">language</span></div><div class="rb"><div class="rt">Language</div></div><div class="rv">Czech</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="sec"><div class="sec-hdr">Notifications</div>
       <div class="card">
-        <div class="trow"><div class="ri ri-r"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></div><div class="tb"><div class="tt">Push notifications</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
-        <div class="trow"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-wifi"/></svg></div><div class="tb"><div class="tt">Connection alerts</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
-        <div class="trow"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-fw"/></svg></div><div class="tb"><div class="tt">Firmware update alerts</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
+        <div class="trow"><div class="ri ri-r"><span class="ms ms-24" aria-hidden="true">notifications</span></div><div class="tb"><div class="tt">Push notifications</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
+        <div class="trow"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">wifi</span></div><div class="tb"><div class="tt">Connection alerts</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
+        <div class="trow"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">swap_horiz</span></div><div class="tb"><div class="tt">Firmware update alerts</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
       </div>
     </div>
     <div class="sec"><div class="card"><div class="row dest" style="justify-content:center"><div class="rt">Log Out</div></div></div></div>
@@ -644,7 +645,7 @@
 </div>
 <div class="scr" id="s-appear">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Appearance</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Appearance</span><div class="nb-spc"></div></div>
   <div class="cnt">
     <div class="sec"><div class="card">
       <div class="aptile" onclick="setAppear('light')"><div class="ap-preview" style="background:#f2f2f7"><div style="height:50%;background:#fff"></div></div><div class="rb"><div class="rt">Light</div></div><div class="ap-check" id="ap-light"></div></div>
@@ -656,19 +657,19 @@
 </div>
 <div class="scr" id="s-user">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Profile</span><button class="nb-txt">Edit</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Profile</span><button class="nb-txt">Edit</button></div>
   <div class="cnt">
     <div class="ph"><div class="av-lg">JN</div><div class="pname">Jan Novák</div><div class="pemail"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a1cbc0cfe1c5c0d5c0c2c4cfd5c4d38fc2db">[email&#160;protected]</a></div><span class="tag tg">Admin</span></div>
     <div class="sec"><div class="card">
-      <div class="row"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-lock"/></svg></div><div class="rb"><div class="rt">Change password</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-      <div class="row"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-shield"/></svg></div><div class="rb"><div class="rt">Two-Factor Auth</div></div><span class="tag tg" style="margin-right:6px">Enabled</span><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+      <div class="row"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">lock</span></div><div class="rb"><div class="rt">Change password</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+      <div class="row"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">shield</span></div><div class="rb"><div class="rt">Two-Factor Auth</div></div><span class="tag tg" style="margin-right:6px">Enabled</span><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
     </div></div>
     <div class="spc"></div>
   </div>
 </div>
 <div class="scr" id="s-search">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Search</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Search</span><div class="nb-spc"></div></div>
   <div class="cnt" style="padding:16px">
     <div style="background:var(--ft);border-radius:12px;padding:0 14px;display:flex;align-items:center;gap:10px;height:44px">
       <svg width="16" height="16" viewBox="0 0 24 24" stroke="var(--ls)" stroke-width="2" fill="none"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="15.65" y2="15.65"/></svg>
@@ -681,10 +682,10 @@
 <!-- FIND DEVICES / NFC / ADD MANUAL / ADD OK -->
 <div class="scr" id="s-find">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Find devices</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Find devices</span><div class="nb-spc"></div></div>
   <div class="cnt">
     <div class="scan-wrap">
-      <div class="scan-ring"><svg width="30" height="30" viewBox="0 0 24 24"><use href="#i-search" stroke="var(--brand)" stroke-width="2" fill="none"/></svg></div>
+      <div class="scan-ring"><span class="ms ms-30" style="color:var(--brand)" aria-hidden="true">search</span></div>
       <div class="scan-title" id="scan-st">Scanning…</div>
       <div class="scan-sub">Searching 192.168.1.x for NETIO devices</div>
       <div class="ptrack"><div class="pfill" id="scan-bar"></div></div>
@@ -692,9 +693,9 @@
     <div id="scan-found" style="display:none">
       <div class="sec"><div class="sec-hdr">Found (2)</div>
         <div class="card">
-          <div class="dc" onclick="go('s-add-ok')"><div class="dib"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="dinfo"><div class="dn">PowerPDU 4KS</div><div class="dm">192.168.1.30 · fw 3.4.0</div></div><button style="height:30px;padding:0 14px;border-radius:100px;border:none;background:var(--brand);color:#fff;font-size:13px;font-weight:600;cursor:pointer">Add</button></div>
+          <div class="dc" onclick="go('s-add-ok')"><div class="dib"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="dinfo"><div class="dn">PowerPDU 4KS</div><div class="dm">192.168.1.30 · fw 3.4.0</div></div><button style="height:30px;padding:0 14px;border-radius:100px;border:none;background:var(--brand);color:#fff;font-size:13px;font-weight:600;cursor:pointer">Add</button></div>
           <div style="height:.5px;background:var(--sep);margin:0 14px 0 70px"></div>
-          <div class="dc" onclick="go('s-add-ok')"><div class="dib"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="dinfo"><div class="dn">PowerBOX 3Px</div><div class="dm">192.168.1.31 · fw 2.1.0</div></div><button style="height:30px;padding:0 14px;border-radius:100px;border:none;background:var(--brand);color:#fff;font-size:13px;font-weight:600;cursor:pointer">Add</button></div>
+          <div class="dc" onclick="go('s-add-ok')"><div class="dib"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="dinfo"><div class="dn">PowerBOX 3Px</div><div class="dm">192.168.1.31 · fw 2.1.0</div></div><button style="height:30px;padding:0 14px;border-radius:100px;border:none;background:var(--brand);color:#fff;font-size:13px;font-weight:600;cursor:pointer">Add</button></div>
         </div>
       </div>
     </div>
@@ -703,19 +704,19 @@
 </div>
 <div class="scr" id="s-nfc">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">NFC configuration</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">NFC configuration</span><div class="nb-spc"></div></div>
   <div class="cnt">
     <div style="display:flex;flex-direction:column;align-items:center;padding:40px 28px 24px;gap:16px;text-align:center">
-      <div class="nfc-ring"><svg width="48" height="48" viewBox="0 0 24 24"><use href="#i-nfc" stroke="var(--brand)" stroke-width="1.5" fill="none"/></svg></div>
+      <div class="nfc-ring"><span class="ms ms-48" style="color:var(--brand)" aria-hidden="true">nfc</span></div>
       <div style="font-size:22px;font-weight:700;color:var(--lp);letter-spacing:-.5px">Hold near device</div>
       <div style="font-size:15px;color:var(--ls);line-height:1.5">Transfer configuration to new device via NFC. Works even without power.</div>
     </div>
     <div class="sec"><div class="sec-hdr">Configuration to transfer</div>
       <div class="card">
-        <div class="row row-nc"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-cloud"/></svg></div><div class="rb"><div class="rt">NETIO Cloud</div></div><span class="tag tg">Enabled</span></div>
-        <div class="row row-nc"><div class="ri ri-t"><svg viewBox="0 0 24 24"><use href="#i-wifi"/></svg></div><div class="rb"><div class="rt">WiFi network</div></div><div class="rv" style="font-size:15px">DC_Internal</div></div>
-        <div class="row row-nc"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-bld"/></svg></div><div class="rb"><div class="rt">Organization</div></div><div class="rv">DataCenter s.r.o.</div></div>
-        <div class="row" onclick="go('s-grp')"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">Assign to group</div></div><div class="rv">Server Room A</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row row-nc"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">cloud</span></div><div class="rb"><div class="rt">NETIO Cloud</div></div><span class="tag tg">Enabled</span></div>
+        <div class="row row-nc"><div class="ri ri-t"><span class="ms ms-24" aria-hidden="true">wifi</span></div><div class="rb"><div class="rt">WiFi network</div></div><div class="rv" style="font-size:15px">DC_Internal</div></div>
+        <div class="row row-nc"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">apartment</span></div><div class="rb"><div class="rt">Organization</div></div><div class="rv">DataCenter s.r.o.</div></div>
+        <div class="row" onclick="go('s-grp')"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">folder</span></div><div class="rb"><div class="rt">Assign to group</div></div><div class="rv">Server Room A</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="spc"></div>
@@ -723,7 +724,7 @@
 </div>
 <div class="scr" id="s-add-man">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Add manually</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Add manually</span><div class="nb-spc"></div></div>
   <div class="cnt" style="padding-bottom:24px">
     <div class="sec"><div class="fc">
       <div class="ff"><div class="flb">Device name</div><input class="fi" type="text" placeholder="e.g. PowerPDU Row B3"></div>
@@ -733,8 +734,8 @@
     </div></div>
     <div class="sec"><div class="sec-hdr">Assign</div>
       <div class="card">
-        <div class="row"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">Group</div></div><div class="rv">Server Room A</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-bld"/></svg></div><div class="rb"><div class="rt">Organization</div></div><div class="rv">DataCenter s.r.o.</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">folder</span></div><div class="rb"><div class="rt">Group</div></div><div class="rv">Server Room A</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">apartment</span></div><div class="rb"><div class="rt">Organization</div></div><div class="rv">DataCenter s.r.o.</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div style="margin:16px 16px 0"><button class="pbtn" onclick="go('s-add-ok')">Connect device</button></div>
@@ -742,17 +743,17 @@
 </div>
 <div class="scr" id="s-add-ok">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Device added</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Device added</span><div class="nb-spc"></div></div>
   <div class="cnt" style="padding-bottom:24px">
     <div class="swrap">
-      <div class="scheck"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg></div>
+      <div class="scheck"><span class="ms ms-24" aria-hidden="true">check</span></div>
       <div class="stit">Connected!</div>
       <div class="sbod">PowerPDU 4KS added to Server Room A in DataCenter s.r.o. Syncing with NETIO Cloud.</div>
     </div>
     <div class="sec"><div class="card">
-      <div class="row row-nc"><div class="ri ri-t"><svg viewBox="0 0 24 24"><use href="#i-tag"/></svg></div><div class="rb"><div class="rt">Model</div></div><div class="rv">PowerPDU 4KS</div></div>
-      <div class="row row-nc"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-ip"/></svg></div><div class="rb"><div class="rt">IP</div></div><div class="rv">192.168.1.30</div></div>
-      <div class="row row-nc"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">Group</div></div><div class="rv">Server Room A</div></div>
+      <div class="row row-nc"><div class="ri ri-t"><span class="ms ms-24" aria-hidden="true">label</span></div><div class="rb"><div class="rt">Model</div></div><div class="rv">PowerPDU 4KS</div></div>
+      <div class="row row-nc"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">lan</span></div><div class="rb"><div class="rt">IP</div></div><div class="rv">192.168.1.30</div></div>
+      <div class="row row-nc"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">folder</span></div><div class="rb"><div class="rt">Group</div></div><div class="rv">Server Room A</div></div>
     </div></div>
     <div style="margin:16px 16px 0;display:flex;flex-direction:column;gap:10px">
       <button class="pbtn" onclick="go('s-dev-config')">Configure device</button>
@@ -765,27 +766,27 @@
 <!-- ═══════════ SCREEN: NETIO CLOUD SETUP ═══════════ -->
 <div class="scr" id="s-cloud-setup">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">NETIO Cloud</span><button class="nb-txt">Save</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">NETIO Cloud</span><button class="nb-txt">Save</button></div>
   <div class="cnt">
     <div class="sec">
       <div class="card">
-        <div class="trow"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-cloud"/></svg></div><div class="tb"><div class="tt">NETIO Cloud enabled</div><div class="tsb">broker.cloud.netio.eu : 8883</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
-        <div class="row row-nc"><div class="ri ri-gr"><svg viewBox="0 0 24 24"><use href="#i-tag"/></svg></div><div class="rb"><div class="rt">MQTT status</div></div><span class="tag tg">Connected</span></div>
-        <div class="row row-nc"><div class="ri ri-gr"><svg viewBox="0 0 24 24"><use href="#i-tag"/></svg></div><div class="rb"><div class="rt">Organization</div></div><div class="rv">DataCenter s.r.o.</div></div>
+        <div class="trow"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">cloud</span></div><div class="tb"><div class="tt">NETIO Cloud enabled</div><div class="tsb">broker.cloud.netio.eu : 8883</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
+        <div class="row row-nc"><div class="ri ri-gr"><span class="ms ms-24" aria-hidden="true">label</span></div><div class="rb"><div class="rt">MQTT status</div></div><span class="tag tg">Connected</span></div>
+        <div class="row row-nc"><div class="ri ri-gr"><span class="ms ms-24" aria-hidden="true">label</span></div><div class="rb"><div class="rt">Organization</div></div><div class="rv">DataCenter s.r.o.</div></div>
       </div>
     </div>
     <div class="sec"><div class="sec-hdr">Connection details</div>
       <div class="card">
-        <div class="row row-nc"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-ip"/></svg></div><div class="rb"><div class="rt">Broker</div></div><div class="rv" style="font-size:13px">broker.cloud.netio.eu</div></div>
-        <div class="row row-nc"><div class="ri ri-t"><svg viewBox="0 0 24 24"><use href="#i-ip"/></svg></div><div class="rb"><div class="rt">Port</div></div><div class="rv">8883 (TLS)</div></div>
-        <div class="row row-nc"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-shield"/></svg></div><div class="rb"><div class="rt">Protocol</div></div><div class="rv">MQTTs / TLS</div></div>
-        <div class="row row-nc"><div class="ri ri-gr"><svg viewBox="0 0 24 24"><use href="#i-timer"/></svg></div><div class="rb"><div class="rt">Last sync</div></div><div class="rv">Just now</div></div>
+        <div class="row row-nc"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">lan</span></div><div class="rb"><div class="rt">Broker</div></div><div class="rv" style="font-size:13px">broker.cloud.netio.eu</div></div>
+        <div class="row row-nc"><div class="ri ri-t"><span class="ms ms-24" aria-hidden="true">lan</span></div><div class="rb"><div class="rt">Port</div></div><div class="rv">8883 (TLS)</div></div>
+        <div class="row row-nc"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">shield</span></div><div class="rb"><div class="rt">Protocol</div></div><div class="rv">MQTTs / TLS</div></div>
+        <div class="row row-nc"><div class="ri ri-gr"><span class="ms ms-24" aria-hidden="true">schedule</span></div><div class="rb"><div class="rt">Last sync</div></div><div class="rv">Just now</div></div>
       </div>
     </div>
     <div class="sec"><div class="sec-hdr">Open API</div>
       <div class="card">
-        <div class="trow"><div class="ri ri-p"><svg viewBox="0 0 24 24"><use href="#i-fw"/></svg></div><div class="tb"><div class="tt">External API (MQTT)</div><div class="tsb">Allow 3rd party systems to control outputs</div></div><button class="tog" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
-        <div class="row row-nc"><div class="ri ri-gr"><svg viewBox="0 0 24 24"><use href="#i-tag"/></svg></div><div class="rb"><div class="rt">API endpoint</div></div><div class="rv" style="font-size:13px">cloud.netio.eu/api</div></div>
+        <div class="trow"><div class="ri ri-p"><span class="ms ms-24" aria-hidden="true">swap_horiz</span></div><div class="tb"><div class="tt">External API (MQTT)</div><div class="tsb">Allow 3rd party systems to control outputs</div></div><button class="tog" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
+        <div class="row row-nc"><div class="ri ri-gr"><span class="ms ms-24" aria-hidden="true">label</span></div><div class="rb"><div class="rt">API endpoint</div></div><div class="rv" style="font-size:13px">cloud.netio.eu/api</div></div>
       </div>
     </div>
     <div class="sec"><div class="fn">Device must have stable internet access on TCP port 8883 (MQTTs) and 443 (HTTPS) to connect to NETIO Cloud.</div></div>
@@ -796,7 +797,7 @@
 <!-- ═══════════ SCREEN: CUSTOM ROLE EDITOR ═══════════ -->
 <div class="scr" id="s-custom-role">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Custom role</span><button class="nb-txt">Save</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Custom role</span><button class="nb-txt">Save</button></div>
   <div class="cnt" style="padding-bottom:24px">
     <div class="sec">
       <div class="fc">
@@ -831,8 +832,8 @@
     </div>
     <div class="sec"><div class="sec-hdr">Per-output restrictions</div>
       <div class="card">
-        <div class="row"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">Restrict to groups</div><div class="rs">Only access specific device groups</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="rb"><div class="rt">Restrict to outputs</div><div class="rs">Only access specific outputs</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">folder</span></div><div class="rb"><div class="rt">Restrict to groups</div><div class="rs">Only access specific device groups</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">electrical_services</span></div><div class="rb"><div class="rt">Restrict to outputs</div><div class="rs">Only access specific outputs</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div style="margin:16px 16px 0"><button class="pbtn" onclick="back()">Save custom role</button></div>
@@ -845,9 +846,9 @@
     <div class="snotch"></div>
     <div class="stitle">Switch organization</div>
     <div class="scard">
-      <div class="sr" onclick="closeSheet(document.getElementById('sh-orgs'))"><div class="srich ri-g"><svg viewBox="0 0 24 24"><use href="#i-bld"/></svg></div>DataCenter s.r.o.<span class="sch">✓</span></div>
-      <div class="sr" onclick="closeSheet(document.getElementById('sh-orgs'))"><div class="srich" style="background:#5856d6"><svg viewBox="0 0 24 24"><use href="#i-bld"/></svg></div>NetServ Praha</div>
-      <div class="sr" onclick="closeSheet(document.getElementById('sh-orgs'))"><div class="srich" style="background:#ff9500"><svg viewBox="0 0 24 24"><use href="#i-bld"/></svg></div>Hotel Imperia</div>
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-orgs'))"><div class="srich ri-g"><span class="ms ms-24" aria-hidden="true">apartment</span></div>DataCenter s.r.o.<span class="sch">✓</span></div>
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-orgs'))"><div class="srich" style="background:#5856d6"><span class="ms ms-24" aria-hidden="true">apartment</span></div>NetServ Praha</div>
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-orgs'))"><div class="srich" style="background:#ff9500"><span class="ms ms-24" aria-hidden="true">apartment</span></div>Hotel Imperia</div>
     </div>
     <button class="spbtn" onclick="closeSheet(document.getElementById('sh-orgs'));go('s-orgs')">Manage organizations</button>
   </div>
@@ -857,9 +858,9 @@
     <div class="snotch"></div>
     <div class="stitle">Add device</div>
     <div class="scard">
-      <div class="sr" onclick="closeSheet(document.getElementById('sh-add'));setTimeout(()=>go('s-find'),180)"><div class="srich ri-b"><svg viewBox="0 0 24 24"><use href="#i-search"/></svg></div>Find devices (LAN)<svg class="ch" viewBox="0 0 10 18" style="margin-left:auto"><polyline points="1 1 9 9 1 17"/></svg></div>
-      <div class="sr" onclick="closeSheet(document.getElementById('sh-add'));setTimeout(()=>go('s-add-man'),180)"><div class="srich ri-g"><svg viewBox="0 0 24 24"><use href="#i-plus"/></svg></div>Add manually<svg class="ch" viewBox="0 0 10 18" style="margin-left:auto"><polyline points="1 1 9 9 1 17"/></svg></div>
-      <div class="sr" onclick="closeSheet(document.getElementById('sh-add'));setTimeout(()=>go('s-nfc'),180)"><div class="srich ri-p"><svg viewBox="0 0 24 24"><use href="#i-nfc"/></svg></div>NFC configuration<svg class="ch" viewBox="0 0 10 18" style="margin-left:auto"><polyline points="1 1 9 9 1 17"/></svg></div>
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-add'));setTimeout(()=>go('s-find'),180)"><div class="srich ri-b"><span class="ms ms-24" aria-hidden="true">search</span></div>Find devices (LAN)<svg class="ch" viewBox="0 0 10 18" style="margin-left:auto"><polyline points="1 1 9 9 1 17"/></svg></div>
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-add'));setTimeout(()=>go('s-add-man'),180)"><div class="srich ri-g"><span class="ms ms-24" aria-hidden="true">add</span></div>Add manually<svg class="ch" viewBox="0 0 10 18" style="margin-left:auto"><polyline points="1 1 9 9 1 17"/></svg></div>
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-add'));setTimeout(()=>go('s-nfc'),180)"><div class="srich ri-p"><span class="ms ms-24" aria-hidden="true">nfc</span></div>NFC configuration<svg class="ch" viewBox="0 0 10 18" style="margin-left:auto"><polyline points="1 1 9 9 1 17"/></svg></div>
     </div>
   </div>
 </div>

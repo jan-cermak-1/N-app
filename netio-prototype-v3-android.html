@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NETIO · Android · Prototyp v3</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <link rel="stylesheet" href="styles-ios.css">
 <link rel="stylesheet" href="styles-android.css">
 </head>
@@ -75,7 +76,7 @@
   <div class="nb">
     <span class="nb-logo"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span>
     <button class="nb-pill" onclick="openSheet('sh-orgs')">Hans inc.</button>
-    <button class="nb-btn" onclick="go('s-search')"><svg viewBox="0 0 24 24"><use href="#sf-search"/></svg></button>
+    <button class="nb-btn" onclick="go('s-search')"><span class="ms ms-24" aria-hidden="true">search</span></button>
   </div>
   <div class="cnt">
     <div class="sstrip">
@@ -85,49 +86,49 @@
     </div>
     <div class="sec"><div class="sec-hdr">All outputs</div>
       <div class="card">
-        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="oinfo"><div class="on2">Server Rack #1</div><div class="od">PowerPDU 8KS</div><div class="ow">124 W · 0.54 A</div></div><button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
-        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="oinfo"><div class="on2">Network Switch</div><div class="od">PowerPDU 8KS</div><div class="ow">38 W · 0.17 A</div></div><button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
-        <div class="oc" onclick="go('s-out-det')"><div class="oi off"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="oinfo"><div class="on2">IP Camera #3</div><div class="od">PowerBOX 4Kx</div><div class="ow" style="color:var(--lt)">Off</div></div><button class="sw off" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
-        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="oinfo"><div class="on2">Display Panel</div><div class="od">PowerCable 2KZ</div><div class="ow">65 W · 0.28 A</div></div><button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
-        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="oinfo"><div class="on2">UPS Primary</div><div class="od">PowerPDU 4KS</div><div class="ow">210 W · 0.91 A</div></div><button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
+        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><span class="ms ms-24" aria-hidden="true">electrical_services</span></div><div class="oinfo"><div class="on2">Server Rack #1</div><div class="od">PowerPDU 8KS</div><div class="ow">124 W · 0.54 A</div></div><button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
+        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><span class="ms ms-24" aria-hidden="true">electrical_services</span></div><div class="oinfo"><div class="on2">Network Switch</div><div class="od">PowerPDU 8KS</div><div class="ow">38 W · 0.17 A</div></div><button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
+        <div class="oc" onclick="go('s-out-det')"><div class="oi off"><span class="ms ms-24" aria-hidden="true">electrical_services</span></div><div class="oinfo"><div class="on2">IP Camera #3</div><div class="od">PowerBOX 4Kx</div><div class="ow" style="color:var(--lt)">Off</div></div><button class="sw off" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
+        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><span class="ms ms-24" aria-hidden="true">electrical_services</span></div><div class="oinfo"><div class="on2">Display Panel</div><div class="od">PowerCable 2KZ</div><div class="ow">65 W · 0.28 A</div></div><button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
+        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><span class="ms ms-24" aria-hidden="true">electrical_services</span></div><div class="oinfo"><div class="on2">UPS Primary</div><div class="od">PowerPDU 4KS</div><div class="ow">210 W · 0.91 A</div></div><button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
       </div>
     </div>
     <div class="sec"><div class="sec-hdr" style="cursor:pointer" onclick="go('s-grp')">Group — Server Room ›</div>
       <div class="card">
-        <div class="oc" onclick="go('s-out-det')"><div class="oi off"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="oinfo"><div class="on2">Backup Storage</div><div class="od">PowerPDU 8KS</div><div class="ow" style="color:var(--lt)">Off</div></div><button class="sw off" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
+        <div class="oc" onclick="go('s-out-det')"><div class="oi off"><span class="ms ms-24" aria-hidden="true">electrical_services</span></div><div class="oinfo"><div class="on2">Backup Storage</div><div class="od">PowerPDU 8KS</div><div class="ow" style="color:var(--lt)">Off</div></div><button class="sw off" onclick="tapSw(this,event)"><div class="kn"></div></button></div>
       </div>
     </div>
     <div class="spc"></div>
   </div>
   <div class="tb-bar">
     <div class="tb-grp">
-      <button class="ti on" onclick="tab('out')"><svg viewBox="0 0 24 24"><use href="#sf-plug"/></svg><span>Outputs</span></button>
-      <button class="ti" onclick="tab('dev')"><svg viewBox="0 0 24 24"><use href="#sf-dev"/></svg><span>Devices</span></button>
-      <button class="ti" onclick="tab('nrg')"><svg viewBox="0 0 24 24"><use href="#sf-dashboard"/></svg><span>Dashboard</span></button>
-      <button class="ti" onclick="tab('acc')"><svg viewBox="0 0 24 24"><use href="#sf-user"/></svg><span>Account</span></button>
+      <button class="ti on" onclick="tab('out')"><span class="ms ms-24" aria-hidden="true">electrical_services</span><span>Outputs</span></button>
+      <button class="ti" onclick="tab('dev')"><span class="ms ms-24" aria-hidden="true">devices</span><span>Devices</span></button>
+      <button class="ti" onclick="tab('nrg')"><span class="ms ms-24" aria-hidden="true">dashboard</span><span>Dashboard</span></button>
+      <button class="ti" onclick="tab('acc')"><span class="ms ms-24" aria-hidden="true">person</span><span>Account</span></button>
     </div>
-    <button class="tb-fab" onclick="openSheet('sh-add')"><svg viewBox="0 0 24 24"><use href="#sf-plus"/></svg></button>
+    <button class="tb-fab" onclick="openSheet('sh-add')"><span class="ms ms-24" aria-hidden="true">add</span></button>
   </div>
 </div>
 
 <!-- ═══════════ SCREEN: OUTPUT DETAIL ═══════════ -->
 <div class="scr" id="s-out-det">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Server Rack #1</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Server Rack #1</span><div class="nb-spc"></div></div>
   <div class="cnt">
     <div class="sec">
       <div class="card">
         <div class="oc row-nc">
-          <div class="oi on" style="width:50px;height:50px;border-radius:14px;"><svg viewBox="0 0 24 24" style="width:24px;height:24px;"><use href="#i-plug"/></svg></div>
+          <div class="oi on" style="width:50px;height:50px;border-radius:14px;"><span class="ms ms-24" aria-hidden="true">electrical_services</span></div>
           <div class="oinfo"><div style="font-size:20px;font-weight:700;color:var(--lp);letter-spacing:-.5px">Server Rack #1</div><div class="od">PowerPDU 8KS · Output 1</div><div style="display:flex;align-items:center;gap:4px;margin-top:4px"><div class="sdot s-on" style="width:7px;height:7px"></div><span style="font-size:13px;color:var(--green);font-weight:500">Online · Active</span></div></div>
           <button class="sw on" onclick="tapSw(this,event)"><div class="kn"></div></button>
         </div>
       </div>
     </div>
     <div class="astrip">
-      <button class="at"><div class="ai" style="background:var(--brand)"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><span class="alb">Turn On</span></button>
-      <button class="at"><div class="ai" style="background:#8e8e93"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><span class="alb">Turn Off</span></button>
-      <button class="at"><div class="ai" style="background:var(--orange)"><svg viewBox="0 0 24 24"><use href="#i-restart"/></svg></div><span class="alb">Restart</span></button>
+      <button class="at"><div class="ai" style="background:var(--brand)"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><span class="alb">Turn On</span></button>
+      <button class="at"><div class="ai" style="background:#8e8e93"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><span class="alb">Turn Off</span></button>
+      <button class="at"><div class="ai" style="background:var(--orange)"><span class="ms ms-24" aria-hidden="true">restart_alt</span></div><span class="alb">Restart</span></button>
     </div>
     <div class="mgrid">
       <div class="mt"><div class="mlb">Power</div><div class="mv">124<span class="mu">W</span></div></div>
@@ -139,15 +140,15 @@
     </div>
     <div class="sec"><div class="sec-hdr">Automation</div>
       <div class="card">
-        <div class="trow"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-cal"/></svg></div><div class="tb"><div class="tt">Scheduler</div><div class="tsb">Mon–Fri 08:00–18:00</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
+        <div class="trow"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">calendar_month</span></div><div class="tb"><div class="tt">Scheduler</div><div class="tsb">Mon–Fri 08:00–18:00</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
         <div class="row" onclick="go('s-sched')"><div class="ri" style="background:transparent;width:30px"></div><div class="rb"><div class="rt" style="font-size:15px">Configure schedule</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="trow"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-dog"/></svg></div><div class="tb"><div class="tt">WatchDog</div><div class="tsb">Ping 192.168.1.1 / 60s</div></div><button class="tog" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
+        <div class="trow"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">pets</span></div><div class="tb"><div class="tt">WatchDog</div><div class="tsb">Ping 192.168.1.1 / 60s</div></div><button class="tog" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
         <div class="row" onclick="go('s-wdog')"><div class="ri" style="background:transparent;width:30px"></div><div class="rb"><div class="rt" style="font-size:15px">Configure WatchDog</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="sec"><div class="sec-hdr">Alerts</div>
       <div class="card">
-        <div class="trow"><div class="ri ri-r"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></div><div class="tb"><div class="tt">Connection Alert</div><div class="tsb">Email on disconnect / restore</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
+        <div class="trow"><div class="ri ri-r"><span class="ms ms-24" aria-hidden="true">notifications</span></div><div class="tb"><div class="tt">Connection Alert</div><div class="tsb">Email on disconnect / restore</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
       </div>
     </div>
     <div class="spc"></div>
@@ -157,7 +158,7 @@
 <!-- ═══════════ SCREEN: SCHEDULER ═══════════ -->
 <div class="scr" id="s-sched">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Scheduler</span><button class="nb-txt">Save</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Scheduler</span><button class="nb-txt">Save</button></div>
   <div class="cnt">
     <div class="sec"><div class="sec-hdr">Weekly plan · Server Rack #1</div></div>
     <div style="background:var(--bg1);border-radius:var(--r);padding:14px;margin:8px 16px 0;overflow-x:auto">
@@ -165,7 +166,7 @@
     </div>
     <div class="sec"><div class="sec-hdr">Intervals</div>
       <div class="card">
-        <div class="row"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-timer"/></svg></div><div class="rb"><div class="rt">Mon – Fri</div><div class="rs">08:00 – 18:00 · ON</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">schedule</span></div><div class="rb"><div class="rt">Mon – Fri</div><div class="rs">08:00 – 18:00 · ON</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div style="margin:12px 16px 0"><button class="sbtn">+ Add interval</button></div>
@@ -176,19 +177,19 @@
 <!-- ═══════════ SCREEN: WATCHDOG ═══════════ -->
 <div class="scr" id="s-wdog">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">WatchDog</span><button class="nb-txt">Save</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">WatchDog</span><button class="nb-txt">Save</button></div>
   <div class="cnt">
     <div class="sec">
       <div class="card">
-        <div class="trow"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-dog"/></svg></div><div class="tb"><div class="tt">WatchDog enabled</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
+        <div class="trow"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">pets</span></div><div class="tb"><div class="tt">WatchDog enabled</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
       </div>
     </div>
     <div class="sec"><div class="sec-hdr">Ping configuration</div>
       <div class="card">
-        <div class="row"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-ip"/></svg></div><div class="rb"><div class="rt">IP address</div></div><div class="rv">192.168.1.1</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-t"><svg viewBox="0 0 24 24"><use href="#i-timer"/></svg></div><div class="rb"><div class="rt">Check interval</div></div><div class="rv">60 s</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-restart"/></svg></div><div class="rb"><div class="rt">Action on fail</div></div><div class="rv">Restart</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-p"><svg viewBox="0 0 24 24"><use href="#i-timer"/></svg></div><div class="rb"><div class="rt">Restart delay</div></div><div class="rv">5 s</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">lan</span></div><div class="rb"><div class="rt">IP address</div></div><div class="rv">192.168.1.1</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-t"><span class="ms ms-24" aria-hidden="true">schedule</span></div><div class="rb"><div class="rt">Check interval</div></div><div class="rv">60 s</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">restart_alt</span></div><div class="rb"><div class="rt">Action on fail</div></div><div class="rv">Restart</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-p"><span class="ms ms-24" aria-hidden="true">schedule</span></div><div class="rb"><div class="rt">Restart delay</div></div><div class="rv">5 s</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="spc"></div>
@@ -197,60 +198,60 @@
 <!-- ═══════════ SCREEN: DEVICES ═══════════ -->
 <div class="scr" id="s-dev">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><span class="nb-logo"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" onclick="openSheet('sh-orgs')">Hans inc.</button><button class="nb-btn" onclick="go('s-search')"><svg viewBox="0 0 24 24"><use href="#sf-search"/></svg></button></div>
+  <div class="nb"><span class="nb-logo"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" onclick="openSheet('sh-orgs')">Hans inc.</button><button class="nb-btn" onclick="go('s-search')"><span class="ms ms-24" aria-hidden="true">search</span></button></div>
   <div class="cnt">
     <div class="sec"><div class="sec-hdr" style="cursor:pointer" onclick="go('s-grp')">Server Room ›</div>
       <div class="card">
-        <div class="dc" onclick="go('s-dev-det')"><div class="dib"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="dinfo"><div class="dn">PowerPDU 8KS</div><div class="dm">192.168.1.10 · 8 outputs</div><div class="dstat s-on"><div class="sdot"></div>Online · 372 W</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="dc" onclick="go('s-dev-det')"><div class="dib"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="dinfo"><div class="dn">PowerPDU 8KS</div><div class="dm">192.168.1.10 · 8 outputs</div><div class="dstat s-on"><div class="sdot"></div>Online · 372 W</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
         <div style="height:.5px;background:var(--sep);margin:0 14px 0 70px"></div>
-        <div class="dc" onclick="go('s-dev-det')"><div class="dib"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="dinfo"><div class="dn">PowerPDU 4KS</div><div class="dm">192.168.1.11 · 4 outputs</div><div class="dstat s-on"><div class="sdot"></div>Online · 65 W</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="dc" onclick="go('s-dev-det')"><div class="dib"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="dinfo"><div class="dn">PowerPDU 4KS</div><div class="dm">192.168.1.11 · 4 outputs</div><div class="dstat s-on"><div class="sdot"></div>Online · 65 W</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="sec"><div class="sec-hdr">Office</div>
       <div class="card">
-        <div class="dc" onclick="go('s-dev-det')"><div class="dib"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="dinfo"><div class="dn">PowerBOX 4Kx</div><div class="dm">192.168.1.20 · 4 outputs</div><div class="dstat s-warn"><div class="sdot"></div>2/4 online · 89 W</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="dc" onclick="go('s-dev-det')"><div class="dib"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="dinfo"><div class="dn">PowerBOX 4Kx</div><div class="dm">192.168.1.20 · 4 outputs</div><div class="dstat s-warn"><div class="sdot"></div>2/4 online · 89 W</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
         <div style="height:.5px;background:var(--sep);margin:0 14px 0 70px"></div>
-        <div class="dc" onclick="go('s-dev-det')"><div class="dib" style="background:rgba(255,59,48,.1)"><svg viewBox="0 0 24 24" style="fill:var(--red)"><use href="#i-dev"/></svg></div><div class="dinfo"><div class="dn">PowerCable 2KZ</div><div class="dm">192.168.1.21 · 2 outputs</div><div class="dstat s-off"><div class="sdot"></div>Offline since 08:42</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="dc" onclick="go('s-dev-det')"><div class="dib" style="background:rgba(255,59,48,.1)"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="dinfo"><div class="dn">PowerCable 2KZ</div><div class="dm">192.168.1.21 · 2 outputs</div><div class="dstat s-off"><div class="sdot"></div>Offline since 08:42</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="spc"></div>
   </div>
   <div class="tb-bar">
     <div class="tb-grp">
-      <button class="ti" onclick="tab('out')"><svg viewBox="0 0 24 24"><use href="#sf-plug"/></svg><span>Outputs</span></button>
-      <button class="ti on" onclick="tab('dev')"><svg viewBox="0 0 24 24"><use href="#sf-dev"/></svg><span>Devices</span></button>
-      <button class="ti" onclick="tab('nrg')"><svg viewBox="0 0 24 24"><use href="#sf-dashboard"/></svg><span>Dashboard</span></button>
-      <button class="ti" onclick="tab('acc')"><svg viewBox="0 0 24 24"><use href="#sf-user"/></svg><span>Account</span></button>
+      <button class="ti" onclick="tab('out')"><span class="ms ms-24" aria-hidden="true">electrical_services</span><span>Outputs</span></button>
+      <button class="ti on" onclick="tab('dev')"><span class="ms ms-24" aria-hidden="true">devices</span><span>Devices</span></button>
+      <button class="ti" onclick="tab('nrg')"><span class="ms ms-24" aria-hidden="true">dashboard</span><span>Dashboard</span></button>
+      <button class="ti" onclick="tab('acc')"><span class="ms ms-24" aria-hidden="true">person</span><span>Account</span></button>
     </div>
-    <button class="tb-fab" onclick="openSheet('sh-add')"><svg viewBox="0 0 24 24"><use href="#sf-plus"/></svg></button>
+    <button class="tb-fab" onclick="openSheet('sh-add')"><span class="ms ms-24" aria-hidden="true">add</span></button>
   </div>
 </div>
 
 <!-- ═══════════ SCREEN: DEVICE DETAIL ═══════════ -->
 <div class="scr" id="s-dev-det">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">PowerPDU 8KS</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">PowerPDU 8KS</span><div class="nb-spc"></div></div>
   <div class="cnt">
     <div class="sec">
       <div class="card">
-        <div class="row row-nc"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-ip"/></svg></div><div class="rb"><div class="rt">IP Address</div></div><div class="rv">192.168.1.10</div></div>
-        <div class="row row-nc"><div class="ri ri-t"><svg viewBox="0 0 24 24"><use href="#i-tag"/></svg></div><div class="rb"><div class="rt">Model</div></div><div class="rv">PowerPDU 8KS</div></div>
-        <div class="row row-nc"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-fw"/></svg></div><div class="rb"><div class="rt">Firmware</div></div><span class="tag tg" style="margin-right:6px">Up to date</span><div class="rv">3.4.1</div></div>
-        <div class="row" onclick="go('s-grp')"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">Group</div></div><div class="rv">Server Room</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row row-nc"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">lan</span></div><div class="rb"><div class="rt">IP Address</div></div><div class="rv">192.168.1.10</div></div>
+        <div class="row row-nc"><div class="ri ri-t"><span class="ms ms-24" aria-hidden="true">label</span></div><div class="rb"><div class="rt">Model</div></div><div class="rv">PowerPDU 8KS</div></div>
+        <div class="row row-nc"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">swap_horiz</span></div><div class="rb"><div class="rt">Firmware</div></div><span class="tag tg" style="margin-right:6px">Up to date</span><div class="rv">3.4.1</div></div>
+        <div class="row" onclick="go('s-grp')"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">folder</span></div><div class="rb"><div class="rt">Group</div></div><div class="rv">Server Room</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="sec"><div class="sec-hdr">Outputs (8)</div>
       <div class="card">
-        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="oinfo"><div class="on2">Server Rack #1</div><div class="ow">124 W</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="oinfo"><div class="on2">Network Switch</div><div class="ow">38 W</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="oc" onclick="go('s-out-det')"><div class="oi off"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="oinfo"><div class="on2">Output 3</div><div class="ow" style="color:var(--lt)">Off</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="oinfo"><div class="on2">UPS Primary</div><div class="ow">210 W</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><span class="ms ms-24" aria-hidden="true">electrical_services</span></div><div class="oinfo"><div class="on2">Server Rack #1</div><div class="ow">124 W</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><span class="ms ms-24" aria-hidden="true">electrical_services</span></div><div class="oinfo"><div class="on2">Network Switch</div><div class="ow">38 W</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="oc" onclick="go('s-out-det')"><div class="oi off"><span class="ms ms-24" aria-hidden="true">electrical_services</span></div><div class="oinfo"><div class="on2">Output 3</div><div class="ow" style="color:var(--lt)">Off</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="oc" onclick="go('s-out-det')"><div class="oi on"><span class="ms ms-24" aria-hidden="true">electrical_services</span></div><div class="oinfo"><div class="on2">UPS Primary</div><div class="ow">210 W</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="sec">
       <div class="card">
-        <div class="row" onclick="go('s-fw')"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-fw"/></svg></div><div class="rb"><div class="rt">Firmware update</div></div><span class="tag tg" style="margin-right:6px">Latest</span><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row dest"><div class="ri ri-r"><svg viewBox="0 0 24 24"><use href="#i-trash"/></svg></div><div class="rb"><div class="rt">Remove device</div></div></div>
+        <div class="row" onclick="go('s-fw')"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">swap_horiz</span></div><div class="rb"><div class="rt">Firmware update</div></div><span class="tag tg" style="margin-right:6px">Latest</span><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row dest"><div class="ri ri-r"><span class="ms ms-24" aria-hidden="true">delete</span></div><div class="rb"><div class="rt">Remove device</div></div></div>
       </div>
     </div>
     <div class="spc"></div>
@@ -260,22 +261,22 @@
 <!-- ═══════════ SCREEN: GROUP ═══════════ -->
 <div class="scr" id="s-grp">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Server Room</span><button class="nb-txt">Edit</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Server Room</span><button class="nb-txt">Edit</button></div>
   <div class="cnt">
     <div class="mgrid">
       <div class="mt"><div class="mlb">Devices</div><div class="mv">2</div></div>
       <div class="mt"><div class="mlb">Outputs</div><div class="mv">12</div></div>
     </div>
     <div class="astrip">
-      <button class="at"><div class="ai" style="background:var(--brand)"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><span class="alb">All ON</span></button>
-      <button class="at"><div class="ai" style="background:#8e8e93"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><span class="alb">All OFF</span></button>
-      <button class="at"><div class="ai" style="background:var(--brand)"><svg viewBox="0 0 24 24"><use href="#i-cal"/></svg></div><span class="alb">Scheduler</span></button>
+      <button class="at"><div class="ai" style="background:var(--brand)"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><span class="alb">All ON</span></button>
+      <button class="at"><div class="ai" style="background:#8e8e93"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><span class="alb">All OFF</span></button>
+      <button class="at"><div class="ai" style="background:var(--brand)"><span class="ms ms-24" aria-hidden="true">calendar_month</span></div><span class="alb">Scheduler</span></button>
     </div>
     <div class="sec"><div class="sec-hdr">Devices</div>
       <div class="card">
-        <div class="dc" onclick="go('s-dev-det')"><div class="dib"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="dinfo"><div class="dn">PowerPDU 8KS</div><div class="dm">192.168.1.10</div><div class="dstat s-on"><div class="sdot"></div>Online</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="dc" onclick="go('s-dev-det')"><div class="dib"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="dinfo"><div class="dn">PowerPDU 8KS</div><div class="dm">192.168.1.10</div><div class="dstat s-on"><div class="sdot"></div>Online</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
         <div style="height:.5px;background:var(--sep);margin:0 14px 0 70px"></div>
-        <div class="dc" onclick="go('s-dev-det')"><div class="dib"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="dinfo"><div class="dn">PowerPDU 4KS</div><div class="dm">192.168.1.11</div><div class="dstat s-on"><div class="sdot"></div>Online</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="dc" onclick="go('s-dev-det')"><div class="dib"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="dinfo"><div class="dn">PowerPDU 4KS</div><div class="dm">192.168.1.11</div><div class="dstat s-on"><div class="sdot"></div>Online</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="spc"></div>
@@ -285,7 +286,7 @@
 <!-- ═══════════ SCREEN: ENERGY ═══════════ -->
 <div class="scr" id="s-nrg">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><span class="nb-logo"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" onclick="openSheet('sh-orgs')">Hans inc.</button><button class="nb-btn"><svg viewBox="0 0 24 24"><use href="#sf-search"/></svg></button></div>
+  <div class="nb"><span class="nb-logo"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" onclick="openSheet('sh-orgs')">Hans inc.</button><button class="nb-btn"><span class="ms ms-24" aria-hidden="true">search</span></button></div>
   <div class="cnt">
     <div class="mgrid">
       <div class="mt"><div class="mlb">Total today</div><div class="mv">48.2<span class="mu">kWh</span></div></div>
@@ -307,31 +308,31 @@
     </div>
     <div class="sec"><div class="sec-hdr">Per device</div>
       <div class="card">
-        <div class="row row-nc"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="rb"><div class="rt">PowerPDU 8KS</div><div class="pbar"><div class="pbf" style="width:72%"></div></div></div><div class="rv">34.8 kWh</div></div>
-        <div class="row row-nc"><div class="ri ri-t"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="rb"><div class="rt">PowerBOX 4Kx</div><div class="pbar"><div class="pbf" style="width:28%"></div></div></div><div class="rv">13.4 kWh</div></div>
+        <div class="row row-nc"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="rb"><div class="rt">PowerPDU 8KS</div><div class="pbar"><div class="pbf" style="width:72%"></div></div></div><div class="rv">34.8 kWh</div></div>
+        <div class="row row-nc"><div class="ri ri-t"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="rb"><div class="rt">PowerBOX 4Kx</div><div class="pbar"><div class="pbf" style="width:28%"></div></div></div><div class="rv">13.4 kWh</div></div>
       </div>
     </div>
     <div class="sec">
       <div class="card">
-        <div class="row"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-export"/></svg></div><div class="rb"><div class="rt">Export data</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">upload</span></div><div class="rb"><div class="rt">Export data</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="spc"></div>
   </div>
   <div class="tb-bar">
     <div class="tb-grp">
-      <button class="ti" onclick="tab('out')"><svg viewBox="0 0 24 24"><use href="#sf-plug"/></svg><span>Outputs</span></button>
-      <button class="ti" onclick="tab('dev')"><svg viewBox="0 0 24 24"><use href="#sf-dev"/></svg><span>Devices</span></button>
-      <button class="ti on" onclick="tab('nrg')"><svg viewBox="0 0 24 24"><use href="#sf-dashboard"/></svg><span>Dashboard</span></button>
-      <button class="ti" onclick="tab('acc')"><svg viewBox="0 0 24 24"><use href="#sf-user"/></svg><span>Account</span></button>
+      <button class="ti" onclick="tab('out')"><span class="ms ms-24" aria-hidden="true">electrical_services</span><span>Outputs</span></button>
+      <button class="ti" onclick="tab('dev')"><span class="ms ms-24" aria-hidden="true">devices</span><span>Devices</span></button>
+      <button class="ti on" onclick="tab('nrg')"><span class="ms ms-24" aria-hidden="true">dashboard</span><span>Dashboard</span></button>
+      <button class="ti" onclick="tab('acc')"><span class="ms ms-24" aria-hidden="true">person</span><span>Account</span></button>
     </div>
-    <button class="tb-fab" onclick="openSheet('sh-add')"><svg viewBox="0 0 24 24"><use href="#sf-plus"/></svg></button>
+    <button class="tb-fab" onclick="openSheet('sh-add')"><span class="ms ms-24" aria-hidden="true">add</span></button>
   </div>
 </div>
 <!-- ═══════════ SCREEN: ACCOUNT ═══════════ -->
 <div class="scr" id="s-acc">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><span class="nb-logo"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" onclick="openSheet('sh-orgs')">Hans inc.</button><button class="nb-btn"><svg viewBox="0 0 24 24"><use href="#sf-search"/></svg></button></div>
+  <div class="nb"><span class="nb-logo"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" onclick="openSheet('sh-orgs')">Hans inc.</button><button class="nb-btn"><span class="ms ms-24" aria-hidden="true">search</span></button></div>
   <div class="cnt">
     <div class="sec">
       <div class="card">
@@ -344,37 +345,37 @@
     </div>
     <div class="sec">
       <div class="card">
-        <div class="row" onclick="go('s-orgs')"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-bld"/></svg></div><div class="rb"><div class="rt">Organization</div><div class="rs" style="color:var(--brand);font-weight:500">5 854 174 credits</div></div><div class="rv">Hans inc.</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row" onclick="go('s-notif')"><div class="ri ri-r"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></div><div class="rb"><div class="rt">Notifications</div></div><span class="badge" style="margin-right:6px">23</span><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row" onclick="go('s-dash')"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-chart"/></svg></div><div class="rb"><div class="rt">Dashboard</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row" onclick="go('s-reps')"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-doc"/></svg></div><div class="rb"><div class="rt">Reports</div></div><div class="rv">2</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row" onclick="go('s-set')"><div class="ri ri-gr"><svg viewBox="0 0 24 24"><use href="#i-gear"/></svg></div><div class="rb"><div class="rt">Settings</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="go('s-orgs')"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">apartment</span></div><div class="rb"><div class="rt">Organization</div><div class="rs" style="color:var(--brand);font-weight:500">5 854 174 credits</div></div><div class="rv">Hans inc.</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="go('s-notif')"><div class="ri ri-r"><span class="ms ms-24" aria-hidden="true">notifications</span></div><div class="rb"><div class="rt">Notifications</div></div><span class="badge" style="margin-right:6px">23</span><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="go('s-dash')"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">bar_chart</span></div><div class="rb"><div class="rt">Dashboard</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="go('s-reps')"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">description</span></div><div class="rb"><div class="rt">Reports</div></div><div class="rv">2</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="go('s-set')"><div class="ri ri-gr"><span class="ms ms-24" aria-hidden="true">settings</span></div><div class="rb"><div class="rt">Settings</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="spc"></div>
   </div>
   <div class="tb-bar">
     <div class="tb-grp">
-      <button class="ti" onclick="tab('out')"><svg viewBox="0 0 24 24"><use href="#sf-plug"/></svg><span>Outputs</span></button>
-      <button class="ti" onclick="tab('dev')"><svg viewBox="0 0 24 24"><use href="#sf-dev"/></svg><span>Devices</span></button>
-      <button class="ti" onclick="tab('nrg')"><svg viewBox="0 0 24 24"><use href="#sf-dashboard"/></svg><span>Dashboard</span></button>
-      <button class="ti on" onclick="tab('acc')"><svg viewBox="0 0 24 24"><use href="#sf-user"/></svg><span>Account</span></button>
+      <button class="ti" onclick="tab('out')"><span class="ms ms-24" aria-hidden="true">electrical_services</span><span>Outputs</span></button>
+      <button class="ti" onclick="tab('dev')"><span class="ms ms-24" aria-hidden="true">devices</span><span>Devices</span></button>
+      <button class="ti" onclick="tab('nrg')"><span class="ms ms-24" aria-hidden="true">dashboard</span><span>Dashboard</span></button>
+      <button class="ti on" onclick="tab('acc')"><span class="ms ms-24" aria-hidden="true">person</span><span>Account</span></button>
     </div>
-    <button class="tb-fab" onclick="openSheet('sh-add')"><svg viewBox="0 0 24 24"><use href="#sf-plus"/></svg></button>
+    <button class="tb-fab" onclick="openSheet('sh-add')"><span class="ms ms-24" aria-hidden="true">add</span></button>
   </div>
 </div>
 
 <!-- ═══════════ SCREEN: USER ═══════════ -->
 <div class="scr" id="s-user">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Profile</span><button class="nb-txt">Edit</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Profile</span><button class="nb-txt">Edit</button></div>
   <div class="cnt">
     <div class="ph"><div class="av-lg">JD</div><div class="pname">John Doe</div><div class="pemail"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="167c797e78567e7778653875797b">[email&#160;protected]</a></div><span class="tag tg">Admin</span></div>
     <div class="sec"><div class="sec-hdr">Account</div>
       <div class="card">
-        <div class="row row-nc"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-globe"/></svg></div><div class="rb"><div class="rt">Email</div></div><div class="rv" style="font-size:15px"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="402a2f282e0028212e336e232f2d">[email&#160;protected]</a></div></div>
-        <div class="row"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-lock"/></svg></div><div class="rb"><div class="rt">Change password</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-shield"/></svg></div><div class="rb"><div class="rt">Two-Factor Auth</div></div><span class="tag tg" style="margin-right:6px">Enabled</span><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row row-nc"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">language</span></div><div class="rb"><div class="rt">Email</div></div><div class="rv" style="font-size:15px"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="402a2f282e0028212e336e232f2d">[email&#160;protected]</a></div></div>
+        <div class="row"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">lock</span></div><div class="rb"><div class="rt">Change password</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">shield</span></div><div class="rb"><div class="rt">Two-Factor Auth</div></div><span class="tag tg" style="margin-right:6px">Enabled</span><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="sec"><div class="sec-hdr">Organizations</div>
@@ -390,7 +391,7 @@
 <!-- ═══════════ SCREEN: NOTIFICATIONS ═══════════ -->
 <div class="scr" id="s-notif">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Notifications</span><button class="nb-txt" style="font-size:14px">Clear all</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Notifications</span><button class="nb-txt" style="font-size:14px">Clear all</button></div>
   <div class="cnt">
     <div class="sec"><div class="sec-hdr">Today</div>
       <div class="card">
@@ -412,7 +413,7 @@
 <!-- ═══════════ SCREEN: DASHBOARD ═══════════ -->
 <div class="scr" id="s-dash">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Dashboard</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Dashboard</span><div class="nb-spc"></div></div>
   <div class="cnt">
     <div class="mgrid">
       <div class="mt" style="background:var(--brand)"><div class="mlb" style="color:rgba(255,255,255,.7)">Online outputs</div><div class="mv" style="color:#fff">12<span style="font-size:16px;font-weight:400;opacity:.7"> /16</span></div></div>
@@ -427,9 +428,9 @@
     </div>
     <div class="sec"><div class="sec-hdr">Recent activity</div>
       <div class="card">
-        <div class="row row-nc"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><div class="rb"><div class="rt">Server Rack #1 ON</div><div class="rs">09:00 · John Doe · 1 credit</div></div></div>
-        <div class="row row-nc"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-restart"/></svg></div><div class="rb"><div class="rt">Network Switch restart</div><div class="rs">08:55 · WatchDog · 2 credits</div></div></div>
-        <div class="row row-nc"><div class="ri ri-gr"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><div class="rb"><div class="rt">Display Panel OFF</div><div class="rs">18:00 · Scheduler · 1 credit</div></div></div>
+        <div class="row row-nc"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><div class="rb"><div class="rt">Server Rack #1 ON</div><div class="rs">09:00 · John Doe · 1 credit</div></div></div>
+        <div class="row row-nc"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">restart_alt</span></div><div class="rb"><div class="rt">Network Switch restart</div><div class="rs">08:55 · WatchDog · 2 credits</div></div></div>
+        <div class="row row-nc"><div class="ri ri-gr"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><div class="rb"><div class="rt">Display Panel OFF</div><div class="rs">18:00 · Scheduler · 1 credit</div></div></div>
       </div>
     </div>
     <div class="spc"></div>
@@ -438,13 +439,13 @@
 <!-- ═══════════ SCREEN: REPORTS ═══════════ -->
 <div class="scr" id="s-reps">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Reports</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Reports</span><div class="nb-spc"></div></div>
   <div class="cnt">
     <div class="sec"><div class="sec-hdr">Daily billing</div>
       <div class="card">
-        <div class="row" onclick="go('s-rep-det')"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-doc"/></svg></div><div class="rb"><div class="rt">April 11, 2026</div><div class="rs">1 240 credits · 4 devices</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row" onclick="go('s-rep-det')"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-doc"/></svg></div><div class="rb"><div class="rt">April 10, 2026</div><div class="rs">1 180 credits · 4 devices</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row" onclick="go('s-rep-det')"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-doc"/></svg></div><div class="rb"><div class="rt">April 9, 2026</div><div class="rs">980 credits · 3 devices</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="go('s-rep-det')"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">description</span></div><div class="rb"><div class="rt">April 11, 2026</div><div class="rs">1 240 credits · 4 devices</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="go('s-rep-det')"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">description</span></div><div class="rb"><div class="rt">April 10, 2026</div><div class="rs">1 180 credits · 4 devices</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="go('s-rep-det')"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">description</span></div><div class="rb"><div class="rt">April 9, 2026</div><div class="rs">980 credits · 3 devices</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="spc"></div>
@@ -454,7 +455,7 @@
 <!-- ═══════════ SCREEN: REPORT DETAIL ═══════════ -->
 <div class="scr" id="s-rep-det">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">April 11, 2026</span><button class="nb-btn"><svg viewBox="0 0 24 24"><use href="#i-export"/></svg></button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">April 11, 2026</span><button class="nb-btn"><span class="ms ms-24" aria-hidden="true">upload</span></button></div>
   <div class="cnt">
     <div class="cbanner">
       <div class="cs">Total credits used</div>
@@ -463,9 +464,9 @@
     </div>
     <div class="sec"><div class="sec-hdr">By device</div>
       <div class="card">
-        <div class="row row-nc"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="rb"><div class="rt">PowerPDU 8KS</div><div class="pbar"><div class="pbf" style="width:47%"></div></div></div><div class="rv">580 cr</div></div>
-        <div class="row row-nc"><div class="ri ri-t"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="rb"><div class="rt">PowerPDU 4KS</div><div class="pbar"><div class="pbf" style="width:26%"></div></div></div><div class="rv">320 cr</div></div>
-        <div class="row row-nc"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="rb"><div class="rt">PowerBOX 4Kx</div><div class="pbar"><div class="pbf" style="width:19%"></div></div></div><div class="rv">240 cr</div></div>
+        <div class="row row-nc"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="rb"><div class="rt">PowerPDU 8KS</div><div class="pbar"><div class="pbf" style="width:47%"></div></div></div><div class="rv">580 cr</div></div>
+        <div class="row row-nc"><div class="ri ri-t"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="rb"><div class="rt">PowerPDU 4KS</div><div class="pbar"><div class="pbf" style="width:26%"></div></div></div><div class="rv">320 cr</div></div>
+        <div class="row row-nc"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="rb"><div class="rt">PowerBOX 4Kx</div><div class="pbar"><div class="pbf" style="width:19%"></div></div></div><div class="rv">240 cr</div></div>
       </div>
     </div>
     <div class="spc"></div>
@@ -475,7 +476,7 @@
 <!-- ═══════════ SCREEN: ORGS LIST ═══════════ -->
 <div class="scr" id="s-orgs">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Organizations</span><button class="nb-btn" onclick="go('s-org-add')"><svg viewBox="0 0 24 24"><use href="#i-plus"/></svg></button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Organizations</span><button class="nb-btn" onclick="go('s-org-add')"><span class="ms ms-24" aria-hidden="true">add</span></button></div>
   <div class="cnt">
     <div class="sec">
       <div class="card">
@@ -491,7 +492,7 @@
 <!-- ═══════════ SCREEN: ORG DETAIL ═══════════ -->
 <div class="scr" id="s-org-det">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Hans inc.</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Hans inc.</span><div class="nb-spc"></div></div>
   <div class="cnt">
     <div class="cbanner">
       <div class="cs">Available credits</div>
@@ -501,11 +502,11 @@
     </div>
     <div class="sec">
       <div class="card">
-        <div class="row" onclick="go('s-credits')"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-card"/></svg></div><div class="rb"><div class="rt">Credits</div></div><div class="rv">5 854 174</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row" onclick="go('s-members')"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-users"/></svg></div><div class="rb"><div class="rt">Members</div></div><div class="rv">3</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row" onclick="tab('dev')"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="rb"><div class="rt">Devices</div></div><div class="rv">4</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-card"/></svg></div><div class="rb"><div class="rt">Subscription</div></div><span class="tag tg" style="margin-right:6px">Pro</span><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row" onclick="go('s-reps')"><div class="ri ri-p"><svg viewBox="0 0 24 24"><use href="#i-doc"/></svg></div><div class="rb"><div class="rt">Event log</div></div><div class="rv" style="font-size:15px">last 24h</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="go('s-credits')"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">credit_card</span></div><div class="rb"><div class="rt">Credits</div></div><div class="rv">5 854 174</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="go('s-members')"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">groups</span></div><div class="rb"><div class="rt">Members</div></div><div class="rv">3</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="tab('dev')"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="rb"><div class="rt">Devices</div></div><div class="rv">4</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">credit_card</span></div><div class="rb"><div class="rt">Subscription</div></div><span class="tag tg" style="margin-right:6px">Pro</span><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="go('s-reps')"><div class="ri ri-p"><span class="ms ms-24" aria-hidden="true">description</span></div><div class="rb"><div class="rt">Event log</div></div><div class="rv" style="font-size:15px">last 24h</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="sec">
@@ -520,7 +521,7 @@
 <!-- ═══════════ SCREEN: CREDITS ═══════════ -->
 <div class="scr" id="s-credits">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Credits</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Credits</span><div class="nb-spc"></div></div>
   <div class="cnt">
     <div class="cbanner" style="margin-top:16px">
       <div class="cs">Hans inc.</div>
@@ -530,16 +531,16 @@
     </div>
     <div class="sec"><div class="sec-hdr">Credit costs per action</div>
       <div class="card">
-        <div class="row row-nc"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><div class="rb"><div class="rt">Turn ON</div></div><div class="rv">1 credit</div></div>
-        <div class="row row-nc"><div class="ri ri-gr"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><div class="rb"><div class="rt">Turn OFF</div></div><div class="rv">1 credit</div></div>
-        <div class="row row-nc"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-restart"/></svg></div><div class="rb"><div class="rt">Restart</div></div><div class="rv">2 credits</div></div>
-        <div class="row row-nc"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-cloud"/></svg></div><div class="rb"><div class="rt">MQTT message</div></div><div class="rv">1 credit</div></div>
+        <div class="row row-nc"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><div class="rb"><div class="rt">Turn ON</div></div><div class="rv">1 credit</div></div>
+        <div class="row row-nc"><div class="ri ri-gr"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><div class="rb"><div class="rt">Turn OFF</div></div><div class="rv">1 credit</div></div>
+        <div class="row row-nc"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">restart_alt</span></div><div class="rb"><div class="rt">Restart</div></div><div class="rv">2 credits</div></div>
+        <div class="row row-nc"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">cloud</span></div><div class="rb"><div class="rt">MQTT message</div></div><div class="rv">1 credit</div></div>
       </div>
     </div>
     <div class="sec">
       <div class="card">
-        <div class="row"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-card"/></svg></div><div class="rb"><div class="rt">Buy credits</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row" onclick="go('s-reps')"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-doc"/></svg></div><div class="rb"><div class="rt">Billing history</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">credit_card</span></div><div class="rb"><div class="rt">Buy credits</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="go('s-reps')"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">description</span></div><div class="rb"><div class="rt">Billing history</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="spc"></div>
@@ -549,7 +550,7 @@
 <!-- ═══════════ SCREEN: MEMBERS ═══════════ -->
 <div class="scr" id="s-members">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Members</span><button class="nb-btn" onclick="go('s-invite')"><svg viewBox="0 0 24 24"><use href="#i-plus"/></svg></button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Members</span><button class="nb-btn" onclick="go('s-invite')"><span class="ms ms-24" aria-hidden="true">add</span></button></div>
   <div class="cnt">
     <div class="sec">
       <div class="card">
@@ -565,14 +566,14 @@
 <!-- ═══════════ SCREEN: MEMBER DETAIL ═══════════ -->
 <div class="scr" id="s-mem-det">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Martin Novak</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Martin Novak</span><div class="nb-spc"></div></div>
   <div class="cnt">
     <div class="ph"><div class="av-lg" style="background:#007aff">MN</div><div class="pname">Martin Novak</div><div class="pemail"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7c111d0e0815123c141d120f521f1311">[email&#160;protected]</a></div><span class="tag tb2">User</span></div>
     <div class="sec"><div class="sec-hdr">Role</div>
       <div class="card">
-        <div class="row" onclick="setMRole('admin')"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-shield"/></svg></div><div class="rb"><div class="rt">Admin</div><div class="rs">Full access</div></div><div id="mr-admin"></div></div>
-        <div class="row" onclick="setMRole('user')"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-user"/></svg></div><div class="rb"><div class="rt">User</div><div class="rs">Control outputs, view devices</div></div><div id="mr-user" style="color:var(--brand);font-size:20px;font-weight:700">✓</div></div>
-        <div class="row" onclick="setMRole('custom')"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-gear"/></svg></div><div class="rb"><div class="rt">Custom</div><div class="rs">Per-output permissions</div></div><div id="mr-custom"></div></div>
+        <div class="row" onclick="setMRole('admin')"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">shield</span></div><div class="rb"><div class="rt">Admin</div><div class="rs">Full access</div></div><div id="mr-admin"></div></div>
+        <div class="row" onclick="setMRole('user')"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">person</span></div><div class="rb"><div class="rt">User</div><div class="rs">Control outputs, view devices</div></div><div id="mr-user" style="color:var(--brand);font-size:20px;font-weight:700">✓</div></div>
+        <div class="row" onclick="setMRole('custom')"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">settings</span></div><div class="rb"><div class="rt">Custom</div><div class="rs">Per-output permissions</div></div><div id="mr-custom"></div></div>
       </div>
     </div>
     <div class="sec">
@@ -587,14 +588,14 @@
 <!-- ═══════════ SCREEN: INVITE ═══════════ -->
 <div class="scr" id="s-invite">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Invite member</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Invite member</span><div class="nb-spc"></div></div>
   <div class="cnt" style="padding-bottom:24px">
     <div class="sec"><div class="fc"><div class="ff"><div class="flb">Email address</div><input class="fi" type="email" placeholder="colleague@company.com"></div></div></div>
     <div class="sec"><div class="sec-hdr">Role</div>
       <div class="card">
-        <div class="row" onclick="setIRole('admin')"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-shield"/></svg></div><div class="rb"><div class="rt">Admin</div><div class="rs">Full access — users, billing, devices</div></div><div id="ir-admin"></div></div>
-        <div class="row" onclick="setIRole('user')"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-user"/></svg></div><div class="rb"><div class="rt">User</div><div class="rs">Control outputs, view devices</div></div><div id="ir-user" style="color:var(--brand);font-size:20px;font-weight:700">✓</div></div>
-        <div class="row" onclick="setIRole('custom')"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-gear"/></svg></div><div class="rb"><div class="rt">Custom</div><div class="rs">Per-output permissions</div></div><div id="ir-custom"></div></div>
+        <div class="row" onclick="setIRole('admin')"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">shield</span></div><div class="rb"><div class="rt">Admin</div><div class="rs">Full access — users, billing, devices</div></div><div id="ir-admin"></div></div>
+        <div class="row" onclick="setIRole('user')"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">person</span></div><div class="rb"><div class="rt">User</div><div class="rs">Control outputs, view devices</div></div><div id="ir-user" style="color:var(--brand);font-size:20px;font-weight:700">✓</div></div>
+        <div class="row" onclick="setIRole('custom')"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">settings</span></div><div class="rb"><div class="rt">Custom</div><div class="rs">Per-output permissions</div></div><div id="ir-custom"></div></div>
       </div>
     </div>
     <div style="margin:16px 16px 0"><button class="pbtn">Send invitation</button></div>
@@ -604,7 +605,7 @@
 <!-- ═══════════ SCREEN: ADD ORG ═══════════ -->
 <div class="scr" id="s-org-add">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">New organization</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">New organization</span><div class="nb-spc"></div></div>
   <div class="cnt" style="padding-bottom:24px">
     <div class="sec"><div class="fc"><div class="ff"><div class="flb">Organization name</div><input class="fi" type="text" placeholder="e.g. Acme Corp"></div></div></div>
     <p class="fn" style="margin-top:8px">A Welcome Credit of 50 000 is added when you connect your first device.</p>
@@ -614,31 +615,31 @@
 <!-- ═══════════ SCREEN: SETTINGS ═══════════ -->
 <div class="scr" id="s-set">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Settings</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Settings</span><div class="nb-spc"></div></div>
   <div class="cnt">
     <div class="sec"><div class="sec-hdr">Appearance</div>
       <div class="card">
-        <div class="row" onclick="go('s-appear')"><div class="ri ri-p"><svg viewBox="0 0 24 24"><use href="#i-moon"/></svg></div><div class="rb"><div class="rt">Appearance</div></div><div class="rv" id="appear-val">System</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-globe"/></svg></div><div class="rb"><div class="rt">Language</div></div><div class="rv">English</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="go('s-appear')"><div class="ri ri-p"><span class="ms ms-24" aria-hidden="true">dark_mode</span></div><div class="rb"><div class="rt">Appearance</div></div><div class="rv" id="appear-val">System</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">language</span></div><div class="rb"><div class="rt">Language</div></div><div class="rv">English</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="sec"><div class="sec-hdr">Notifications</div>
       <div class="card">
-        <div class="trow"><div class="ri ri-r"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></div><div class="tb"><div class="tt">Push notifications</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
-        <div class="trow"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-wifi"/></svg></div><div class="tb"><div class="tt">Connection alerts</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
-        <div class="trow"><div class="ri" style="background:#c77500"><svg viewBox="0 0 24 24"><use href="#i-card"/></svg></div><div class="tb"><div class="tt">Low credit warning</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
+        <div class="trow"><div class="ri ri-r"><span class="ms ms-24" aria-hidden="true">notifications</span></div><div class="tb"><div class="tt">Push notifications</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
+        <div class="trow"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">wifi</span></div><div class="tb"><div class="tt">Connection alerts</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
+        <div class="trow"><div class="ri" style="background:#c77500"><span class="ms ms-24" aria-hidden="true">credit_card</span></div><div class="tb"><div class="tt">Low credit warning</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
       </div>
     </div>
     <div class="sec"><div class="sec-hdr">Security</div>
       <div class="card">
-        <div class="row"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-shield"/></svg></div><div class="rb"><div class="rt">Two-Factor Auth</div></div><span class="tag tg" style="margin-right:6px">On</span><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-lock"/></svg></div><div class="rb"><div class="rt">SSO</div></div><div class="rv">Configure</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">shield</span></div><div class="rb"><div class="rt">Two-Factor Auth</div></div><span class="tag tg" style="margin-right:6px">On</span><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">lock</span></div><div class="rb"><div class="rt">SSO</div></div><div class="rv">Configure</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="sec"><div class="sec-hdr">About</div>
       <div class="card">
-        <div class="row row-nc"><div class="ri ri-t"><svg viewBox="0 0 24 24"><use href="#i-tag"/></svg></div><div class="rb"><div class="rt">Version</div></div><div class="rv">2.0.0</div></div>
-        <div class="row"><div class="ri ri-gr"><svg viewBox="0 0 24 24"><use href="#i-doc"/></svg></div><div class="rb"><div class="rt">Privacy Policy</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row row-nc"><div class="ri ri-t"><span class="ms ms-24" aria-hidden="true">label</span></div><div class="rb"><div class="rt">Version</div></div><div class="rv">2.0.0</div></div>
+        <div class="row"><div class="ri ri-gr"><span class="ms ms-24" aria-hidden="true">description</span></div><div class="rb"><div class="rt">Privacy Policy</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="sec">
@@ -653,7 +654,7 @@
 <!-- ═══════════ SCREEN: APPEARANCE ═══════════ -->
 <div class="scr" id="s-appear">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Appearance</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Appearance</span><div class="nb-spc"></div></div>
   <div class="cnt">
     <div class="sec">
       <div class="card">
@@ -682,10 +683,10 @@
 <!-- ═══════════ SCREEN: FIND DEVICES ═══════════ -->
 <div class="scr" id="s-find">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Find devices</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Find devices</span><div class="nb-spc"></div></div>
   <div class="cnt">
     <div class="scan-wrap">
-      <div class="scan-ring"><svg width="30" height="30" viewBox="0 0 24 24"><use href="#i-search" stroke="var(--brand)" stroke-width="2" fill="none"/></svg></div>
+      <div class="scan-ring"><span class="ms ms-30" style="color:var(--brand)" aria-hidden="true">search</span></div>
       <div class="scan-title" id="scan-st">Scanning…</div>
       <div class="scan-sub">Searching 192.168.1.x for NETIO devices</div>
       <div class="ptrack"><div class="pfill" id="scan-bar"></div></div>
@@ -693,9 +694,9 @@
     <div id="scan-found" style="display:none">
       <div class="sec"><div class="sec-hdr">Found (2)</div>
         <div class="card">
-          <div class="dc" onclick="go('s-add-ok')"><div class="dib"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="dinfo"><div class="dn">PowerPDU 4KS</div><div class="dm">192.168.1.30 · fw 3.4.0</div></div><button style="height:30px;padding:0 14px;border-radius:100px;border:none;background:var(--brand);color:#fff;font-size:13px;font-weight:600;cursor:pointer">Add</button></div>
+          <div class="dc" onclick="go('s-add-ok')"><div class="dib"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="dinfo"><div class="dn">PowerPDU 4KS</div><div class="dm">192.168.1.30 · fw 3.4.0</div></div><button style="height:30px;padding:0 14px;border-radius:100px;border:none;background:var(--brand);color:#fff;font-size:13px;font-weight:600;cursor:pointer">Add</button></div>
           <div style="height:.5px;background:var(--sep);margin:0 14px 0 70px"></div>
-          <div class="dc" onclick="go('s-add-ok')"><div class="dib"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="dinfo"><div class="dn">PowerBOX 3Px</div><div class="dm">192.168.1.31 · fw 2.1.0</div></div><button style="height:30px;padding:0 14px;border-radius:100px;border:none;background:var(--brand);color:#fff;font-size:13px;font-weight:600;cursor:pointer">Add</button></div>
+          <div class="dc" onclick="go('s-add-ok')"><div class="dib"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="dinfo"><div class="dn">PowerBOX 3Px</div><div class="dm">192.168.1.31 · fw 2.1.0</div></div><button style="height:30px;padding:0 14px;border-radius:100px;border:none;background:var(--brand);color:#fff;font-size:13px;font-weight:600;cursor:pointer">Add</button></div>
         </div>
       </div>
     </div>
@@ -706,7 +707,7 @@
 <!-- ═══════════ SCREEN: ADD MANUAL ═══════════ -->
 <div class="scr" id="s-add-man">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Add manually</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Add manually</span><div class="nb-spc"></div></div>
   <div class="cnt" style="padding-bottom:24px">
     <div class="sec">
       <div class="fc">
@@ -718,7 +719,7 @@
     </div>
     <div class="sec"><div class="sec-hdr">Group</div>
       <div class="card">
-        <div class="row"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">Assign to group</div></div><div class="rv">Server Room</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">folder</span></div><div class="rb"><div class="rt">Assign to group</div></div><div class="rv">Server Room</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div style="margin:16px 16px 0"><button class="pbtn" onclick="go('s-add-ok')">Connect device</button></div>
@@ -728,18 +729,18 @@
 <!-- ═══════════ SCREEN: ADD NFC ═══════════ -->
 <div class="scr" id="s-nfc">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">NFC configuration</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">NFC configuration</span><div class="nb-spc"></div></div>
   <div class="cnt">
     <div style="display:flex;flex-direction:column;align-items:center;padding:40px 28px 24px;gap:16px;text-align:center">
-      <div class="nfc-ring"><svg width="48" height="48" viewBox="0 0 24 24"><use href="#i-nfc" stroke="var(--brand)" stroke-width="1.5" fill="none"/></svg></div>
+      <div class="nfc-ring"><span class="ms ms-48" style="color:var(--brand)" aria-hidden="true">nfc</span></div>
       <div style="font-size:22px;font-weight:700;color:var(--lp);letter-spacing:-.5px">Hold near device</div>
       <div style="font-size:15px;color:var(--ls);line-height:1.5">Position your iPhone close to the NFC chip on the NETIO device to transfer configuration instantly.</div>
     </div>
     <div class="sec"><div class="sec-hdr">Configuration to transfer</div>
       <div class="card">
-        <div class="row row-nc"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-cloud"/></svg></div><div class="rb"><div class="rt">NETIO Cloud</div></div><span class="tag tg">Enabled</span></div>
-        <div class="row row-nc"><div class="ri ri-t"><svg viewBox="0 0 24 24"><use href="#i-wifi"/></svg></div><div class="rb"><div class="rt">WiFi network</div></div><div class="rv" style="font-size:15px">HansInc_Corp</div></div>
-        <div class="row row-nc"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-bld"/></svg></div><div class="rb"><div class="rt">Organization</div></div><div class="rv">Hans inc.</div></div>
+        <div class="row row-nc"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">cloud</span></div><div class="rb"><div class="rt">NETIO Cloud</div></div><span class="tag tg">Enabled</span></div>
+        <div class="row row-nc"><div class="ri ri-t"><span class="ms ms-24" aria-hidden="true">wifi</span></div><div class="rb"><div class="rt">WiFi network</div></div><div class="rv" style="font-size:15px">HansInc_Corp</div></div>
+        <div class="row row-nc"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">apartment</span></div><div class="rb"><div class="rt">Organization</div></div><div class="rv">Hans inc.</div></div>
       </div>
     </div>
     <div class="spc"></div>
@@ -749,18 +750,18 @@
 <!-- ═══════════ SCREEN: ADD SUCCESS ═══════════ -->
 <div class="scr" id="s-add-ok">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Device added</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Device added</span><div class="nb-spc"></div></div>
   <div class="cnt" style="padding-bottom:24px">
     <div class="swrap">
-      <div class="scheck"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg></div>
+      <div class="scheck"><span class="ms ms-24" aria-hidden="true">check</span></div>
       <div class="stit">Device connected!</div>
       <div class="sbod">PowerPDU 4KS has been added to Hans inc. and is now syncing with NETIO Cloud.</div>
     </div>
     <div class="sec">
       <div class="card">
-        <div class="row row-nc"><div class="ri ri-t"><svg viewBox="0 0 24 24"><use href="#i-tag"/></svg></div><div class="rb"><div class="rt">Model</div></div><div class="rv">PowerPDU 4KS</div></div>
-        <div class="row row-nc"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-ip"/></svg></div><div class="rb"><div class="rt">IP Address</div></div><div class="rv">192.168.1.30</div></div>
-        <div class="row row-nc"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">Group</div></div><div class="rv">Server Room</div></div>
+        <div class="row row-nc"><div class="ri ri-t"><span class="ms ms-24" aria-hidden="true">label</span></div><div class="rb"><div class="rt">Model</div></div><div class="rv">PowerPDU 4KS</div></div>
+        <div class="row row-nc"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">lan</span></div><div class="rb"><div class="rt">IP Address</div></div><div class="rv">192.168.1.30</div></div>
+        <div class="row row-nc"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">folder</span></div><div class="rb"><div class="rt">Group</div></div><div class="rv">Server Room</div></div>
       </div>
     </div>
     <div style="margin:16px 16px 0;display:flex;flex-direction:column;gap:10px">
@@ -773,18 +774,18 @@
 <!-- ═══════════ SCREEN: FIRMWARE ═══════════ -->
 <div class="scr" id="s-fw">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Firmware</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Firmware</span><div class="nb-spc"></div></div>
   <div class="cnt">
     <div style="display:flex;flex-direction:column;align-items:center;padding:36px 28px 24px;gap:12px;text-align:center">
-      <div style="width:62px;height:62px;border-radius:17px;background:var(--brand-light);display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24"><use href="#i-fw" stroke="var(--brand)" stroke-width="2" fill="none"/></svg></div>
+      <div style="width:62px;height:62px;border-radius:17px;background:var(--brand-light);display:flex;align-items:center;justify-content:center"><span class="ms ms-28" style="color:var(--brand)" aria-hidden="true">swap_horiz</span></div>
       <div style="font-size:20px;font-weight:700;color:var(--lp);letter-spacing:-.4px">Up to date</div>
       <div style="font-size:15px;color:var(--ls)">Version 3.4.1 · Released March 2026</div>
     </div>
     <div class="sec">
       <div class="card">
-        <div class="row row-nc"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg></div><div class="rb"><div class="rt">Current version</div></div><div class="rv">3.4.1</div></div>
-        <div class="row row-nc"><div class="ri ri-t"><svg viewBox="0 0 24 24"><use href="#i-cloud"/></svg></div><div class="rb"><div class="rt">Latest available</div></div><div class="rv">3.4.1</div></div>
-        <div class="row row-nc"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-cal"/></svg></div><div class="rb"><div class="rt">Last updated</div></div><div class="rv">Mar 12, 2026</div></div>
+        <div class="row row-nc"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">check</span></div><div class="rb"><div class="rt">Current version</div></div><div class="rv">3.4.1</div></div>
+        <div class="row row-nc"><div class="ri ri-t"><span class="ms ms-24" aria-hidden="true">cloud</span></div><div class="rb"><div class="rt">Latest available</div></div><div class="rv">3.4.1</div></div>
+        <div class="row row-nc"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">calendar_month</span></div><div class="rb"><div class="rt">Last updated</div></div><div class="rv">Mar 12, 2026</div></div>
       </div>
     </div>
     <div style="margin:16px 16px 0"><button class="sbtn">Check for updates</button></div>
@@ -795,7 +796,7 @@
 <!-- ═══════════ SCREEN: SEARCH ═══════════ -->
 <div class="scr" id="s-search">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Search</span><div class="nb-spc"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Search</span><div class="nb-spc"></div></div>
   <div class="cnt" style="padding:16px">
     <div style="background:var(--ft);border-radius:12px;padding:0 14px;display:flex;align-items:center;gap:10px;height:44px">
       <svg width="16" height="16" viewBox="0 0 24 24" stroke="var(--ls)" stroke-width="2" fill="none"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="15.65" y2="15.65"/></svg>
@@ -812,10 +813,10 @@
     <div class="snotch"></div>
     <div class="stitle">Organizations</div>
     <div class="scard">
-      <div class="sr" onclick="closeSheet(document.getElementById('sh-orgs'))"><div class="srich ri-g"><svg viewBox="0 0 24 24"><use href="#i-bld"/></svg></div>Hans inc.<span class="sch">✓</span></div>
-      <div class="sr" onclick="closeSheet(document.getElementById('sh-orgs'))"><div class="srich" style="background:#5856d6"><svg viewBox="0 0 24 24"><use href="#i-bld"/></svg></div>Pioneer Solutions</div>
-      <div class="sr" onclick="closeSheet(document.getElementById('sh-orgs'))"><div class="srich" style="background:#ff9500"><svg viewBox="0 0 24 24"><use href="#i-bld"/></svg></div>Skyline Innovations</div>
-      <div class="sr" onclick="closeSheet(document.getElementById('sh-orgs'))"><div class="srich" style="background:#af52de"><svg viewBox="0 0 24 24"><use href="#i-bld"/></svg></div>Nexus Technologies</div>
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-orgs'))"><div class="srich ri-g"><span class="ms ms-24" aria-hidden="true">apartment</span></div>Hans inc.<span class="sch">✓</span></div>
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-orgs'))"><div class="srich" style="background:#5856d6"><span class="ms ms-24" aria-hidden="true">apartment</span></div>Pioneer Solutions</div>
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-orgs'))"><div class="srich" style="background:#ff9500"><span class="ms ms-24" aria-hidden="true">apartment</span></div>Skyline Innovations</div>
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-orgs'))"><div class="srich" style="background:#af52de"><span class="ms ms-24" aria-hidden="true">apartment</span></div>Nexus Technologies</div>
     </div>
     <button class="spbtn" onclick="closeSheet(document.getElementById('sh-orgs'));go('s-orgs')">Manage organizations</button>
   </div>
@@ -827,10 +828,10 @@
     <div class="snotch"></div>
     <div class="stitle">Add device</div>
     <div class="scard">
-      <div class="sr" onclick="closeSheet(document.getElementById('sh-add'));setTimeout(()=>go('s-find'),180)"><div class="srich ri-b"><svg viewBox="0 0 24 24"><use href="#i-search"/></svg></div>Find devices (LAN)<svg class="ch" viewBox="0 0 10 18" style="margin-left:auto"><polyline points="1 1 9 9 1 17"/></svg></div>
-      <div class="sr" onclick="closeSheet(document.getElementById('sh-add'));setTimeout(()=>go('s-add-man'),180)"><div class="srich ri-g"><svg viewBox="0 0 24 24"><use href="#i-plus"/></svg></div>Add manually<svg class="ch" viewBox="0 0 10 18" style="margin-left:auto"><polyline points="1 1 9 9 1 17"/></svg></div>
-      <div class="sr" onclick="closeSheet(document.getElementById('sh-add'));setTimeout(()=>go('s-nfc'),180)"><div class="srich ri-p"><svg viewBox="0 0 24 24"><use href="#i-nfc"/></svg></div>NFC configuration<svg class="ch" viewBox="0 0 10 18" style="margin-left:auto"><polyline points="1 1 9 9 1 17"/></svg></div>
-      <div class="sr" onclick="closeSheet(document.getElementById('sh-add'));setTimeout(()=>go('s-add-man'),180)"><div class="srich ri-t"><svg viewBox="0 0 24 24"><use href="#i-cloud"/></svg></div>From NETIO Cloud<svg class="ch" viewBox="0 0 10 18" style="margin-left:auto"><polyline points="1 1 9 9 1 17"/></svg></div>
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-add'));setTimeout(()=>go('s-find'),180)"><div class="srich ri-b"><span class="ms ms-24" aria-hidden="true">search</span></div>Find devices (LAN)<svg class="ch" viewBox="0 0 10 18" style="margin-left:auto"><polyline points="1 1 9 9 1 17"/></svg></div>
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-add'));setTimeout(()=>go('s-add-man'),180)"><div class="srich ri-g"><span class="ms ms-24" aria-hidden="true">add</span></div>Add manually<svg class="ch" viewBox="0 0 10 18" style="margin-left:auto"><polyline points="1 1 9 9 1 17"/></svg></div>
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-add'));setTimeout(()=>go('s-nfc'),180)"><div class="srich ri-p"><span class="ms ms-24" aria-hidden="true">nfc</span></div>NFC configuration<svg class="ch" viewBox="0 0 10 18" style="margin-left:auto"><polyline points="1 1 9 9 1 17"/></svg></div>
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-add'));setTimeout(()=>go('s-add-man'),180)"><div class="srich ri-t"><span class="ms ms-24" aria-hidden="true">cloud</span></div>From NETIO Cloud<svg class="ch" viewBox="0 0 10 18" style="margin-left:auto"><polyline points="1 1 9 9 1 17"/></svg></div>
     </div>
   </div>
 </div>

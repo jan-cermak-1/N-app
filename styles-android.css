@@ -1,23 +1,96 @@
-/* NETIO · Android 16 / Material 3 — vrstva nad styles-ios.css (html.platform-android) */
+/*
+  NETIO · Android 16 — Material Design 3 (M3)
+  Reference: https://m3.material.io/ — barvy, elevation, typografie, komponenty.
+  Ikony: Material Symbols Outlined (Google Fonts), ligatury v <span class="ms">.
+  Vrstva nad styles-ios.css — scope: html.platform-android
+*/
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
 html.platform-android {
   --font-sf: Roboto, "Google Sans", "Helvetica Neue", sans-serif;
 }
 
-/* M3 tokeny na #phone (light) */
+/* Material Symbols Outlined — M3 standardní ikony 24dp (1dp ≈ 1px při 1:1) */
+html.platform-android .ms {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+  vertical-align: middle;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+html.platform-android .ms-20 {
+  font-size: 20px;
+}
+html.platform-android .ms-22 {
+  font-size: 22px;
+}
+html.platform-android .ms-24 {
+  font-size: 24px;
+}
+html.platform-android .ms-28 {
+  font-size: 28px;
+}
+html.platform-android .ms-30 {
+  font-size: 30px;
+}
+html.platform-android .ms-48 {
+  font-size: 48px;
+}
+
+/* Ikony v komponentách */
+html.platform-android .nb-btn .ms,
+html.platform-android .tb-fab .ms {
+  color: inherit;
+}
+
+html.platform-android .ti .ms {
+  color: inherit;
+}
+
+html.platform-android .oi .ms,
+html.platform-android .dib .ms {
+  color: inherit;
+}
+
+html.platform-android .ri .ms {
+  color: inherit;
+}
+
+html.platform-android .ai .ms {
+  color: #fff;
+}
+
+/* M3 color roles — light (seed primary #005f41 NETIO) */
 html.platform-android #phone {
   --m3-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
   --m3-elevation-2: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px 2px rgba(0, 0, 0, 0.15);
+  --m3-elevation-3: 0 4px 8px 3px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.3);
   --m3-surface: #f7f9f9;
   --m3-surface-dim: #e3e7e7;
-  --m3-surface-container: #fff;
-  --m3-surface-container-high: #eceeee;
+  --m3-surface-container: #ffffff;
+  --m3-surface-container-low: #f0f4f3;
+  --m3-surface-container-high: #e8eeec;
   --m3-on-surface: #1a1c1c;
-  --m3-on-surface-variant: #444748;
+  --m3-on-surface-variant: #3f4946;
   --m3-outline: #6f7979;
+  --m3-outline-variant: #bec9c5;
   --m3-primary: #005f41;
   --m3-on-primary: #ffffff;
+  --m3-primary-container: #a3f2d3;
+  --m3-on-primary-container: #002116;
+  --m3-error: #ba1a1a;
+  --m3-on-error: #ffffff;
   --m3-nav-rail: #f4f7f7;
   --r-md: 16px;
   --r-md-sm: 12px;
@@ -104,6 +177,11 @@ html.platform-android .scr::before {
 
 html.platform-android .scr {
   background: var(--m3-surface);
+}
+
+/* Větší spodní navigace M3 — víc místa nad systémovým gestem */
+html.platform-android .scr:has(.tb-bar) .cnt {
+  padding-bottom: calc(84px + max(24px, env(safe-area-inset-bottom, 0px)));
 }
 
 /* Status bar + Top app bar — světlý režim: NETIO zelená (#005f41), světlý text */
@@ -304,10 +382,12 @@ html.platform-android .oc:active {
   background: color-mix(in srgb, var(--m3-on-surface) 8%, transparent);
 }
 
-/* Bottom navigation — M3 NavigationBar */
+/* Bottom navigation — M3 NavigationBar (ikona + label, aktivní indikátor; výška s bezpečnou zónou) */
 html.platform-android .tb-bar {
   background: var(--m3-nav-rail);
-  padding-top: 8px;
+  padding-top: 12px;
+  min-height: 80px;
+  box-sizing: border-box;
   border-top: 1px solid color-mix(in srgb, var(--m3-outline) 16%, transparent);
 }
 
@@ -354,10 +434,6 @@ html.platform-android .ti span {
   font-weight: 500;
   letter-spacing: 0.1px;
   font-family: var(--font-sf);
-}
-
-html.platform-android .ti svg {
-  stroke-width: 2;
 }
 
 html.platform-android .tb-fab {
