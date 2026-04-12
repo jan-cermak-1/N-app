@@ -1,0 +1,413 @@
+/* NETIO · Android 16 / Material 3 — vrstva nad styles-ios.css (html.platform-android) */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+html.platform-android {
+  --font-sf: Roboto, "Google Sans", "Helvetica Neue", sans-serif;
+}
+
+/* M3 tokeny na #phone (light) */
+html.platform-android #phone {
+  --m3-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+  --m3-elevation-2: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px 2px rgba(0, 0, 0, 0.15);
+  --m3-surface: #f7f9f9;
+  --m3-surface-dim: #e3e7e7;
+  --m3-surface-container: #fff;
+  --m3-surface-container-high: #eceeee;
+  --m3-on-surface: #1a1c1c;
+  --m3-on-surface-variant: #444748;
+  --m3-outline: #6f7979;
+  --m3-primary: #005f41;
+  --m3-on-primary: #ffffff;
+  --m3-nav-rail: #f4f7f7;
+  --r-md: 16px;
+  --r-md-sm: 12px;
+}
+
+html.platform-android #phone.dark {
+  --m3-surface: #121212;
+  --m3-surface-dim: #0c0f0f;
+  --m3-surface-container: #1e1e1e;
+  --m3-surface-container-high: #2a2a2a;
+  --m3-on-surface: #e3e3e3;
+  --m3-on-surface-variant: #bcc9c9;
+  --m3-outline: #8e9898;
+  --m3-primary: #00c878;
+  --m3-on-primary: #ffffff;
+  --m3-nav-rail: #1a1a1a;
+  --m3-elevation-1: 0 1px 2px rgba(0, 0, 0, 0.5), 0 1px 3px 1px rgba(0, 0, 0, 0.35);
+  --m3-elevation-2: 0 1px 3px rgba(0, 0, 0, 0.55), 0 4px 8px 3px rgba(0, 0, 0, 0.35);
+}
+
+/* Mapovat existující CSS proměnné na M3 (pro komponenty z ios.css) */
+html.platform-android #phone {
+  --bg0: var(--m3-surface);
+  --bg1: var(--m3-surface-container);
+  --bg2: var(--m3-surface-container-high);
+  --lp: var(--m3-on-surface);
+  --ls: var(--m3-on-surface-variant);
+  --brand: var(--m3-primary);
+  --brand-light: color-mix(in srgb, var(--m3-primary) 18%, transparent);
+  --sep: color-mix(in srgb, var(--m3-outline) 35%, transparent);
+  --scr-bg-gradient: var(--m3-surface);
+  --scr-noise-opacity: 0;
+  --glass-blur: blur(0);
+  --glass-blur-ui: blur(0);
+  --glass-fill-grouped: var(--m3-surface-container);
+  --glass-fill-elevated: var(--m3-surface-container-high);
+  --glass-border: color-mix(in srgb, var(--m3-outline) 22%, transparent);
+  --glass-inset-shine: none;
+  --glass-shadow-soft: var(--m3-elevation-1);
+  --glass-shine-gradient: none;
+  --glass-overlay-dim: rgba(0, 0, 0, 0.52);
+  --glass-overlay-blur: blur(0);
+  --glass-sheet-top: none;
+  --tb-glass-bg: var(--m3-nav-rail);
+  --tb-glass-border: color-mix(in srgb, var(--m3-outline) 28%, transparent);
+  --tb-glass-blur: blur(0);
+  --tb-glass-outer: var(--m3-elevation-2);
+  --tb-glass-inset: none;
+  --tb-icon: var(--m3-on-surface-variant);
+  --tb-icon-on: var(--m3-primary);
+  --tb-pill-on: color-mix(in srgb, var(--m3-primary) 16%, transparent);
+  --tab-muted: var(--m3-on-surface-variant);
+  --switch-on-bg: var(--m3-primary);
+  --switch-track-off: #79747e;
+  --pbtn-bg: var(--m3-primary);
+  --pbtn-fg: var(--m3-on-primary);
+  --pbtn-shadow: var(--m3-elevation-1);
+  --cbanner-bg: var(--m3-primary);
+  --cbanner-text: var(--m3-on-primary);
+}
+
+html.platform-android #phone.dark {
+  --brand-light: color-mix(in srgb, var(--m3-primary) 22%, transparent);
+  --tb-glass-bg: var(--m3-nav-rail);
+  --tb-icon: var(--m3-on-surface-variant);
+  --tb-icon-on: #b8f5d0;
+  --tb-pill-on: color-mix(in srgb, var(--m3-primary) 24%, transparent);
+  --pbtn-bg: #0a6b4e;
+  --pbtn-fg: #fff;
+  --cbanner-bg: #0d1f1a;
+  --cbanner-text: #fff;
+}
+
+/* Zařízení — Android má jemnější rámeček */
+html.platform-android .phone {
+  border-radius: 36px;
+  font-family: var(--font-sf);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12), 0 0 0 10px #2a2a2a, 0 24px 48px rgba(0, 0, 0, 0.45);
+}
+
+html.platform-android .scr::before {
+  display: none;
+}
+
+html.platform-android .scr {
+  background: var(--m3-surface);
+}
+
+/* Status bar + Top app bar — M3 surface, ne plná brand výplň */
+html.platform-android .sb {
+  background: var(--m3-surface-container);
+  padding-bottom: 8px;
+  border-bottom: 1px solid color-mix(in srgb, var(--m3-outline) 18%, transparent);
+}
+
+html.platform-android .sb-t {
+  color: var(--m3-on-surface);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+html.platform-android .sb-i svg {
+  fill: var(--m3-on-surface);
+  opacity: 0.9;
+}
+
+html.platform-android .nb {
+  background: var(--m3-surface-container);
+  min-height: 64px;
+  padding: 8px 4px 8px 8px;
+  align-items: center;
+  box-shadow: var(--m3-elevation-1);
+  border-bottom: 1px solid color-mix(in srgb, var(--m3-outline) 14%, transparent);
+}
+
+html.platform-android .nb-title {
+  text-align: start;
+  padding-left: 4px;
+  color: var(--m3-on-surface);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+html.platform-android .nb-logo {
+  flex: 0 1 auto;
+}
+
+html.platform-android .nb-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  color: var(--m3-on-surface);
+}
+
+html.platform-android .nb-btn:hover,
+html.platform-android .nb-btn:focus-visible {
+  background: color-mix(in srgb, var(--m3-on-surface) 8%, transparent);
+}
+
+html.platform-android .nb-btn:active {
+  background: color-mix(in srgb, var(--m3-on-surface) 12%, transparent);
+  transform: none;
+}
+
+html.platform-android .nb-btn svg {
+  color: var(--m3-on-surface);
+  stroke-width: 2;
+}
+
+html.platform-android .nb-pill {
+  border-radius: var(--r-md-sm);
+  border: none;
+  background: color-mix(in srgb, var(--m3-primary) 14%, transparent);
+  color: var(--m3-primary);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  font-weight: 500;
+}
+
+html.platform-android .nb-txt {
+  color: var(--m3-primary);
+}
+
+html.platform-android .nb-spc {
+  width: 48px;
+}
+
+/* Odstranit iOS dark override na #111 */
+html.platform-android .dark .sb,
+html.platform-android .dark .nb {
+  background: var(--m3-surface-container);
+}
+
+html.platform-android .dark .sb-t,
+html.platform-android .dark .nb-title {
+  color: var(--m3-on-surface);
+}
+
+html.platform-android .dark .nb-btn svg,
+html.platform-android .dark .nb-btn {
+  color: var(--m3-on-surface);
+}
+
+html.platform-android .dark .nb-pill {
+  background: color-mix(in srgb, var(--m3-primary) 18%, transparent);
+  color: #8ef0b8;
+  border-color: transparent;
+}
+
+/* Karty — tonal surface, žádný backdrop blur */
+html.platform-android .card,
+html.platform-android .mt,
+html.platform-android .cht,
+html.platform-android .at,
+html.platform-android .fc,
+html.platform-android .sst,
+html.platform-android .scard {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: var(--m3-surface-container);
+  border: none;
+  border-radius: var(--r-md);
+  box-shadow: var(--m3-elevation-1);
+}
+
+html.platform-android .card {
+  border-radius: var(--r-md);
+}
+
+html.platform-android .row:active,
+html.platform-android .trow:active,
+html.platform-android .oc:active {
+  background: color-mix(in srgb, var(--m3-on-surface) 8%, transparent);
+}
+
+/* Bottom navigation — M3 NavigationBar */
+html.platform-android .tb-bar {
+  background: var(--m3-nav-rail);
+  padding-top: 8px;
+  border-top: 1px solid color-mix(in srgb, var(--m3-outline) 16%, transparent);
+}
+
+html.platform-android .tb-grp {
+  border-radius: 0;
+  padding: 0 8px 4px;
+  gap: 0;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  box-shadow: none;
+}
+
+html.platform-android .ti {
+  border-radius: 0;
+  padding: 8px 12px 10px;
+  gap: 4px;
+  position: relative;
+  color: var(--m3-on-surface-variant);
+}
+
+html.platform-android .ti.on {
+  color: var(--m3-primary);
+  background: transparent;
+  box-shadow: none;
+}
+
+html.platform-android .ti.on::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 56px;
+  max-width: 80%;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: var(--m3-primary);
+}
+
+html.platform-android .ti span {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  font-family: var(--font-sf);
+}
+
+html.platform-android .ti svg {
+  stroke-width: 2;
+}
+
+html.platform-android .tb-fab {
+  border-radius: 16px;
+  width: 56px;
+  height: 56px;
+  background: var(--m3-primary);
+  color: var(--m3-on-primary);
+  border: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: var(--m3-elevation-2);
+}
+
+html.platform-android .tb-fab:active {
+  transform: scale(0.96);
+}
+
+html.platform-android .dark .tb-grp,
+html.platform-android .dark .tb-fab {
+  background: transparent;
+}
+
+html.platform-android .dark .tb-fab {
+  background: var(--m3-primary);
+}
+
+html.platform-android .dark .ti.on {
+  color: #8ef0b8;
+  background: transparent;
+}
+
+html.platform-android .dark .ti.on::after {
+  background: #8ef0b8;
+}
+
+/* Přepínač — přiblížení Material Switch (větší track) */
+html.platform-android .tog,
+html.platform-android .sw {
+  --sw-track-w: 52px;
+  --sw-track-h: 32px;
+  --sw-thumb-w: 26px;
+  --sw-thumb-h: 26px;
+  --sw-pad: 3px;
+  --sw-travel: 17px;
+}
+
+html.platform-android .tog.on::before,
+html.platform-android .sw.on::before {
+  display: none;
+}
+
+html.platform-android .tog:not(.on)::after,
+html.platform-android .sw.off::after {
+  display: none;
+}
+
+html.platform-android .tog .kn,
+html.platform-android .sw .kn {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+/* Bottom sheet */
+html.platform-android .overlay {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html.platform-android .sheet {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: var(--m3-surface-container-high);
+  border-radius: 28px 28px 0 0;
+  border: none;
+  border-top: 1px solid color-mix(in srgb, var(--m3-outline) 20%, transparent);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.2);
+}
+
+html.platform-android .snotch {
+  width: 40px;
+  height: 4px;
+  background: var(--m3-on-surface-variant);
+  opacity: 0.45;
+}
+
+/* Primární tlačítka — M3 Filled */
+html.platform-android .pbtn,
+html.platform-android .spbtn {
+  border-radius: 100px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+}
+
+/* Typografie — M3 title / body */
+html.platform-android .rt,
+html.platform-android .tt,
+html.platform-android .on2,
+html.platform-android .dn {
+  letter-spacing: 0.1px;
+}
+
+html.platform-android .sec-hdr {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Proto rail — lehká nálepka „Android“ */
+html.platform-android .proto-rail {
+  border-color: color-mix(in srgb, var(--m3-primary) 35%, transparent);
+}
+
+html.platform-android .proto-rail-chip[aria-current="page"] {
+  background: color-mix(in srgb, var(--m3-primary) 22%, transparent);
+  color: #7fe0a8;
+}
+
+/* Fallback reduced motion / transparency — ios.css už řeší; android bez blur je default */
