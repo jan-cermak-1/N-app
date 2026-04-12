@@ -536,8 +536,8 @@ html.platform-android .ti.on {
 }
 
 html.platform-android .ti.on .ms {
-  background: var(--m3-primary-container);
-  color: var(--m3-on-primary-container);
+  background: color-mix(in srgb, var(--m3-primary) 12%, transparent);
+  color: var(--m3-primary);
 }
 
 html.platform-android .ti > span:not(.ms) {
@@ -674,6 +674,26 @@ html.platform-android .sbtn {
   border-radius: 100px;
   font-weight: 500;
   letter-spacing: 0.1px;
+}
+
+/* M3 Text Button (např. v sekčních hlavičkách místo iOS "+ New group") */
+html.platform-android .m3-text-btn {
+  border: none;
+  background: transparent;
+  color: var(--m3-primary);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 8px;
+  height: 32px;
+  border-radius: 100px;
+  transition: background 0.2s;
+}
+html.platform-android .m3-text-btn:active {
+  background: color-mix(in srgb, var(--m3-primary) 12%, transparent);
 }
 
 /* Typografie — M3 title / body */
