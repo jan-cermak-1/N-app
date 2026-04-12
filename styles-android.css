@@ -210,6 +210,12 @@ html.platform-android #phone {
   --pbtn-shadow: var(--m3-elevation-1);
   --cbanner-bg: var(--m3-primary);
   --cbanner-text: var(--m3-on-primary);
+  /* Kontrastní M3 status barvy (Light mode) */
+  --green: #146c2e;
+  --red: #ba1a1a;
+  --orange: #8c5000;
+  --blue: #0061a4;
+  --purple: #744bb6;
 }
 
 html.platform-android #phone.dark {
@@ -222,6 +228,12 @@ html.platform-android #phone.dark {
   --pbtn-fg: #fff;
   --cbanner-bg: #0d1f1a;
   --cbanner-text: #fff;
+  /* Kontrastní M3 status barvy (Dark mode) */
+  --green: #70d876;
+  --red: #ffb4ab;
+  --orange: #ffb86f;
+  --blue: #9ecaef;
+  --purple: #d0bcff;
 }
 
 /* Zařízení — Android má jemnější rámeček */
