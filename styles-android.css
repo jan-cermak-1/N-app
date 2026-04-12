@@ -82,16 +82,13 @@ html.platform-android .ai .ms {
   color: #fff;
 }
 
-/* Trailing chevron v řádcích / sheet řádcích — M3 on-surface-variant (sekundární) */
+/* Trailing chevron v řádcích / sheet řádcích — v M3 typicky chybí, tak je skryjeme */
 html.platform-android .ms-ch {
-  font-size: 20px;
-  color: var(--ls);
-  flex-shrink: 0;
-  opacity: 0.88;
+  display: none !important;
 }
 
 html.platform-android #phone.dark .ms-ch {
-  opacity: 0.92;
+  display: none !important;
 }
 
 /* M3 color roles — light (seed primary #005f41 NETIO) */
@@ -204,6 +201,10 @@ html.platform-android .scr {
   background: var(--m3-surface);
 }
 
+html.platform-android .cnt {
+  overscroll-behavior-y: none;
+}
+
 /* Větší spodní navigace M3 — víc místa nad systémovým gestem */
 html.platform-android .scr:has(.tb-bar) .cnt {
   padding-bottom: calc(84px + max(24px, env(safe-area-inset-bottom, 0px)));
@@ -303,7 +304,7 @@ html.platform-android .nb-spc {
 html.platform-android #phone.dark .sb {
   background: var(--m3-surface-container);
   padding-bottom: 8px;
-  border-bottom: 1px solid color-mix(in srgb, var(--m3-outline) 18%, transparent);
+  border-bottom: none;
 }
 
 html.platform-android #phone.dark .sb-t {
@@ -322,8 +323,8 @@ html.platform-android #phone.dark .nb {
   min-height: 64px;
   padding: 8px 4px 8px 8px;
   align-items: center;
-  box-shadow: var(--m3-elevation-1);
-  border-bottom: 1px solid color-mix(in srgb, var(--m3-outline) 14%, transparent);
+  box-shadow: none;
+  border-bottom: none;
 }
 
 html.platform-android #phone.dark .nb-title {
@@ -408,6 +409,27 @@ html.platform-android .oc:active {
   transform: none;
 }
 
+html.platform-android .row,
+html.platform-android .trow,
+html.platform-android .oc,
+html.platform-android .dc,
+html.platform-android .nc,
+html.platform-android .sr {
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 56px;
+}
+
+html.platform-android .row + .row::before,
+html.platform-android .trow + .trow::before,
+html.platform-android .trow + .row::before,
+html.platform-android .row + .trow::before,
+html.platform-android .oc + .oc::before,
+html.platform-android .nc + .nc::before,
+html.platform-android .sr + .sr::before {
+  display: none;
+}
+
 /* Bottom navigation — M3 NavigationBar (ikona + label, aktivní indikátor; výška s bezpečnou zónou) */
 html.platform-android .tb-bar {
   background: var(--m3-nav-rail);
@@ -479,6 +501,12 @@ html.platform-android .tb-fab {
   -webkit-backdrop-filter: none;
   box-shadow: var(--m3-elevation-3);
   transition: background 0.2s, box-shadow 0.2s;
+  
+  /* Plovoucí pozice nad M3 Navigation Bar */
+  position: absolute;
+  right: 16px;
+  bottom: calc(84px + 16px + max(24px, env(safe-area-inset-bottom, 0px)));
+  z-index: 10;
 }
 
 html.platform-android .tb-fab:active {
@@ -591,13 +619,20 @@ html.platform-android .sbtn {
 html.platform-android .rt,
 html.platform-android .tt,
 html.platform-android .on2,
-html.platform-android .dn {
+html.platform-android .dn,
+html.platform-android .ch-ttl {
   letter-spacing: 0.1px;
+  font-weight: 500;
 }
 
 html.platform-android .sec-hdr {
+  font-size: 14px;
   font-weight: 500;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.1px;
+  color: var(--m3-primary);
+  margin-top: 8px;
+  padding-left: 16px;
+  text-transform: none;
 }
 
 /* Proto rail — lehká nálepka „Android“ */
@@ -610,4 +645,46 @@ html.platform-android .proto-rail-chip[aria-current="page"] {
   color: #7fe0a8;
 }
 
-/* Fallback reduced motion / transparency — ios.css už řeší; android bez blur je default */
+/* Formulářová pole — M3 Filled Text Field */
+html.platform-android .fc {
+  background: transparent;
+  box-shadow: none;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+html.platform-android .ff {
+  background: var(--m3-surface-container-highest, var(--m3-surface-container-high));
+  border-radius: 4px 4px 0 0;
+  padding: 8px 16px 12px;
+  position: relative;
+  border-bottom: 1px solid var(--m3-on-surface-variant);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+html.platform-android .ff:focus-within {
+  border-bottom: 2px solid var(--m3-primary);
+  padding-bottom: 11px; /* Kompenzace pro 2px border */
+}
+
+html.platform-android .flb {
+  font-size: 12px;
+  color: var(--m3-on-surface-variant);
+  margin-bottom: 4px;
+}
+
+html.platform-android .fi {
+  font-size: 16px;
+  color: var(--m3-on-surface);
+  line-height: 24px;
+}
+
+html.platform-android .fi::placeholder {
+  color: color-mix(in srgb, var(--m3-on-surface) 40%, transparent);
+}
+
+html.platform-android .ff + .ff::before {
+  display: none;
+}
