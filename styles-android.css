@@ -534,6 +534,7 @@ html.platform-android .rs {
   line-height: 1.4;
 }
 
+/* Linky / oddělovače položek v seznamech */
 html.platform-android .row + .row::before,
 html.platform-android .trow + .trow::before,
 html.platform-android .trow + .row::before,
@@ -541,8 +542,17 @@ html.platform-android .row + .trow::before,
 html.platform-android .oc + .oc::before,
 html.platform-android .nc + .nc::before,
 html.platform-android .sr + .sr::before {
-  display: none;
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(128, 128, 128, 0.15); /* Jemný M3 divider */
 }
+
+/* Výjimky pro karty, kde dividery nechceme (pokud nějaké jsou) */
 
 /* Bottom navigation — M3 NavigationBar (ikona + label, aktivní indikátor; výška s bezpečnou zónou) */
 html.platform-android .tb-bar {
