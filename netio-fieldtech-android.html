@@ -21,9 +21,9 @@
 <div class="phone" id="phone">
 <!-- ═══════════════════════════════════════════════
      FIELD TECHNICIAN VIEW
-     Tomáš Kratochvíl · Temporary access role
-     Focus: on-site device setup, NFC config, 
-            diagnostics, firmware — NO org mgmt
+     Tomáš Kratochvíl · Support access (per-org: temp or full)
+     Switch orgs like Admin · Dashboard (energy) read-only
+     Focus: on-site setup, NFC, diagnostics, firmware
 ════════════════════════════════════════════════════ -->
 
 <!-- ═══════════ SCREEN: DEVICES (HOME) ═══════════ -->
@@ -31,10 +31,7 @@
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">signal_cellular_4_bar</span><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">wifi</span><span class="ms ms-20" aria-hidden="true" style="transform:rotate(90deg)">battery_full_alt</span></div></div>
   <div class="nb">
     <span class="nb-logo" onclick="tab('out')" style="cursor:pointer"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span>
-    <button class="nb-pill" style="background:rgba(255,149,0,.25);cursor:default">
-      <span class="ms ms-24" aria-hidden="true">schedule</span>
-      Temp. access
-    </button>
+    <button class="nb-pill" onclick="openSheet('sh-orgs-ft')" type="button">DataCenter s.r.o.</button>
     <button class="nb-btn" onclick="go('s-search')"><span class="ms ms-24" aria-hidden="true">search</span></button>
   </div>
   <div class="cnt">
@@ -106,6 +103,7 @@
     <div class="tb-grp">
       <button class="ti on" onclick="tab('out')"><span class="ms ms-24" aria-hidden="true">devices</span><span>Devices</span></button>
       <button class="ti" onclick="tab('dev')"><span class="ms ms-24" aria-hidden="true">electrical_services</span><span>Outputs</span></button>
+      <button class="ti" onclick="tab('nrg')"><span class="ms ms-24" aria-hidden="true">dashboard</span><span>Dashboard</span></button>
       <button class="ti" onclick="tab('acc')"><span class="ms ms-24" aria-hidden="true">person</span><span>Account</span></button>
     </div>
     <button type="button" class="tb-fab" onclick="openSheet('sh-add')" aria-label="Přidat"><span class="ms ms-24" aria-hidden="true">add</span></button>
@@ -385,7 +383,7 @@
 <!-- ═══════════ SCREEN: OUTPUTS TAB ═══════════ -->
 <div class="scr" id="s-dev">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">signal_cellular_4_bar</span><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">wifi</span><span class="ms ms-20" aria-hidden="true" style="transform:rotate(90deg)">battery_full_alt</span></div></div>
-  <div class="nb"><span class="nb-logo" onclick="tab('out')" style="cursor:pointer"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" style="background:rgba(255,149,0,.25);cursor:default"><span class="ms ms-24" aria-hidden="true">schedule</span> Temp. access</button><div style="width:40px"></div></div>
+  <div class="nb"><span class="nb-logo" onclick="tab('out')" style="cursor:pointer"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" onclick="openSheet('sh-orgs-ft')" type="button">DataCenter s.r.o.</button><button class="nb-btn" onclick="go('s-search')"><span class="ms ms-24" aria-hidden="true">search</span></button></div>
   <div class="cnt">
     <div class="sstrip">
       <div class="sst"><div class="ssl">Online</div><div class="ssv" style="color:var(--green)">5<span class="ssu"> /7</span></div></div>
@@ -405,6 +403,51 @@
     <div class="tb-grp">
       <button class="ti" onclick="tab('out')"><span class="ms ms-24" aria-hidden="true">devices</span><span>Devices</span></button>
       <button class="ti on" onclick="tab('dev')"><span class="ms ms-24" aria-hidden="true">electrical_services</span><span>Outputs</span></button>
+      <button class="ti" onclick="tab('nrg')"><span class="ms ms-24" aria-hidden="true">dashboard</span><span>Dashboard</span></button>
+      <button class="ti" onclick="tab('acc')"><span class="ms ms-24" aria-hidden="true">person</span><span>Account</span></button>
+    </div>
+    <button type="button" class="tb-fab" onclick="openSheet('sh-add')" aria-label="Přidat"><span class="ms ms-24" aria-hidden="true">add</span></button>
+  </div>
+</div>
+
+<!-- ═══════════ SCREEN: DASHBOARD / ENERGY (FIELD TECH — same as Admin, read-only) ═══════════ -->
+<div class="scr" id="s-nrg">
+  <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">signal_cellular_4_bar</span><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">wifi</span><span class="ms ms-20" aria-hidden="true" style="transform:rotate(90deg)">battery_full_alt</span></div></div>
+  <div class="nb"><span class="nb-logo" onclick="tab('out')" style="cursor:pointer"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" onclick="openSheet('sh-orgs-ft')" type="button">DataCenter s.r.o.</button><button class="nb-btn" onclick="go('s-search')"><span class="ms ms-24" aria-hidden="true">search</span></button></div>
+  <div class="cnt">
+    <div class="mgrid">
+      <div class="mt"><div class="mlb">Today</div><div class="mv">124<span class="mu">kWh</span></div></div>
+      <div class="mt"><div class="mlb">Right now</div><div class="mv">5.2<span class="mu">kW</span></div></div>
+      <div class="mt"><div class="mlb">This month</div><div class="mv">3.7<span class="mu">MWh</span></div></div>
+      <div class="mt"><div class="mlb">Avg / day</div><div class="mv">123<span class="mu">kWh</span></div></div>
+    </div>
+    <div class="cht">
+      <div class="ch-hdr"><span class="ch-ttl">Last 7 days</span><span class="ch-sub">Total 862 kWh</span></div>
+      <div class="ch-bars">
+        <div class="bc"><div class="bf" style="height:94%"></div><span class="bl">Mon</span></div>
+        <div class="bc"><div class="bf" style="height:88%"></div><span class="bl">Tue</span></div>
+        <div class="bc"><div class="bf" style="height:91%"></div><span class="bl">Wed</span></div>
+        <div class="bc"><div class="bf" style="height:96%"></div><span class="bl">Thu</span></div>
+        <div class="bc"><div class="bf" style="height:82%"></div><span class="bl">Fri</span></div>
+        <div class="bc"><div class="bf" style="height:61%"></div><span class="bl">Sat</span></div>
+        <div class="bc"><div class="bf td" style="height:71%"></div><span class="bl td">Today</span></div>
+      </div>
+    </div>
+    <div class="sec"><div class="sec-hdr">By group</div>
+      <div class="card">
+        <div class="row row-nc"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">folder</span></div><div class="rb"><div class="rt">Server Room A</div><div class="pbar"><div class="pbf" style="width:68%"></div></div></div><div class="rv">84 kWh</div></div>
+        <div class="row row-nc"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">folder</span></div><div class="rb"><div class="rt">Network Cabinet</div><div class="pbar"><div class="pbf" style="width:22%"></div></div></div><div class="rv">27 kWh</div></div>
+        <div class="row row-nc"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">folder</span></div><div class="rb"><div class="rt">UPS &amp; Power</div><div class="pbar"><div class="pbf" style="width:10%"></div></div></div><div class="rv">13 kWh</div></div>
+      </div>
+    </div>
+    <div class="sec"><div class="card"><div class="row"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">upload</span></div><div class="rb"><div class="rt">Export data</div><div class="rs">Requires admin role</div></div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div></div></div>
+    <div class="spc"></div>
+  </div>
+  <div class="tb-bar">
+    <div class="tb-grp">
+      <button class="ti" onclick="tab('out')"><span class="ms ms-24" aria-hidden="true">devices</span><span>Devices</span></button>
+      <button class="ti" onclick="tab('dev')"><span class="ms ms-24" aria-hidden="true">electrical_services</span><span>Outputs</span></button>
+      <button class="ti on" onclick="tab('nrg')"><span class="ms ms-24" aria-hidden="true">dashboard</span><span>Dashboard</span></button>
       <button class="ti" onclick="tab('acc')"><span class="ms ms-24" aria-hidden="true">person</span><span>Account</span></button>
     </div>
     <button type="button" class="tb-fab" onclick="openSheet('sh-add')" aria-label="Přidat"><span class="ms ms-24" aria-hidden="true">add</span></button>
@@ -414,7 +457,7 @@
 <!-- ═══════════ SCREEN: ACCOUNT (FIELD TECH) ═══════════ -->
 <div class="scr" id="s-acc">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">signal_cellular_4_bar</span><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">wifi</span><span class="ms ms-20" aria-hidden="true" style="transform:rotate(90deg)">battery_full_alt</span></div></div>
-  <div class="nb"><span class="nb-logo" onclick="tab('out')" style="cursor:pointer"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><div style="flex:1"></div><div style="width:40px"></div></div>
+  <div class="nb"><span class="nb-logo" onclick="tab('out')" style="cursor:pointer"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" onclick="openSheet('sh-orgs-ft')" type="button">DataCenter s.r.o.</button><button class="nb-btn" onclick="go('s-search')"><span class="ms ms-24" aria-hidden="true">search</span></button></div>
   <div class="cnt">
     <div class="ph"><div class="av-lg" style="background:#5856d6">TK</div><div class="pname">Tomáš Kratochvíl</div><div class="pemail"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fe8a91939f8dbe8d9b8c88978dd38a9b9d96d09d84">[email&#160;protected]</a></div><span class="tag" style="background:rgba(255,149,0,.12);color:var(--orange)">Field Technician</span></div>
 
@@ -453,6 +496,7 @@
     <div class="tb-grp">
       <button class="ti" onclick="tab('out')"><span class="ms ms-24" aria-hidden="true">devices</span><span>Devices</span></button>
       <button class="ti" onclick="tab('dev')"><span class="ms ms-24" aria-hidden="true">electrical_services</span><span>Outputs</span></button>
+      <button class="ti" onclick="tab('nrg')"><span class="ms ms-24" aria-hidden="true">dashboard</span><span>Dashboard</span></button>
       <button class="ti on" onclick="tab('acc')"><span class="ms ms-24" aria-hidden="true">person</span><span>Account</span></button>
     </div>
     <button type="button" class="tb-fab" onclick="openSheet('sh-add')" aria-label="Přidat"><span class="ms ms-24" aria-hidden="true">add</span></button>
@@ -486,6 +530,41 @@
   </div>
 </div>
 
+
+<div class="overlay" id="sh-orgs-ft" onclick="if(event.target===this)closeSheet(this)">
+  <div class="sheet">
+    <div class="snotch"></div>
+    <div class="stitle">Switch organization</div>
+    <p class="fn" style="margin:-8px 0 12px;padding:0 4px">Access type is set per invitation — only some orgs grant temporary access.</p>
+    <div class="scard">
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-orgs-ft'))" style="align-items:flex-start;gap:12px">
+        <div class="srich ri-g"><span class="ms ms-24" aria-hidden="true">apartment</span></div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:500;color:var(--lp)">DataCenter s.r.o.</div>
+          <div style="font-size:12px;color:var(--ls);margin-top:4px;display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span class="badge" style="background:rgba(255,149,0,.15);color:var(--orange);font-size:11px;padding:2px 8px;border-radius:6px">Temporary</span></div>
+          <div style="font-size:12px;color:var(--ls);margin-top:4px">Expires in 24h · device setup &amp; diagnostics</div>
+        </div>
+        <span class="ms ms-24" style="margin-left:auto;color:var(--m3-primary);flex-shrink:0" aria-hidden="true">check</span>
+      </div>
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-orgs-ft'))" style="align-items:flex-start;gap:12px">
+        <div class="srich" style="background:#5856d6"><span class="ms ms-24" aria-hidden="true">apartment</span></div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:500;color:var(--lp)">NetServ Praha</div>
+          <div style="font-size:12px;color:var(--ls);margin-top:4px;display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span class="badge" style="background:color-mix(in srgb, var(--m3-primary) 18%, transparent);color:var(--m3-primary);font-size:11px;padding:2px 8px;border-radius:6px">Full support</span></div>
+          <div style="font-size:12px;color:var(--ls);margin-top:4px">Technician · no expiry · same dashboard as admin</div>
+        </div>
+      </div>
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-orgs-ft'))" style="align-items:flex-start;gap:12px">
+        <div class="srich" style="background:#ff9500"><span class="ms ms-24" aria-hidden="true">apartment</span></div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:500;color:var(--lp)">Hotel Imperia</div>
+          <div style="font-size:12px;color:var(--ls);margin-top:4px;display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span class="badge" style="background:rgba(255,149,0,.15);color:var(--orange);font-size:11px;padding:2px 8px;border-radius:6px">Temporary</span></div>
+          <div style="font-size:12px;color:var(--ls);margin-top:4px">Expires in 72h · on-site only</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="overlay" id="sh-add" onclick="if(event.target===this)closeSheet(this)">
   <div class="sheet">
