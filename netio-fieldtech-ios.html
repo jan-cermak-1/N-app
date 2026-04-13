@@ -63,13 +63,15 @@
 <symbol id="sf-search" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.75"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></symbol>
 <symbol id="sf-back" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 <symbol id="sf-nfc" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.75"/><circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="1.75"/><circle cx="12" cy="12" r="2" fill="currentColor"/></symbol>
+<symbol id="sf-dashboard" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.75"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.75"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.75"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.75"/></symbol>
+<symbol id="sf-ellipsis" viewBox="0 0 24 24" fill="none"><path d="M6 12h.01M12 12h.01M18 12h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></symbol>
 </defs></svg>
 
 <!-- ═══════════════════════════════════════════════
      FIELD TECHNICIAN VIEW
-     Tomáš Kratochvíl · Temporary access role
-     Focus: on-site device setup, NFC config, 
-            diagnostics, firmware — NO org mgmt
+     Tomáš Kratochvíl · Support access (per-org: temp or full)
+     Switch orgs like Admin · Dashboard (energy) read-only
+     Focus: on-site setup, NFC, diagnostics, firmware
 ════════════════════════════════════════════════════ -->
 
 <!-- ═══════════ SCREEN: DEVICES (HOME) ═══════════ -->
@@ -77,10 +79,7 @@
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"><svg width="17" height="11"><rect x="0" y="3" width="3" height="8" rx=".5" fill="white"/><rect x="4.5" y="2" width="3" height="9" rx=".5" fill="white"/><rect x="9" y="0" width="3" height="11" rx=".5" fill="white"/><rect x="13.5" y="0" width="3" height="11" rx=".5" fill="white" opacity=".3"/></svg><svg width="15" height="11"><path d="M7.5 2A7.5 7.5 0 0113 4.5L14.5 3A9.5 9.5 0 007.5 0 9.5 9.5 0 00.5 3L2 4.5A7.5 7.5 0 017.5 2z" fill="white"/><path d="M7.5 5A4.5 4.5 0 0111 6.5L12.5 5A6.7 6.7 0 007.5 3 6.7 6.7 0 002.5 5L4 6.5A4.5 4.5 0 017.5 5z" fill="white"/><circle cx="7.5" cy="9.5" r="1.5" fill="white"/></svg><svg width="25" height="11"><rect x=".5" y=".5" width="21" height="10" rx="3" stroke="white" stroke-opacity=".35" fill="none"/><rect x="2" y="2" width="16" height="7" rx="2" fill="white"/><path d="M23 3.5v4a2 2 0 000-4z" fill="white" opacity=".4"/></svg></div></div>
   <div class="nb">
     <span class="nb-logo" onclick="tab('out')" style="cursor:pointer"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span>
-    <button class="nb-pill" style="background:rgba(255,149,0,.25);cursor:default">
-      <svg width="10" height="10" viewBox="0 0 24 24" fill="white"><use href="#i-timer"/></svg>
-      Temp. access
-    </button>
+    <button type="button" class="nb-pill" onclick="openSheet('sh-orgs-ft')">DataCenter s.r.o.</button>
     <button class="nb-btn" onclick="go('s-search')"><svg viewBox="0 0 24 24"><use href="#sf-search"/></svg></button>
   </div>
   <div class="cnt">
@@ -152,6 +151,7 @@
     <div class="tb-grp">
       <button class="ti on" onclick="tab('out')"><svg viewBox="0 0 24 24"><use href="#sf-dev"/></svg><span>Devices</span></button>
       <button class="ti" onclick="tab('dev')"><svg viewBox="0 0 24 24"><use href="#sf-plug"/></svg><span>Outputs</span></button>
+      <button class="ti" onclick="tab('nrg')"><svg viewBox="0 0 24 24"><use href="#sf-dashboard"/></svg><span>Dashboard</span></button>
       <button class="ti" onclick="tab('acc')"><svg viewBox="0 0 24 24"><use href="#sf-user"/></svg><span>Account</span></button>
     </div>
     <button type="button" class="tb-fab" onclick="openSheet('sh-add')" aria-label="Přidat"><svg viewBox="0 0 24 24"><use href="#sf-plus"/></svg></button>
@@ -431,7 +431,7 @@
 <!-- ═══════════ SCREEN: OUTPUTS TAB ═══════════ -->
 <div class="scr" id="s-dev">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><span class="nb-logo" onclick="tab('out')" style="cursor:pointer"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" style="background:rgba(255,149,0,.25);cursor:default"><svg width="10" height="10" viewBox="0 0 24 24" fill="white"><use href="#i-timer"/></svg> Temp. access</button><div style="width:40px"></div></div>
+  <div class="nb"><span class="nb-logo" onclick="tab('out')" style="cursor:pointer"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button type="button" class="nb-pill" onclick="openSheet('sh-orgs-ft')">DataCenter s.r.o.</button><button class="nb-btn" onclick="go('s-search')"><svg viewBox="0 0 24 24"><use href="#sf-search"/></svg></button></div>
   <div class="cnt">
     <div class="sstrip">
       <div class="sst"><div class="ssl">Online</div><div class="ssv" style="color:var(--green)">5<span class="ssu"> /7</span></div></div>
@@ -451,6 +451,51 @@
     <div class="tb-grp">
       <button class="ti" onclick="tab('out')"><svg viewBox="0 0 24 24"><use href="#sf-dev"/></svg><span>Devices</span></button>
       <button class="ti on" onclick="tab('dev')"><svg viewBox="0 0 24 24"><use href="#sf-plug"/></svg><span>Outputs</span></button>
+      <button class="ti" onclick="tab('nrg')"><svg viewBox="0 0 24 24"><use href="#sf-dashboard"/></svg><span>Dashboard</span></button>
+      <button class="ti" onclick="tab('acc')"><svg viewBox="0 0 24 24"><use href="#sf-user"/></svg><span>Account</span></button>
+    </div>
+    <button type="button" class="tb-fab" onclick="openSheet('sh-add')" aria-label="Přidat"><svg viewBox="0 0 24 24"><use href="#sf-plus"/></svg></button>
+  </div>
+</div>
+
+<!-- ═══════════ SCREEN: DASHBOARD / ENERGY (FIELD TECH — same as Admin, read-only) ═══════════ -->
+<div class="scr" id="s-nrg">
+  <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
+  <div class="nb"><span class="nb-logo" onclick="tab('out')" style="cursor:pointer"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button type="button" class="nb-pill" onclick="openSheet('sh-orgs-ft')">DataCenter s.r.o.</button><button class="nb-btn" onclick="go('s-search')"><svg viewBox="0 0 24 24"><use href="#sf-search"/></svg></button></div>
+  <div class="cnt">
+    <div class="mgrid">
+      <div class="mt"><div class="mlb">Today</div><div class="mv">124<span class="mu">kWh</span></div></div>
+      <div class="mt"><div class="mlb">Right now</div><div class="mv">5.2<span class="mu">kW</span></div></div>
+      <div class="mt"><div class="mlb">This month</div><div class="mv">3.7<span class="mu">MWh</span></div></div>
+      <div class="mt"><div class="mlb">Avg / day</div><div class="mv">123<span class="mu">kWh</span></div></div>
+    </div>
+    <div class="cht">
+      <div class="ch-hdr"><span class="ch-ttl">Last 7 days</span><span class="ch-sub">Total 862 kWh</span></div>
+      <div class="ch-bars">
+        <div class="bc"><div class="bf" style="height:94%"></div><span class="bl">Mon</span></div>
+        <div class="bc"><div class="bf" style="height:88%"></div><span class="bl">Tue</span></div>
+        <div class="bc"><div class="bf" style="height:91%"></div><span class="bl">Wed</span></div>
+        <div class="bc"><div class="bf" style="height:96%"></div><span class="bl">Thu</span></div>
+        <div class="bc"><div class="bf" style="height:82%"></div><span class="bl">Fri</span></div>
+        <div class="bc"><div class="bf" style="height:61%"></div><span class="bl">Sat</span></div>
+        <div class="bc"><div class="bf td" style="height:71%"></div><span class="bl td">Today</span></div>
+      </div>
+    </div>
+    <div class="sec"><div class="sec-hdr">By group</div>
+      <div class="card">
+        <div class="row row-nc"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">Server Room A</div><div class="pbar"><div class="pbf" style="width:68%"></div></div></div><div class="rv">84 kWh</div></div>
+        <div class="row row-nc"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">Network Cabinet</div><div class="pbar"><div class="pbf" style="width:22%"></div></div></div><div class="rv">27 kWh</div></div>
+        <div class="row row-nc"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">UPS &amp; Power</div><div class="pbar"><div class="pbf" style="width:10%"></div></div></div><div class="rv">13 kWh</div></div>
+      </div>
+    </div>
+    <div class="sec"><div class="card"><div class="row"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-export"/></svg></div><div class="rb"><div class="rt">Export data</div><div class="rs">Requires admin role</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div></div></div>
+    <div class="spc"></div>
+  </div>
+  <div class="tb-bar">
+    <div class="tb-grp">
+      <button class="ti" onclick="tab('out')"><svg viewBox="0 0 24 24"><use href="#sf-dev"/></svg><span>Devices</span></button>
+      <button class="ti" onclick="tab('dev')"><svg viewBox="0 0 24 24"><use href="#sf-plug"/></svg><span>Outputs</span></button>
+      <button class="ti on" onclick="tab('nrg')"><svg viewBox="0 0 24 24"><use href="#sf-dashboard"/></svg><span>Dashboard</span></button>
       <button class="ti" onclick="tab('acc')"><svg viewBox="0 0 24 24"><use href="#sf-user"/></svg><span>Account</span></button>
     </div>
     <button type="button" class="tb-fab" onclick="openSheet('sh-add')" aria-label="Přidat"><svg viewBox="0 0 24 24"><use href="#sf-plus"/></svg></button>
@@ -460,7 +505,7 @@
 <!-- ═══════════ SCREEN: ACCOUNT (FIELD TECH) ═══════════ -->
 <div class="scr" id="s-acc">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><span class="nb-logo" onclick="tab('out')" style="cursor:pointer"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><div style="flex:1"></div><div style="width:40px"></div></div>
+  <div class="nb"><span class="nb-logo" onclick="tab('out')" style="cursor:pointer"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button type="button" class="nb-pill" onclick="openSheet('sh-orgs-ft')">DataCenter s.r.o.</button><button class="nb-btn" onclick="go('s-search')"><svg viewBox="0 0 24 24"><use href="#sf-search"/></svg></button></div>
   <div class="cnt">
     <div class="ph"><div class="av-lg" style="background:#5856d6">TK</div><div class="pname">Tomáš Kratochvíl</div><div class="pemail"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fe8a91939f8dbe8d9b8c88978dd38a9b9d96d09d84">[email&#160;protected]</a></div><span class="tag" style="background:rgba(255,149,0,.12);color:var(--orange)">Field Technician</span></div>
 
@@ -499,6 +544,7 @@
     <div class="tb-grp">
       <button class="ti" onclick="tab('out')"><svg viewBox="0 0 24 24"><use href="#sf-dev"/></svg><span>Devices</span></button>
       <button class="ti" onclick="tab('dev')"><svg viewBox="0 0 24 24"><use href="#sf-plug"/></svg><span>Outputs</span></button>
+      <button class="ti" onclick="tab('nrg')"><svg viewBox="0 0 24 24"><use href="#sf-dashboard"/></svg><span>Dashboard</span></button>
       <button class="ti on" onclick="tab('acc')"><svg viewBox="0 0 24 24"><use href="#sf-user"/></svg><span>Account</span></button>
     </div>
     <button type="button" class="tb-fab" onclick="openSheet('sh-add')" aria-label="Přidat"><svg viewBox="0 0 24 24"><use href="#sf-plus"/></svg></button>
@@ -532,6 +578,41 @@
   </div>
 </div>
 
+
+<div class="overlay" id="sh-orgs-ft" onclick="if(event.target===this)closeSheet(this)">
+  <div class="sheet">
+    <div class="snotch"></div>
+    <div class="stitle">Switch organization</div>
+    <p class="fn" style="margin:-8px 0 12px">Access type is set per invitation — only some orgs grant temporary access.</p>
+    <div class="scard">
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-orgs-ft'))" style="align-items:flex-start;gap:12px">
+        <div class="srich ri-g"><svg viewBox="0 0 24 24"><use href="#i-bld"/></svg></div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:600;color:var(--lp)">DataCenter s.r.o.</div>
+          <div style="margin-top:4px"><span class="tag" style="background:rgba(255,149,0,.12);color:var(--orange);font-size:11px;padding:2px 8px;border-radius:6px;font-weight:600">Temporary</span></div>
+          <div style="font-size:12px;color:var(--ls);margin-top:4px">Expires in 24h · device setup &amp; diagnostics</div>
+        </div>
+        <span class="sch" style="color:var(--brand)">✓</span>
+      </div>
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-orgs-ft'))" style="align-items:flex-start;gap:12px">
+        <div class="srich" style="background:#5856d6"><svg viewBox="0 0 24 24"><use href="#i-bld"/></svg></div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:600;color:var(--lp)">NetServ Praha</div>
+          <div style="margin-top:4px"><span class="tag" style="background:rgba(0,200,120,.12);color:var(--brand);font-size:11px;padding:2px 8px;border-radius:6px;font-weight:600">Full support</span></div>
+          <div style="font-size:12px;color:var(--ls);margin-top:4px">Technician · no expiry · same dashboard as admin</div>
+        </div>
+      </div>
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-orgs-ft'))" style="align-items:flex-start;gap:12px">
+        <div class="srich" style="background:#ff9500"><svg viewBox="0 0 24 24"><use href="#i-bld"/></svg></div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:600;color:var(--lp)">Hotel Imperia</div>
+          <div style="margin-top:4px"><span class="tag" style="background:rgba(255,149,0,.12);color:var(--orange);font-size:11px;padding:2px 8px;border-radius:6px;font-weight:600">Temporary</span></div>
+          <div style="font-size:12px;color:var(--ls);margin-top:4px">Expires in 72h · on-site only</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="overlay" id="sh-add" onclick="if(event.target===this)closeSheet(this)">
   <div class="sheet">
