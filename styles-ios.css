@@ -724,6 +724,28 @@ a.__cf_email__,a.__cf_email__:visited{
   border-color:rgba(129,214,180,.4);
   color:#9df2cf;
 }
+.proto-rail-select{
+  width:100%;
+  box-sizing:border-box;
+  margin:0;
+  padding:8px 10px;
+  border-radius:8px;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:-.15px;
+  font-family:inherit;
+  color:rgba(235,235,245,.92);
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  cursor:pointer;
+}
+.proto-rail-select:hover,.proto-rail-select:focus-visible{
+  border-color:rgba(129,214,180,.35);
+  outline:none;
+}
+.proto-rail-select:focus-visible{
+  box-shadow:0 0 0 2px rgba(129,214,180,.35);
+}
 @media (max-width:520px){
   .proto-rail{
     right:8px;

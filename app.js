@@ -99,6 +99,12 @@ let curAppear = 'system';
 
 function setAppear(mode) {
   curAppear = mode;
+  try {
+    localStorage.setItem('netio-theme', mode);
+  } catch (e) {
+    /* ignore */
+  }
+
   ['light', 'dark', 'system'].forEach((m) => {
     const el = document.getElementById('ap-' + m);
     if (el) {
@@ -121,6 +127,9 @@ function setAppear(mode) {
 
   const val = document.getElementById('appear-val');
   if (val) val.textContent = mode.charAt(0).toUpperCase() + mode.slice(1);
+
+  const railSel = document.getElementById('proto-rail-theme');
+  if (railSel && railSel.value !== mode) railSel.value = mode;
 }
 
 // ─── SCAN ────────────────────────────────────────────────
@@ -182,21 +191,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const phone = document.getElementById('phone');
-  if (
-    phone &&
-    window.matchMedia &&
-    window.matchMedia('(prefers-color-scheme: dark)').matches
-  ) {
-    phone.classList.add('dark');
-    const apSys = document.getElementById('ap-system');
-    if (apSys) {
-      apSys.textContent = '✓';
-      apSys.style.cssText =
-        'color:var(--brand);font-size:20px;font-weight:700';
-    }
-    const val = document.getElementById('appear-val');
-    if (val) val.textContent = 'System';
+  let saved = null;
+  try {
+    saved = localStorage.getItem('netio-theme');
+  } catch (e) {
+    /* ignore */
+  }
+  const initialMode =
+    saved === 'light' || saved === 'dark' || saved === 'system'
+      ? saved
+      : 'system';
+  setAppear(initialMode);
+
+  const railSel = document.getElementById('proto-rail-theme');
+  if (railSel) {
+    railSel.addEventListener('change', () => setAppear(railSel.value));
   }
 
   window
