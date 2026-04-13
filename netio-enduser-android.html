@@ -36,15 +36,11 @@
   </div>
   <div class="cnt">
     <!-- simple welcome + status -->
-    <div style="padding:16px 16px 0">
-      <div style="background:var(--bg1);border-radius:var(--r);padding:16px">
-        <div style="font-size:13px;color:var(--ls);margin-bottom:6px">Office Praha · Sunday</div>
-        <div style="display:flex;gap:20px">
-          <div><div style="font-size:11px;color:var(--ls);text-transform:uppercase;letter-spacing:.3px">Online</div><div style="font-size:28px;font-weight:700;color:var(--green);letter-spacing:-1px">6<span style="font-size:16px;font-weight:400;color:var(--ls)"> /8</span></div></div>
-          <div><div style="font-size:11px;color:var(--ls);text-transform:uppercase;letter-spacing:.3px">Energy</div><div style="font-size:28px;font-weight:700;color:var(--lp);letter-spacing:-1px">437<span style="font-size:16px;font-weight:400;color:var(--ls)"> W</span></div></div>
-          <div><div style="font-size:11px;color:var(--ls);text-transform:uppercase;letter-spacing:.3px">Today</div><div style="font-size:28px;font-weight:700;color:var(--lp);letter-spacing:-1px">18<span style="font-size:16px;font-weight:400;color:var(--ls)"> kWh</span></div></div>
-        </div>
-      </div>
+    <div style="padding:16px 16px 0 20px; font-size:13px; color:var(--ls); font-weight:500">Office Praha · Sunday</div>
+    <div class="sstrip" style="grid-template-columns:1fr 1fr 1fr; margin-top:8px">
+      <div class="sst"><div class="ssl">Online</div><div class="ssv" style="color:var(--green)">6<span class="ssu"> /8</span></div></div>
+      <div class="sst"><div class="ssl">Energy</div><div class="ssv">437<span class="ssu"> W</span></div></div>
+      <div class="sst"><div class="ssl">Today</div><div class="ssv">18<span class="ssu"> kWh</span></div></div>
     </div>
 
     <div class="sec"><div class="sec-hdr">Outputs — Kancelář</div>
