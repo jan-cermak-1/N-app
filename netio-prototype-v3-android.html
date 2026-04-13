@@ -3,6 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){
+  try {
+    var q = new URLSearchParams(location.search).get('view');
+    var s = sessionStorage.getItem('netioProtoView');
+    if (q === 'desktop') {
+      sessionStorage.setItem('netioProtoView', 'desktop');
+    } else if (q === 'mobile') {
+      document.documentElement.classList.add('proto-view-mobile');
+      sessionStorage.setItem('netioProtoView', 'mobile');
+    } else if (s === 'mobile') {
+      document.documentElement.classList.add('proto-view-mobile');
+    }
+  } catch (e) {}
+})();
+</script>
 <title>NETIO · Android · Prototyp v3</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <link rel="stylesheet" href="styles-ios.css">
@@ -78,9 +94,9 @@
       </div>
     </div>
     <div class="astrip">
-      <button class="at"><div class="ai" style="background:var(--brand)"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><span class="alb">Turn On</span></button>
-      <button class="at"><div class="ai" style="background:#8e8e93"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><span class="alb">Turn Off</span></button>
-      <button class="at"><div class="ai" style="background:var(--orange)"><span class="ms ms-24" aria-hidden="true">restart_alt</span></div><span class="alb">Restart</span></button>
+      <button class="at" onclick="prototypeAction('Turn On')" type="button"><div class="ai" style="background:var(--brand)"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><span class="alb">Turn On</span></button>
+      <button class="at" onclick="prototypeAction('Turn Off')" type="button"><div class="ai" style="background:#8e8e93"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><span class="alb">Turn Off</span></button>
+      <button class="at" onclick="prototypeAction('Restart')" type="button"><div class="ai" style="background:var(--orange)"><span class="ms ms-24" aria-hidden="true">restart_alt</span></div><span class="alb">Restart</span></button>
     </div>
     <div class="mgrid">
       <div class="mt"><div class="mlb">Power</div><div class="mv">124<span class="mu">W</span></div></div>
@@ -110,7 +126,7 @@
 <!-- ═══════════ SCREEN: SCHEDULER ═══════════ -->
 <div class="scr" id="s-sched">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">signal_cellular_4_bar</span><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">wifi</span><span class="ms ms-20" aria-hidden="true" style="transform:rotate(90deg)">battery_full_alt</span></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Scheduler</span><button class="nb-btn"><span class="ms ms-24" aria-hidden="true">check</span></button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Scheduler</span><button class="nb-btn" onclick="back()" type="button"><span class="ms ms-24" aria-hidden="true">check</span></button></div>
   <div class="cnt">
     <div class="sec"><div class="sec-hdr">Weekly plan · Server Rack #1</div></div>
     <div style="background:var(--bg1);border-radius:var(--r);padding:14px;margin:8px 16px 0;overflow-x:auto">
@@ -118,10 +134,10 @@
     </div>
     <div class="sec"><div class="sec-hdr">Intervals</div>
       <div class="card">
-        <div class="row"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">schedule</span></div><div class="rb"><div class="rt">Mon – Fri</div><div class="rs">08:00 – 18:00 · ON</div></div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
+        <div class="row" onclick="prototypeAction('Edit schedule interval (prototype)')" role="button"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">schedule</span></div><div class="rb"><div class="rt">Mon – Fri</div><div class="rs">08:00 – 18:00 · ON</div></div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
       </div>
     </div>
-    <div style="margin:12px 16px 0"><button class="sbtn">+ Add interval</button></div>
+    <div style="margin:12px 16px 0"><button class="sbtn" onclick="prototypeAction('Add interval')" type="button">+ Add interval</button></div>
     <div class="spc"></div>
   </div>
 </div>
@@ -129,7 +145,7 @@
 <!-- ═══════════ SCREEN: WATCHDOG ═══════════ -->
 <div class="scr" id="s-wdog">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">signal_cellular_4_bar</span><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">wifi</span><span class="ms ms-20" aria-hidden="true" style="transform:rotate(90deg)">battery_full_alt</span></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">WatchDog</span><button class="nb-btn"><span class="ms ms-24" aria-hidden="true">check</span></button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">WatchDog</span><button class="nb-btn" onclick="back()" type="button"><span class="ms ms-24" aria-hidden="true">check</span></button></div>
   <div class="cnt">
     <div class="sec">
       <div class="card">
@@ -138,10 +154,10 @@
     </div>
     <div class="sec"><div class="sec-hdr">Ping configuration</div>
       <div class="card">
-        <div class="row"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">lan</span></div><div class="rb"><div class="rt">IP address</div></div><div class="rv">192.168.1.1</div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
-        <div class="row"><div class="ri ri-t"><span class="ms ms-24" aria-hidden="true">schedule</span></div><div class="rb"><div class="rt">Check interval</div></div><div class="rv">60 s</div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
-        <div class="row"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">restart_alt</span></div><div class="rb"><div class="rt">Action on fail</div></div><div class="rv">Restart</div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
-        <div class="row"><div class="ri ri-p"><span class="ms ms-24" aria-hidden="true">schedule</span></div><div class="rb"><div class="rt">Restart delay</div></div><div class="rv">5 s</div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
+        <div class="row" onclick="prototypeAction('WatchDog IP (prototype)')" role="button"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">lan</span></div><div class="rb"><div class="rt">IP address</div></div><div class="rv">192.168.1.1</div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
+        <div class="row" onclick="prototypeAction('Check interval (prototype)')" role="button"><div class="ri ri-t"><span class="ms ms-24" aria-hidden="true">schedule</span></div><div class="rb"><div class="rt">Check interval</div></div><div class="rv">60 s</div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
+        <div class="row" onclick="prototypeAction('Action on fail (prototype)')" role="button"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">restart_alt</span></div><div class="rb"><div class="rt">Action on fail</div></div><div class="rv">Restart</div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
+        <div class="row" onclick="prototypeAction('Restart delay (prototype)')" role="button"><div class="ri ri-p"><span class="ms ms-24" aria-hidden="true">schedule</span></div><div class="rb"><div class="rt">Restart delay</div></div><div class="rv">5 s</div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
       </div>
     </div>
     <div class="spc"></div>
@@ -213,16 +229,16 @@
 <!-- ═══════════ SCREEN: GROUP ═══════════ -->
 <div class="scr" id="s-grp">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">signal_cellular_4_bar</span><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">wifi</span><span class="ms ms-20" aria-hidden="true" style="transform:rotate(90deg)">battery_full_alt</span></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Server Room</span><button class="nb-btn"><span class="ms ms-24" aria-hidden="true">edit</span></button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Server Room</span><button class="nb-btn" onclick="back()" type="button"><span class="ms ms-24" aria-hidden="true">edit</span></button></div>
   <div class="cnt">
     <div class="mgrid">
       <div class="mt"><div class="mlb">Devices</div><div class="mv">2</div></div>
       <div class="mt"><div class="mlb">Outputs</div><div class="mv">12</div></div>
     </div>
     <div class="astrip">
-      <button class="at"><div class="ai" style="background:var(--brand)"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><span class="alb">All ON</span></button>
-      <button class="at"><div class="ai" style="background:#8e8e93"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><span class="alb">All OFF</span></button>
-      <button class="at"><div class="ai" style="background:var(--brand)"><span class="ms ms-24" aria-hidden="true">calendar_month</span></div><span class="alb">Scheduler</span></button>
+      <button class="at" onclick="prototypeAction('All ON')" type="button"><div class="ai" style="background:var(--brand)"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><span class="alb">All ON</span></button>
+      <button class="at" onclick="prototypeAction('All OFF')" type="button"><div class="ai" style="background:#8e8e93"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><span class="alb">All OFF</span></button>
+      <button class="at" onclick="go('s-sched')" type="button"><div class="ai" style="background:var(--brand)"><span class="ms ms-24" aria-hidden="true">calendar_month</span></div><span class="alb">Scheduler</span></button>
     </div>
     <div class="sec"><div class="sec-hdr">Devices</div>
       <div class="card">
@@ -238,7 +254,7 @@
 <!-- ═══════════ SCREEN: ENERGY ═══════════ -->
 <div class="scr" id="s-nrg">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">signal_cellular_4_bar</span><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">wifi</span><span class="ms ms-20" aria-hidden="true" style="transform:rotate(90deg)">battery_full_alt</span></div></div>
-  <div class="nb"><span class="nb-logo" onclick="tab('out')" style="cursor:pointer"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" onclick="openSheet('sh-orgs')">Hans inc.</button><button class="nb-btn"><span class="ms ms-24" aria-hidden="true">search</span></button></div>
+  <div class="nb"><span class="nb-logo" onclick="tab('out')" style="cursor:pointer"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" onclick="openSheet('sh-orgs')">Hans inc.</button><button class="nb-btn" onclick="go('s-search')"><span class="ms ms-24" aria-hidden="true">search</span></button></div>
   <div class="cnt">
     <div class="mgrid">
       <div class="mt"><div class="mlb">Total today</div><div class="mv">48.2<span class="mu">kWh</span></div></div>
@@ -266,7 +282,7 @@
     </div>
     <div class="sec">
       <div class="card">
-        <div class="row"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">upload</span></div><div class="rb"><div class="rt">Export data</div></div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
+        <div class="row" onclick="go('s-export')" role="button"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">upload</span></div><div class="rb"><div class="rt">Export data</div></div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
       </div>
     </div>
     <div class="spc"></div>
@@ -284,7 +300,7 @@
 <!-- ═══════════ SCREEN: ACCOUNT ═══════════ -->
 <div class="scr" id="s-acc">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">signal_cellular_4_bar</span><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">wifi</span><span class="ms ms-20" aria-hidden="true" style="transform:rotate(90deg)">battery_full_alt</span></div></div>
-  <div class="nb"><span class="nb-logo" onclick="tab('out')" style="cursor:pointer"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" onclick="openSheet('sh-orgs')">Hans inc.</button><button class="nb-btn"><span class="ms ms-24" aria-hidden="true">search</span></button></div>
+  <div class="nb"><span class="nb-logo" onclick="tab('out')" style="cursor:pointer"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" onclick="openSheet('sh-orgs')">Hans inc.</button><button class="nb-btn" onclick="go('s-search')"><span class="ms ms-24" aria-hidden="true">search</span></button></div>
   <div class="cnt">
     <div class="sec">
       <div class="card">
@@ -457,7 +473,7 @@
         <div class="row" onclick="go('s-credits')"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">credit_card</span></div><div class="rb"><div class="rt">Credits</div></div><div class="rv">5 854 174</div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
         <div class="row" onclick="go('s-members')"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">groups</span></div><div class="rb"><div class="rt">Members</div></div><div class="rv">3</div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
         <div class="row" onclick="tab('dev')"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">devices</span></div><div class="rb"><div class="rt">Devices</div></div><div class="rv">4</div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
-        <div class="row"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">credit_card</span></div><div class="rb"><div class="rt">Subscription</div></div><span class="tag tg" style="margin-right:6px">Pro</span><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
+        <div class="row" onclick="go('s-billing')" role="button"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">credit_card</span></div><div class="rb"><div class="rt">Subscription</div></div><span class="tag tg" style="margin-right:6px">Pro</span><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
         <div class="row" onclick="go('s-reps')"><div class="ri ri-p"><span class="ms ms-24" aria-hidden="true">description</span></div><div class="rb"><div class="rt">Event log</div></div><div class="rv" style="font-size:15px">last 24h</div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
       </div>
     </div>
@@ -491,7 +507,7 @@
     </div>
     <div class="sec">
       <div class="card">
-        <div class="row"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">credit_card</span></div><div class="rb"><div class="rt">Buy credits</div></div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
+        <div class="row" onclick="go('s-credits')" role="button"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">credit_card</span></div><div class="rb"><div class="rt">Buy credits</div></div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
         <div class="row" onclick="go('s-reps')"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">description</span></div><div class="rb"><div class="rt">Billing history</div></div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
       </div>
     </div>
@@ -550,7 +566,7 @@
         <div class="row" onclick="setIRole('custom')"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">settings</span></div><div class="rb"><div class="rt">Custom</div><div class="rs">Per-output permissions</div></div><div id="ir-custom" class="ap-check"></div></div>
       </div>
     </div>
-    <div style="margin:16px 16px 0"><button class="pbtn">Send invitation</button></div>
+    <div style="margin:16px 16px 0"><button class="pbtn" onclick="prototypeAction('Invitation sent (prototype)')" type="button">Send invitation</button></div>
   </div>
 </div>
 
@@ -572,7 +588,7 @@
     <div class="sec"><div class="sec-hdr">Appearance</div>
       <div class="card">
         <div class="row" onclick="go('s-appear')"><div class="ri ri-p"><span class="ms ms-24" aria-hidden="true">dark_mode</span></div><div class="rb"><div class="rt">Appearance</div></div><div class="rv" id="appear-val">System</div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
-        <div class="row"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">language</span></div><div class="rb"><div class="rt">Language</div></div><div class="rv">English</div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
+        <div class="row" onclick="go('s-lang')" role="button"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">language</span></div><div class="rb"><div class="rt">Language</div></div><div class="rv" id="lang-val">English</div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
       </div>
     </div>
     <div class="sec"><div class="sec-hdr">Notifications</div>
@@ -584,14 +600,14 @@
     </div>
     <div class="sec"><div class="sec-hdr">Security</div>
       <div class="card">
-        <div class="row"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">shield</span></div><div class="rb"><div class="rt">Two-Factor Auth</div></div><span class="tag tg" style="margin-right:6px">On</span><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
-        <div class="row"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">lock</span></div><div class="rb"><div class="rt">SSO</div></div><div class="rv">Configure</div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
+        <div class="row" onclick="prototypeAction('Two-Factor Auth (prototype)')" role="button"><div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">shield</span></div><div class="rb"><div class="rt">Two-Factor Auth</div></div><span class="tag tg" style="margin-right:6px">On</span><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
+        <div class="row" onclick="prototypeAction('SSO (prototype)')" role="button"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">lock</span></div><div class="rb"><div class="rt">SSO</div></div><div class="rv">Configure</div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
       </div>
     </div>
     <div class="sec"><div class="sec-hdr">About</div>
       <div class="card">
         <div class="row row-nc"><div class="ri ri-t"><span class="ms ms-24" aria-hidden="true">label</span></div><div class="rb"><div class="rt">Version</div></div><div class="rv">2.0.0</div></div>
-        <div class="row"><div class="ri ri-gr"><span class="ms ms-24" aria-hidden="true">description</span></div><div class="rb"><div class="rt">Privacy Policy</div></div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
+        <div class="row" onclick="prototypeAction('Privacy Policy (prototype)')" role="button"><div class="ri ri-gr"><span class="ms ms-24" aria-hidden="true">description</span></div><div class="rb"><div class="rt">Privacy Policy</div></div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
       </div>
     </div>
     <div class="sec">
@@ -671,7 +687,7 @@
     </div>
     <div class="sec"><div class="sec-hdr">Group</div>
       <div class="card">
-        <div class="row"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">folder</span></div><div class="rb"><div class="rt">Assign to group</div></div><div class="rv">Server Room</div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
+        <div class="row" onclick="openSheet('sh-pick-group')" role="button"><div class="ri ri-o"><span class="ms ms-24" aria-hidden="true">folder</span></div><div class="rb"><div class="rt">Assign to group</div></div><div class="rv">Server Room</div><span class="ms ms-ch" aria-hidden="true">chevron_right</span></div>
       </div>
     </div>
     <div style="margin:16px 16px 0"><button class="pbtn" onclick="go('s-add-ok')">Connect device</button></div>
@@ -740,7 +756,7 @@
         <div class="row row-nc"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">calendar_month</span></div><div class="rb"><div class="rt">Last updated</div></div><div class="rv">Mar 12, 2026</div></div>
       </div>
     </div>
-    <div style="margin:16px 16px 0"><button class="sbtn">Check for updates</button></div>
+    <div style="margin:16px 16px 0"><button class="sbtn" onclick="prototypeAction('Check for updates')" type="button">Check for updates</button></div>
     <div class="spc"></div>
   </div>
 </div>
@@ -755,6 +771,43 @@
       <input style="flex:1;border:none;outline:none;font-size:17px;background:transparent;color:var(--lp);letter-spacing:-.3px" placeholder="Search outputs, devices…" autofocus>
     </div>
     <div style="margin-top:32px;text-align:center;color:var(--lt);font-size:15px">Type to search outputs and devices</div>
+  </div>
+</div>
+
+<div class="scr" id="s-lang">
+  <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">signal_cellular_4_bar</span><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">wifi</span><span class="ms ms-20" aria-hidden="true" style="transform:rotate(90deg)">battery_full_alt</span></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Language</span><div class="nb-spc"></div></div>
+  <div class="cnt">
+    <div class="sec"><div class="card">
+      <div class="row" onclick="setLang('English')" role="button"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">language</span></div><div class="rb"><div class="rt">English</div></div></div>
+      <div class="row" onclick="setLang('Czech')" role="button"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">language</span></div><div class="rb"><div class="rt">Czech</div></div></div>
+      <div class="row" onclick="setLang('German')" role="button"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">language</span></div><div class="rb"><div class="rt">German</div></div></div>
+    </div></div>
+    <div class="spc"></div>
+  </div>
+</div>
+<div class="scr" id="s-export">
+  <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">signal_cellular_4_bar</span><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">wifi</span><span class="ms ms-20" aria-hidden="true" style="transform:rotate(90deg)">battery_full_alt</span></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Export data</span><div class="nb-spc"></div></div>
+  <div class="cnt">
+    <div class="sec"><div class="card">
+      <div class="row row-nc"><div class="rb"><div class="rt">Format</div></div><div class="rv">CSV</div></div>
+      <div class="row row-nc"><div class="rb"><div class="rt">Period</div></div><div class="rv">Last 30 days</div></div>
+    </div></div>
+    <div style="margin:16px"><button class="pbtn" onclick="prototypeAction('Export started (prototype)')" type="button">Export</button></div>
+    <div class="spc"></div>
+  </div>
+</div>
+<div class="scr" id="s-billing">
+  <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">signal_cellular_4_bar</span><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">wifi</span><span class="ms ms-20" aria-hidden="true" style="transform:rotate(90deg)">battery_full_alt</span></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Subscription</span><div class="nb-spc"></div></div>
+  <div class="cnt">
+    <div class="sec"><div class="card">
+      <div class="row row-nc"><div class="rb"><div class="rt">Plan</div></div><div class="rv">Pro</div></div>
+    </div></div>
+    <p class="fn" style="margin:8px 16px 0">Billing details are not available in this prototype.</p>
+    <div style="margin:16px"><button class="pbtn" onclick="prototypeAction('Manage subscription (prototype)')" type="button">Manage billing</button></div>
+    <div class="spc"></div>
   </div>
 </div>
 
@@ -784,6 +837,17 @@
       <div class="sr" onclick="closeSheet(document.getElementById('sh-add'));setTimeout(()=>go('s-add-man'),180)"><div class="srich ri-g"><span class="ms ms-24" aria-hidden="true">add</span></div>Add manually<span class="ms ms-ch" style="margin-left:auto" aria-hidden="true">chevron_right</span></div>
       <div class="sr" onclick="closeSheet(document.getElementById('sh-add'));setTimeout(()=>go('s-nfc'),180)"><div class="srich ri-p"><span class="ms ms-24" aria-hidden="true">nfc</span></div>NFC configuration<span class="ms ms-ch" style="margin-left:auto" aria-hidden="true">chevron_right</span></div>
       <div class="sr" onclick="closeSheet(document.getElementById('sh-add'));setTimeout(()=>go('s-add-man'),180)"><div class="srich ri-t"><span class="ms ms-24" aria-hidden="true">cloud</span></div>From NETIO Cloud<span class="ms ms-ch" style="margin-left:auto" aria-hidden="true">chevron_right</span></div>
+    </div>
+  </div>
+</div>
+<div class="overlay" id="sh-pick-group" onclick="if(event.target===this)closeSheet(this)">
+  <div class="sheet">
+    <div class="snotch"></div>
+    <div class="stitle">Select group</div>
+    <div class="scard">
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-pick-group'))"><div class="srich ri-o"><span class="ms ms-24" aria-hidden="true">folder</span></div>Server Room<span class="ms ms-24" style="margin-left:auto;color:var(--m3-primary)" aria-hidden="true">check</span></div>
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-pick-group'))"><div class="srich ri-b"><span class="ms ms-24" aria-hidden="true">folder</span></div>Network Cabinet</div>
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-pick-group'))"><div class="srich ri-g"><span class="ms ms-24" aria-hidden="true">folder</span></div>UPS &amp; Power</div>
     </div>
   </div>
 </div>

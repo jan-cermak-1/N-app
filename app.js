@@ -32,6 +32,16 @@ function tab(t) {
   show(tabs[t]);
 }
 
+function prototypeAction(msg) {
+  alert('Prototype: ' + msg);
+}
+
+function setLang(label) {
+  const el = document.getElementById('lang-val');
+  if (el) el.textContent = label;
+  back();
+}
+
 // ─── SHEETS ──────────────────────────────────────────────
 function openSheet(id) {
   document.getElementById(id)?.classList.add('on');
@@ -134,8 +144,24 @@ function startScan() {
   }, 40);
 }
 
+// ─── PROTOTYPE VIEW (desktop mockup vs mobile full-view) ───
+function syncProtoViewLinks() {
+  const mobile = document.documentElement.classList.contains(
+    'proto-view-mobile',
+  );
+  document.querySelectorAll('a[href]').forEach((a) => {
+    const raw = a.getAttribute('href');
+    if (!raw) return;
+    const base = raw.split('?')[0];
+    if (!/^netio-[\w-]+\.html$/.test(base)) return;
+    a.href = base + (mobile ? '?view=mobile' : '');
+  });
+}
+
 // ─── SCHEDULER GRID ──────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
+  syncProtoViewLinks();
+
   const grid = document.getElementById('sgrid');
   if (grid) {
     const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];

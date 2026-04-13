@@ -3,6 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){
+  try {
+    var q = new URLSearchParams(location.search).get('view');
+    var s = sessionStorage.getItem('netioProtoView');
+    if (q === 'desktop') {
+      sessionStorage.setItem('netioProtoView', 'desktop');
+    } else if (q === 'mobile') {
+      document.documentElement.classList.add('proto-view-mobile');
+      sessionStorage.setItem('netioProtoView', 'mobile');
+    } else if (s === 'mobile') {
+      document.documentElement.classList.add('proto-view-mobile');
+    }
+  } catch (e) {}
+})();
+</script>
 <title>NETIO · iOS App</title>
 <link rel="stylesheet" href="styles-ios.css">
 </head>
@@ -160,9 +176,9 @@
       <div class="mt"><div class="mlb">Status</div><div class="mv" style="color:var(--green);font-size:18px">All OK</div></div>
     </div>
     <div class="astrip">
-      <button class="at"><div class="ai" style="background:var(--brand)"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><span class="alb">All ON</span></button>
-      <button class="at"><div class="ai" style="background:#8e8e93"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><span class="alb">All OFF</span></button>
-      <button class="at"><div class="ai" style="background:var(--orange)"><svg viewBox="0 0 24 24"><use href="#i-restart"/></svg></div><span class="alb">Restart all</span></button>
+      <button class="at" onclick="prototypeAction('All ON')" type="button"><div class="ai" style="background:var(--brand)"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><span class="alb">All ON</span></button>
+      <button class="at" onclick="prototypeAction('All OFF')" type="button"><div class="ai" style="background:#8e8e93"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><span class="alb">All OFF</span></button>
+      <button class="at" onclick="prototypeAction('Restart all')" type="button"><div class="ai" style="background:var(--orange)"><svg viewBox="0 0 24 24"><use href="#i-restart"/></svg></div><span class="alb">Restart all</span></button>
       <button class="at" onclick="go('s-sched')"><div class="ai" style="background:var(--blue)"><svg viewBox="0 0 24 24"><use href="#i-cal"/></svg></div><span class="alb">Scheduler</span></button>
     </div>
 
@@ -215,7 +231,7 @@
 <!-- ═══════════ SCREEN: EDIT GROUP ═══════════ -->
 <div class="scr" id="s-grp-edit">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Edit group</span><button class="nb-txt">Save</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Edit group</span><button class="nb-txt" onclick="back()" type="button">Save</button></div>
   <div class="cnt" style="padding-bottom:24px">
     <div class="sec">
       <div class="fc">
@@ -291,9 +307,9 @@
       </div>
     </div></div>
     <div class="astrip">
-      <button class="at"><div class="ai" style="background:var(--brand)"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><span class="alb">Turn On</span></button>
-      <button class="at"><div class="ai" style="background:#8e8e93"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><span class="alb">Turn Off</span></button>
-      <button class="at"><div class="ai" style="background:var(--orange)"><svg viewBox="0 0 24 24"><use href="#i-restart"/></svg></div><span class="alb">Restart</span></button>
+      <button class="at" onclick="prototypeAction('Turn On')" type="button"><div class="ai" style="background:var(--brand)"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><span class="alb">Turn On</span></button>
+      <button class="at" onclick="prototypeAction('Turn Off')" type="button"><div class="ai" style="background:#8e8e93"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><span class="alb">Turn Off</span></button>
+      <button class="at" onclick="prototypeAction('Restart')" type="button"><div class="ai" style="background:var(--orange)"><svg viewBox="0 0 24 24"><use href="#i-restart"/></svg></div><span class="alb">Restart</span></button>
     </div>
     <div class="mgrid">
       <div class="mt"><div class="mlb">Power</div><div class="mv">372<span class="mu">W</span></div></div>
@@ -305,7 +321,7 @@
     </div>
     <div class="sec"><div class="sec-hdr">Configuration</div>
       <div class="card">
-        <div class="row"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-tag"/></svg></div><div class="rb"><div class="rt">Output name</div></div><div class="rv">Main Server</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="prototypeAction('Rename output (prototype)')" role="button"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-tag"/></svg></div><div class="rb"><div class="rt">Output name</div></div><div class="rv">Main Server</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
         <div class="trow"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-cal"/></svg></div><div class="tb"><div class="tt">Scheduler</div><div class="tsb">Mon–Fri 00:00–24:00</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
         <div class="row" onclick="go('s-sched')"><div style="width:30px;flex-shrink:0"></div><div class="rb"><div class="rt" style="font-size:15px">Configure schedule</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
         <div class="trow"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-dog"/></svg></div><div class="tb"><div class="tt">WatchDog</div><div class="tsb">Ping 10.0.0.1 / 30s · Restart on fail</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
@@ -320,7 +336,7 @@
 <!-- ═══════════ SCREEN: DEVICE CONFIG ═══════════ -->
 <div class="scr" id="s-dev-config">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Device config</span><button class="nb-txt">Save</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Device config</span><button class="nb-txt" onclick="back()" type="button">Save</button></div>
   <div class="cnt" style="padding-bottom:24px">
     <div class="sec"><div class="sec-hdr">Network</div>
       <div class="fc">
@@ -338,8 +354,8 @@
     </div>
     <div class="sec"><div class="sec-hdr">Power-up defaults</div>
       <div class="card">
-        <div class="row"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><div class="rb"><div class="rt">Output 1 power-up state</div></div><div class="rv">ON</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-gr"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><div class="rb"><div class="rt">Output 2 power-up state</div></div><div class="rv">Last</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="prototypeAction('Power-up state (prototype)')" role="button"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><div class="rb"><div class="rt">Output 1 power-up state</div></div><div class="rv">ON</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="prototypeAction('Power-up state (prototype)')" role="button"><div class="ri ri-gr"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><div class="rb"><div class="rt">Output 2 power-up state</div></div><div class="rv">Last</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="spc"></div>
@@ -349,7 +365,7 @@
 <!-- ═══════════ SCREEN: ALERTS CONFIG ═══════════ -->
 <div class="scr" id="s-alerts-cfg">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Connection alerts</span><button class="nb-txt">Save</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Connection alerts</span><button class="nb-txt" onclick="back()" type="button">Save</button></div>
   <div class="cnt">
     <div class="sec">
       <div class="card">
@@ -364,7 +380,7 @@
     </div>
     <div class="sec"><div class="sec-hdr">Notify via</div>
       <div class="card">
-        <div class="row"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-globe"/></svg></div><div class="rb"><div class="rt">Email</div></div><div class="rv"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ea808b84aa8e8b9e8b898f849e8f98c48990">[email&#160;protected]</a></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="prototypeAction('Alert email (prototype)')" role="button"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-globe"/></svg></div><div class="rb"><div class="rt">Email</div></div><div class="rv"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ea808b84aa8e8b9e8b898f849e8f98c48990">[email&#160;protected]</a></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
         <div class="trow"><div class="ri ri-p"><svg viewBox="0 0 24 24"><use href="#i-bell"/></svg></div><div class="tb"><div class="tt">Push notification</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
       </div>
     </div>
@@ -407,7 +423,7 @@
 <!-- ═══════════ SCREEN: ENERGY ═══════════ -->
 <div class="scr" id="s-nrg">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><span class="nb-logo" onclick="tab('out')" style="cursor:pointer"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" onclick="openSheet('sh-orgs')">DataCenter s.r.o.</button><button class="nb-btn"><svg viewBox="0 0 24 24"><use href="#sf-search"/></svg></button></div>
+  <div class="nb"><span class="nb-logo" onclick="tab('out')" style="cursor:pointer"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" onclick="openSheet('sh-orgs')">DataCenter s.r.o.</button><button class="nb-btn" onclick="go('s-search')"><svg viewBox="0 0 24 24"><use href="#sf-search"/></svg></button></div>
   <div class="cnt">
     <div class="mgrid">
       <div class="mt"><div class="mlb">Today</div><div class="mv">124<span class="mu">kWh</span></div></div>
@@ -434,7 +450,7 @@
         <div class="row row-nc"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">UPS &amp; Power</div><div class="pbar"><div class="pbf" style="width:10%"></div></div></div><div class="rv">13 kWh</div></div>
       </div>
     </div>
-    <div class="sec"><div class="card"><div class="row"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-export"/></svg></div><div class="rb"><div class="rt">Export data</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div></div></div>
+    <div class="sec"><div class="card"><div class="row" onclick="go('s-export')" role="button"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-export"/></svg></div><div class="rb"><div class="rt">Export data</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div></div></div>
     <div class="spc"></div>
   </div>
   <div class="tb-bar">
@@ -451,7 +467,7 @@
 <!-- ═══════════ SCREEN: ACCOUNT (TECH) ═══════════ -->
 <div class="scr" id="s-acc">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><span class="nb-logo" onclick="tab('out')" style="cursor:pointer"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" onclick="openSheet('sh-orgs')">DataCenter s.r.o.</button><button class="nb-btn"><svg viewBox="0 0 24 24"><use href="#sf-search"/></svg></button></div>
+  <div class="nb"><span class="nb-logo" onclick="tab('out')" style="cursor:pointer"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><button class="nb-pill" onclick="openSheet('sh-orgs')">DataCenter s.r.o.</button><button class="nb-btn" onclick="go('s-search')"><svg viewBox="0 0 24 24"><use href="#sf-search"/></svg></button></div>
   <div class="cnt">
     <div class="sec"><div class="card">
       <div class="row" onclick="go('s-user')">
@@ -508,7 +524,7 @@
     <div class="sec"><div class="card">
       <div class="row" onclick="go('s-members')"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-users"/></svg></div><div class="rb"><div class="rt">Members</div></div><div class="rv">8</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       <div class="row" onclick="tab('out')"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-dev"/></svg></div><div class="rb"><div class="rt">Devices</div></div><div class="rv">14</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-      <div class="row"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-card"/></svg></div><div class="rb"><div class="rt">Subscription</div></div><span class="tag tg" style="margin-right:6px">Pro</span><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+      <div class="row" onclick="go('s-billing')" role="button"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-card"/></svg></div><div class="rb"><div class="rt">Subscription</div></div><span class="tag tg" style="margin-right:6px">Pro</span><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
     </div></div>
     <div class="spc"></div>
   </div>
@@ -518,10 +534,10 @@
   <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Team members</span><button class="nb-btn" onclick="go('s-invite')"><svg viewBox="0 0 24 24"><use href="#i-plus"/></svg></button></div>
   <div class="cnt">
     <div class="sec"><div class="card">
-      <div class="row"><div class="av-sm" style="background:var(--brand)">J</div><div class="rb"><div class="rt">Jan Novák</div><div class="rs"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cfa5aea18fabaebbaeacaaa1bbaabde1acb5">[email&#160;protected]</a></div></div><span class="tag tg">Admin</span></div>
-      <div class="row"><div class="av-sm" style="background:#007aff">P</div><div class="rb"><div class="rt">Petr Svoboda</div><div class="rs"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7404110006341015001517111a0011065a170e">[email&#160;protected]</a></div></div><span class="tag tb2">User</span></div>
-      <div class="row"><div class="av-sm" style="background:#ff9500">K</div><div class="rb"><div class="rt">Karel Marek</div><div class="rs"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dfb4beadbab39fbbbeabbebcbab1abbaadf1bca5">[email&#160;protected]</a></div></div><span class="tag to">Custom</span></div>
-      <div class="row"><div class="av-sm" style="background:#af52de">M</div><div class="rb"><div class="rt">Martina Horáčková</div><div class="rs"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e28f8390968b8c83a28683968381878c968790cc8198">[email&#160;protected]</a></div></div><span class="tag tb2">User</span></div>
+      <div class="row" onclick="go('s-member-det')" role="button"><div class="av-sm" style="background:var(--brand)">J</div><div class="rb"><div class="rt">Jan Novák</div><div class="rs"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cfa5aea18fabaebbaeacaaa1bbaabde1acb5">[email&#160;protected]</a></div></div><span class="tag tg">Admin</span></div>
+      <div class="row" onclick="go('s-member-det')" role="button"><div class="av-sm" style="background:#007aff">P</div><div class="rb"><div class="rt">Petr Svoboda</div><div class="rs"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7404110006341015001517111a0011065a170e">[email&#160;protected]</a></div></div><span class="tag tb2">User</span></div>
+      <div class="row" onclick="go('s-member-det')" role="button"><div class="av-sm" style="background:#ff9500">K</div><div class="rb"><div class="rt">Karel Marek</div><div class="rs"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dfb4beadbab39fbbbeabbebcbab1abbaadf1bca5">[email&#160;protected]</a></div></div><span class="tag to">Custom</span></div>
+      <div class="row" onclick="go('s-member-det')" role="button"><div class="av-sm" style="background:#af52de">M</div><div class="rb"><div class="rt">Martina Horáčková</div><div class="rs"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e28f8390968b8c83a28683968381878c968790cc8198">[email&#160;protected]</a></div></div><span class="tag tb2">User</span></div>
     </div></div>
     <div class="spc"></div>
   </div>
@@ -539,32 +555,32 @@
         <div class="row" onclick="go('s-custom-role')" style="padding-left:28px"><div class="ri" style="background:transparent;width:30px"></div><div class="rb"><div class="rt" style="font-size:15px;color:var(--brand)">Configure custom role →</div></div></div>
       </div>
     </div>
-    <div style="margin:16px 16px 0"><button class="pbtn">Send invitation</button></div>
+    <div style="margin:16px 16px 0"><button class="pbtn" onclick="prototypeAction('Invitation sent (prototype)')" type="button">Send invitation</button></div>
   </div>
 </div>
 <div class="scr" id="s-sched">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Scheduler</span><button class="nb-txt">Save</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Scheduler</span><button class="nb-txt" onclick="back()" type="button">Save</button></div>
   <div class="cnt">
     <div class="sec"><div class="sec-hdr">Weekly plan</div></div>
     <div style="background:var(--bg1);border-radius:var(--r);padding:14px;margin:8px 16px 0;overflow-x:auto"><div class="sgrid" id="sgrid"></div></div>
-    <div class="sec"><div class="card"><div class="row"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-timer"/></svg></div><div class="rb"><div class="rt">Mon–Sun 00:00–24:00</div><div class="rs">Always ON</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div></div></div>
-    <div style="margin:12px 16px 0"><button class="sbtn">+ Add interval</button></div>
+    <div class="sec"><div class="card"><div class="row" onclick="prototypeAction('Edit schedule interval (prototype)')" role="button"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-timer"/></svg></div><div class="rb"><div class="rt">Mon–Sun 00:00–24:00</div><div class="rs">Always ON</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div></div></div>
+    <div style="margin:12px 16px 0"><button class="sbtn" onclick="prototypeAction('Add interval')" type="button">+ Add interval</button></div>
     <div class="spc"></div>
   </div>
 </div>
 <div class="scr" id="s-wdog">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">WatchDog</span><button class="nb-txt">Save</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">WatchDog</span><button class="nb-txt" onclick="back()" type="button">Save</button></div>
   <div class="cnt">
     <div class="sec"><div class="card"><div class="trow"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-dog"/></svg></div><div class="tb"><div class="tt">WatchDog enabled</div></div><button class="tog on" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div></div></div>
     <div class="sec"><div class="sec-hdr">Configuration</div>
       <div class="card">
-        <div class="row"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-ip"/></svg></div><div class="rb"><div class="rt">IP address</div></div><div class="rv">10.0.0.1</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-t"><svg viewBox="0 0 24 24"><use href="#i-timer"/></svg></div><div class="rb"><div class="rt">Check interval</div></div><div class="rv">30 s</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-restart"/></svg></div><div class="rb"><div class="rt">Action on fail</div></div><div class="rv">Restart</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-p"><svg viewBox="0 0 24 24"><use href="#i-timer"/></svg></div><div class="rb"><div class="rt">Restart delay</div></div><div class="rv">10 s</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-gr"><svg viewBox="0 0 24 24"><use href="#i-timer"/></svg></div><div class="rb"><div class="rt">Max retries</div></div><div class="rv">3</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="prototypeAction('WatchDog IP (prototype)')" role="button"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-ip"/></svg></div><div class="rb"><div class="rt">IP address</div></div><div class="rv">10.0.0.1</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="prototypeAction('Check interval (prototype)')" role="button"><div class="ri ri-t"><svg viewBox="0 0 24 24"><use href="#i-timer"/></svg></div><div class="rb"><div class="rt">Check interval</div></div><div class="rv">30 s</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="prototypeAction('Action on fail (prototype)')" role="button"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-restart"/></svg></div><div class="rb"><div class="rt">Action on fail</div></div><div class="rv">Restart</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="prototypeAction('Restart delay (prototype)')" role="button"><div class="ri ri-p"><svg viewBox="0 0 24 24"><use href="#i-timer"/></svg></div><div class="rb"><div class="rt">Restart delay</div></div><div class="rv">10 s</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="prototypeAction('Max retries (prototype)')" role="button"><div class="ri ri-gr"><svg viewBox="0 0 24 24"><use href="#i-timer"/></svg></div><div class="rb"><div class="rt">Max retries</div></div><div class="rv">3</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="spc"></div>
@@ -612,9 +628,9 @@
   <div class="cnt">
     <div class="sec"><div class="sec-hdr">Daily billing</div>
       <div class="card">
-        <div class="row"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-doc"/></svg></div><div class="rb"><div class="rt">April 11, 2026</div><div class="rs">3 840 credits · 14 devices</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-doc"/></svg></div><div class="rb"><div class="rt">April 10, 2026</div><div class="rs">3 720 credits · 14 devices</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-doc"/></svg></div><div class="rb"><div class="rt">April 9, 2026</div><div class="rs">3 540 credits · 13 devices</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="go('s-rep-day')" role="button"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-doc"/></svg></div><div class="rb"><div class="rt">April 11, 2026</div><div class="rs">3 840 credits · 14 devices</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="go('s-rep-day')" role="button"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-doc"/></svg></div><div class="rb"><div class="rt">April 10, 2026</div><div class="rs">3 720 credits · 14 devices</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="go('s-rep-day')" role="button"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-doc"/></svg></div><div class="rb"><div class="rt">April 9, 2026</div><div class="rs">3 540 credits · 13 devices</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="spc"></div>
@@ -627,7 +643,7 @@
     <div class="sec"><div class="sec-hdr">Appearance</div>
       <div class="card">
         <div class="row" onclick="go('s-appear')"><div class="ri ri-p"><svg viewBox="0 0 24 24"><use href="#i-moon"/></svg></div><div class="rb"><div class="rt">Appearance</div></div><div class="rv" id="appear-val">System</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-globe"/></svg></div><div class="rb"><div class="rt">Language</div></div><div class="rv">Czech</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="go('s-lang')" role="button"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-globe"/></svg></div><div class="rb"><div class="rt">Language</div></div><div class="rv" id="lang-val">Czech</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="sec"><div class="sec-hdr">Notifications</div>
@@ -655,7 +671,7 @@
 </div>
 <div class="scr" id="s-user">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Profile</span><button class="nb-txt">Edit</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Profile</span><button class="nb-txt" onclick="back()" type="button">Edit</button></div>
   <div class="cnt">
     <div class="ph"><div class="av-lg">JN</div><div class="pname">Jan Novák</div><div class="pemail"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a1cbc0cfe1c5c0d5c0c2c4cfd5c4d38fc2db">[email&#160;protected]</a></div><span class="tag tg">Admin</span></div>
     <div class="sec"><div class="card">
@@ -732,8 +748,8 @@
     </div></div>
     <div class="sec"><div class="sec-hdr">Assign</div>
       <div class="card">
-        <div class="row"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">Group</div></div><div class="rv">Server Room A</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-bld"/></svg></div><div class="rb"><div class="rt">Organization</div></div><div class="rv">DataCenter s.r.o.</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="openSheet('sh-pick-group')" role="button"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">Group</div></div><div class="rv">Server Room A</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="openSheet('sh-orgs')" role="button"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-bld"/></svg></div><div class="rb"><div class="rt">Organization</div></div><div class="rv">DataCenter s.r.o.</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div style="margin:16px 16px 0"><button class="pbtn" onclick="go('s-add-ok')">Connect device</button></div>
@@ -764,7 +780,7 @@
 <!-- ═══════════ SCREEN: NETIO CLOUD SETUP ═══════════ -->
 <div class="scr" id="s-cloud-setup">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">NETIO Cloud</span><button class="nb-txt">Save</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">NETIO Cloud</span><button class="nb-txt" onclick="back()" type="button">Save</button></div>
   <div class="cnt">
     <div class="sec">
       <div class="card">
@@ -795,7 +811,7 @@
 <!-- ═══════════ SCREEN: CUSTOM ROLE EDITOR ═══════════ -->
 <div class="scr" id="s-custom-role">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Custom role</span><button class="nb-txt">Save</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Custom role</span><button class="nb-txt" onclick="back()" type="button">Save</button></div>
   <div class="cnt" style="padding-bottom:24px">
     <div class="sec">
       <div class="fc">
@@ -830,11 +846,73 @@
     </div>
     <div class="sec"><div class="sec-hdr">Per-output restrictions</div>
       <div class="card">
-        <div class="row"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">Restrict to groups</div><div class="rs">Only access specific device groups</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="rb"><div class="rt">Restrict to outputs</div><div class="rs">Only access specific outputs</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="openSheet('sh-pick-group')" role="button"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">Restrict to groups</div><div class="rs">Only access specific device groups</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="prototypeAction('Restrict to outputs (prototype)')" role="button"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-plug"/></svg></div><div class="rb"><div class="rt">Restrict to outputs</div><div class="rs">Only access specific outputs</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div style="margin:16px 16px 0"><button class="pbtn" onclick="back()">Save custom role</button></div>
+  </div>
+</div>
+
+<div class="scr" id="s-member-det">
+  <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Member</span><div class="nb-spc"></div></div>
+  <div class="cnt">
+    <div class="sec"><div class="card">
+      <div class="row row-nc"><div class="rb"><div class="rt">Role</div></div><div class="rv">Admin</div></div>
+      <div class="row row-nc"><div class="rb"><div class="rt">Contact</div></div><div class="rv">member@company.com</div></div>
+    </div></div>
+    <p class="fn" style="margin:8px 16px 0">Actions and permissions are not implemented in this prototype.</p>
+    <div class="spc"></div>
+  </div>
+</div>
+<div class="scr" id="s-lang">
+  <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Language</span><div class="nb-spc"></div></div>
+  <div class="cnt">
+    <div class="sec"><div class="card">
+      <div class="row" onclick="setLang('English')" role="button"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-globe"/></svg></div><div class="rb"><div class="rt">English</div></div></div>
+      <div class="row" onclick="setLang('Czech')" role="button"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-globe"/></svg></div><div class="rb"><div class="rt">Czech</div></div></div>
+      <div class="row" onclick="setLang('German')" role="button"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-globe"/></svg></div><div class="rb"><div class="rt">German</div></div></div>
+    </div></div>
+    <div class="spc"></div>
+  </div>
+</div>
+<div class="scr" id="s-export">
+  <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Export data</span><div class="nb-spc"></div></div>
+  <div class="cnt">
+    <div class="sec"><div class="card">
+      <div class="row row-nc"><div class="rb"><div class="rt">Format</div></div><div class="rv">CSV</div></div>
+      <div class="row row-nc"><div class="rb"><div class="rt">Period</div></div><div class="rv">Last 30 days</div></div>
+    </div></div>
+    <div style="margin:16px"><button class="pbtn" onclick="prototypeAction('Export started (prototype)')" type="button">Export</button></div>
+    <div class="spc"></div>
+  </div>
+</div>
+<div class="scr" id="s-billing">
+  <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Subscription</span><div class="nb-spc"></div></div>
+  <div class="cnt">
+    <div class="sec"><div class="card">
+      <div class="row row-nc"><div class="rb"><div class="rt">Plan</div></div><div class="rv">Pro</div></div>
+    </div></div>
+    <p class="fn" style="margin:8px 16px 0">Billing details are not available in this prototype.</p>
+    <div style="margin:16px"><button class="pbtn" onclick="prototypeAction('Manage subscription (prototype)')" type="button">Manage billing</button></div>
+    <div class="spc"></div>
+  </div>
+</div>
+<div class="scr" id="s-rep-day">
+  <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Daily report</span><div class="nb-spc"></div></div>
+  <div class="cnt">
+    <div class="sec"><div class="sec-hdr">Devices</div>
+      <div class="card">
+        <div class="row row-nc"><div class="rb"><div class="rt">PowerPDU 8KS</div><div class="rs">Server Room A</div></div><div class="rv">2 840 cr</div></div>
+        <div class="row row-nc"><div class="rb"><div class="rt">PowerBOX 4Kx</div><div class="rs">Network Cabinet</div></div><div class="rv">1 000 cr</div></div>
+      </div>
+    </div>
+    <div class="spc"></div>
   </div>
 </div>
 
@@ -859,6 +937,17 @@
       <div class="sr" onclick="closeSheet(document.getElementById('sh-add'));setTimeout(()=>go('s-find'),180)"><div class="srich ri-b"><svg viewBox="0 0 24 24"><use href="#i-search"/></svg></div>Find devices (LAN)<svg class="ch" viewBox="0 0 10 18" style="margin-left:auto"><polyline points="1 1 9 9 1 17"/></svg></div>
       <div class="sr" onclick="closeSheet(document.getElementById('sh-add'));setTimeout(()=>go('s-add-man'),180)"><div class="srich ri-g"><svg viewBox="0 0 24 24"><use href="#i-plus"/></svg></div>Add manually<svg class="ch" viewBox="0 0 10 18" style="margin-left:auto"><polyline points="1 1 9 9 1 17"/></svg></div>
       <div class="sr" onclick="closeSheet(document.getElementById('sh-add'));setTimeout(()=>go('s-nfc'),180)"><div class="srich ri-p"><svg viewBox="0 0 24 24"><use href="#i-nfc"/></svg></div>NFC configuration<svg class="ch" viewBox="0 0 10 18" style="margin-left:auto"><polyline points="1 1 9 9 1 17"/></svg></div>
+    </div>
+  </div>
+</div>
+<div class="overlay" id="sh-pick-group" onclick="if(event.target===this)closeSheet(this)">
+  <div class="sheet">
+    <div class="snotch"></div>
+    <div class="stitle">Select group</div>
+    <div class="scard">
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-pick-group'))"><div class="srich ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div>Server Room A<span class="sch">✓</span></div>
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-pick-group'))"><div class="srich ri-b"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div>Network Cabinet</div>
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-pick-group'))"><div class="srich ri-g"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div>UPS &amp; Power</div>
     </div>
   </div>
 </div>

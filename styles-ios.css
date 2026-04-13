@@ -25,7 +25,11 @@ input,button,select{font:inherit}
   --fp:rgba(120,120,128,.20);--fs:rgba(120,120,128,.16);--ft:rgba(118,118,128,.12);
   --bg0:#f2f2f7;--bg1:#fff;--bg2:#f2f2f7;
   --sep:rgba(60,60,67,.29);
-  --green:#34c759;--red:#ff3b30;--orange:#ff9500;--blue:#007aff;--purple:#af52de;
+  /* Light: úspěch = NETIO brand (ne iOS #34c759); varování/chyby ztlumené, srovnatelné s Android M3 v styles-android.css */
+  --green:var(--brand);
+  --red:#ba1a1a;
+  --orange:#995b00;
+  --blue:#007aff;--purple:#af52de;
   --r:14px;
   /* Spodní záložky: neaktivní musí čístelně převyšovat ~3:1 na skle */
   --tab-muted:rgba(60,60,67,.78);
@@ -41,7 +45,7 @@ input,button,select{font:inherit}
   --tb-icon-on:#fff;
   --tb-pill-on:rgba(255,255,255,.2);
   /* UISwitch — SOUL Knowledge: light 34:4845 ON / 34:4846 OFF; dark 34:4854 ON / 34:4855 OFF */
-  --switch-on-bg:#34c759;
+  --switch-on-bg:var(--green);
   --switch-track-off:rgba(60,60,67,.3);
   --switch-thumb-shadow:none;
   --switch-track-inset:none;
@@ -61,57 +65,79 @@ input,button,select{font:inherit}
   --pbtn-fg:#fff;
   --pbtn-shadow:0 4px 14px rgba(0,95,65,.22);
 }
-/* DARK MODE */
+/* DARK MODE — NETIO M3 (sjednoceno s Android: html.platform-android #phone.dark ve styles-android.css) */
 .dark {
+  /* M3 dark tokens */
+  --m3-surface: #101412;
+  --m3-surface-dim: #0d1110;
+  --m3-surface-container: #1d211f;
+  --m3-surface-container-high: #272a29;
+  --m3-on-surface: #e0e3e1;
+  --m3-on-surface-variant: #bfc9c4;
+  --m3-outline: #89938f;
+  --m3-primary: #81d6b4;
+  --m3-on-primary: #003825;
+  --m3-nav-rail: #151918;
   --glass-blur:blur(18px) saturate(132%);
   --glass-blur-ui:blur(32px) saturate(118%);
-  --glass-fill-grouped:rgba(44,44,46,.72);
-  --glass-fill-elevated:rgba(58,58,60,.82);
-  --glass-border:rgba(255,255,255,.12);
-  --glass-inset-shine:inset 0 1px 0 rgba(255,255,255,.1);
-  --glass-shadow-soft:0 6px 22px rgba(0,0,0,.42);
-  --glass-shine-gradient:linear-gradient(165deg,rgba(255,255,255,.09) 0%,transparent 48%);
-  --glass-overlay-dim:rgba(0,0,0,.58);
+  --glass-fill-grouped:rgba(29, 33, 31, 0.78);
+  --glass-fill-elevated:rgba(39, 42, 41, 0.88);
+  --glass-border:rgba(255, 255, 255, 0.1);
+  --glass-inset-shine:inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --glass-shadow-soft:0 6px 22px rgba(0, 0, 0, 0.38);
+  --glass-shine-gradient:linear-gradient(165deg, rgba(255, 255, 255, 0.07) 0%, transparent 48%);
+  --glass-overlay-dim:rgba(0, 0, 0, 0.52);
   --glass-overlay-blur:blur(12px) saturate(112%);
-  --scr-bg-gradient:linear-gradient(180deg,#0b0b0e 0%,#000 44%,#08080a 100%);
+  --scr-bg-gradient:linear-gradient(180deg, #0d1110 0%, #101412 46%, #0e1211 100%);
   --scr-noise-opacity:0.045;
-  --glass-sheet-top:linear-gradient(180deg,rgba(255,255,255,.14) 0%,transparent 46%);
-  --brand:#00c878;--brand-light:rgba(0,200,120,.15);
-  --lp:#fff;--ls:rgba(235,235,245,.68);--lt:rgba(235,235,245,.42);--lq:rgba(235,235,245,.22);
-  --fp:rgba(120,120,128,.36);--fs:rgba(120,120,128,.32);--ft:rgba(118,118,128,.24);
-  --bg0:#000;--bg1:#1c1c1e;--bg2:#2c2c2e;
-  --sep:rgba(84,84,88,.65);
-  --green:#32d74b;--red:#ff453a;--orange:#ff9f0a;--blue:#0a84ff;
-  --tab-muted:rgba(235,235,245,.58);
-  --tab-surface:rgba(44,44,46,.72);
-  --tab-surface-border:rgba(255,255,255,.14);
-  /* Tab bar v dark: černé / tmavé sklo (ne zelené) */
-  --tb-glass-bg:rgba(22,22,24,.94);
-  --tb-glass-border:rgba(255,255,255,.1);
+  --glass-sheet-top:linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 46%);
+  --brand:var(--m3-primary);
+  --brand-light:color-mix(in srgb, var(--m3-primary) 22%, transparent);
+  --lp:var(--m3-on-surface);
+  --ls:var(--m3-on-surface-variant);
+  --lt:rgba(224, 227, 225, 0.5);
+  --lq:rgba(224, 227, 225, 0.28);
+  --fp:rgba(120, 120, 128, 0.36);
+  --fs:rgba(120, 120, 128, 0.32);
+  --ft:rgba(118, 118, 128, 0.24);
+  --bg0:var(--m3-surface);
+  --bg1:var(--m3-surface-container);
+  --bg2:var(--m3-surface-container-high);
+  --sep:color-mix(in srgb, var(--m3-outline) 35%, transparent);
+  --green:var(--m3-primary);
+  --red:#ffb4a9;
+  --orange:#ffb776;
+  --blue:#9ecaef;
+  --purple:#d0bcff;
+  --tab-muted:rgba(191, 201, 196, 0.65);
+  --tab-surface:rgba(29, 33, 31, 0.72);
+  --tab-surface-border:rgba(255, 255, 255, 0.12);
+  --tb-glass-bg:rgba(21, 25, 24, 0.96);
+  --tb-glass-border:color-mix(in srgb, var(--m3-outline) 28%, transparent);
   --tb-glass-blur:var(--glass-blur-ui);
-  --tb-glass-outer:0 6px 28px rgba(0,0,0,.65);
-  --tb-glass-inset:inset 0 1px 0 rgba(255,255,255,.08);
-  --tb-icon:rgba(235,235,245,.55);
-  --tb-pill-on:rgba(255,255,255,.1);
-  --tb-icon-on:#fff;
+  --tb-glass-outer:0 6px 28px rgba(0, 0, 0, 0.45);
+  --tb-glass-inset:inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --tb-icon:#bfc9c4;
+  --tb-pill-on:color-mix(in srgb, var(--m3-primary) 24%, transparent);
+  --tb-icon-on:#b8f5d0;
+  /* UISwitch — nativní iOS (dark): ON #30d158, OFF kolejnice jako v systému; ne brand mint z M3 */
   --switch-on-bg:#30d158;
-  --switch-track-off:rgba(235,235,245,.3);
+  --switch-track-off:rgba(235, 235, 245, 0.28);
   --switch-thumb-shadow:none;
   --switch-track-inset:none;
-  --switch-off-glyph-ring:rgba(255,255,255,.78);
-  /* Tmavé pozadí + akcent — ne světlá --brand jako plocha (špatný kontrast bílého textu) */
+  --switch-on-glyph:#fff;
+  --switch-off-glyph-ring:rgba(255, 255, 255, 0.55);
   --cbanner-bg:#0d1f1a;
   --cbanner-text:#fff;
-  --cbanner-label:rgba(255,255,245,.92);
-  --cbanner-meta:rgba(235,235,245,.78);
-  --cbanner-track:rgba(255,255,255,.14);
+  --cbanner-label:rgba(255, 255, 245, 0.92);
+  --cbanner-meta:rgba(235, 235, 245, 0.78);
+  --cbanner-track:rgba(255, 255, 255, 0.14);
   --cbanner-fill:var(--brand);
-  --cbanner-border:rgba(0,200,120,.28);
-  --cbanner-decor:rgba(0,200,120,.12);
-  /* Bílý text na tmavší zelené — ne na neon #00c878 (WCAG) */
+  --cbanner-border:color-mix(in srgb, var(--m3-primary) 28%, transparent);
+  --cbanner-decor:color-mix(in srgb, var(--m3-primary) 12%, transparent);
   --pbtn-bg:#0a6b4e;
   --pbtn-fg:#fff;
-  --pbtn-shadow:0 4px 20px rgba(0,0,0,.45);
+  --pbtn-shadow:0 4px 20px rgba(0, 0, 0, 0.45);
 }
 
 html{
@@ -119,7 +145,7 @@ html{
   max-width:100%;
 }
 body{
-  background:#0d0d14;
+  background:#0d1110;
   min-height:100vh;
   display:flex;align-items:flex-start;justify-content:center;
   padding:40px 0 80px;
@@ -140,6 +166,9 @@ body{
   font-family:var(--font-sf);
   box-shadow:0 0 0 1px rgba(255,255,255,.07),0 0 0 11px #1c1c1e,0 0 0 12px rgba(255,255,255,.05),0 40px 100px rgba(0,0,0,.7);
   box-sizing:border-box;
+}
+#phone.dark.phone{
+  box-shadow:0 0 0 1px rgba(255,255,255,.06),0 0 0 11px #1d211f,0 0 0 12px rgba(255,255,255,.04),0 40px 100px rgba(0,0,0,.65);
 }
 
 /* SCREENS — no transform on .scr: translateX breaks full-width layout in WebKit/Blink
@@ -254,7 +283,7 @@ a.__cf_email__,a.__cf_email__:visited{
 .rs a:active,.pemail a:active,.rv a:active,a.__cf_email__:active{opacity:.92}
 .rv{font-size:17px;color:var(--ls);letter-spacing:-.4px;flex-shrink:0}
 .ch{width:7px;height:12px;flex-shrink:0;opacity:.4;color:var(--lp);stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-.dark .ch{opacity:.45;color:rgba(235,235,245,.55)}
+.dark .ch{opacity:.55;color:var(--ls)}
 .row-nc{cursor:default}
 .row-nc:active{background:transparent}
 .dest .rt{color:var(--red)}
@@ -328,7 +357,8 @@ a.__cf_email__,a.__cf_email__:visited{
 .oc:active{background:rgba(128,128,128,.1)}
 .oc+.oc::before{content:'';position:absolute;top:0;left:58px;right:0;height:.5px;background:var(--sep)}
 .oi{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}
-.oi.on{background:rgba(52,199,89,.14)}.oi.off{background:rgba(128,128,128,.1)}
+.oi.on{background:var(--brand-light)}.oi.off{background:rgba(128,128,128,.1)}
+.dark .oi.on{background:color-mix(in srgb,var(--green) 14%,transparent)}
 .oi svg{width:20px;height:20px}
 .oi.on svg{fill:var(--green)}.oi.off svg{fill:var(--lt)}
 .oinfo{flex:1;min-width:0}
@@ -337,7 +367,8 @@ a.__cf_email__,a.__cf_email__:visited{
 .ow{font-size:13px;font-weight:500;color:var(--brand);margin-top:1px}
 
 /* DEVICE CARD */
-.dc{display:flex;align-items:center;padding:12px 14px;gap:12px;cursor:pointer;transition:background .1s}
+.dc{display:flex;align-items:center;padding:12px 14px;gap:12px;cursor:pointer;transition:background .1s;position:relative}
+.dc+.dc::before{content:'';position:absolute;top:0;left:70px;right:0;height:.5px;background:var(--sep)}
 .dc:active{background:rgba(128,128,128,.1)}
 .dib{width:44px;height:44px;border-radius:12px;background:var(--brand-light);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .dib svg{width:22px;height:22px;fill:var(--brand)}
@@ -362,7 +393,7 @@ a.__cf_email__,a.__cf_email__:visited{
 .tb-grp{
   flex:1;min-width:0;display:flex;
   border-radius:100px;padding:3px;gap:2px;
-  background:linear-gradient(165deg,rgba(0,200,120,.12) 0%,transparent 46%),var(--tb-glass-bg);
+  background:linear-gradient(165deg,rgba(0,95,65,.12) 0%,transparent 46%),var(--tb-glass-bg);
   backdrop-filter:var(--tb-glass-blur);
   -webkit-backdrop-filter:var(--tb-glass-blur);
   border:0.5px solid var(--tb-glass-border);
@@ -381,7 +412,7 @@ a.__cf_email__,a.__cf_email__:visited{
 .tb-fab{
   width:52px;height:52px;border-radius:50%;
   border:0.5px solid var(--tb-glass-border);
-  background:linear-gradient(165deg,rgba(0,200,120,.12) 0%,transparent 46%),var(--tb-glass-bg);
+  background:linear-gradient(165deg,rgba(0,95,65,.12) 0%,transparent 46%),var(--tb-glass-bg);
   backdrop-filter:var(--tb-glass-blur);
   -webkit-backdrop-filter:var(--tb-glass-blur);
   color:#fff;
@@ -396,7 +427,7 @@ a.__cf_email__,a.__cf_email__:visited{
 }
 .dark .ti.on{color:var(--brand)}
 .dark .ti.on span{color:var(--brand)}
-.dark .ti.on{background:rgba(0,200,120,.12)}
+.dark .ti.on{background:color-mix(in srgb,var(--m3-primary) 12%,transparent)}
 /* fill:none jen na path — kruhy u NFC (sf-nfc) potřebují výplň uprostřed */
 .tb-fab svg{width:22px;height:22px;color:currentColor;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .tb-fab svg path{fill:none}
@@ -451,15 +482,69 @@ a.__cf_email__,a.__cf_email__:visited{
 .nd{font-size:13px;color:var(--ls);margin-top:2px;line-height:1.4}
 .ntime{font-size:12px;color:var(--lt);margin-top:5px}
 .unread{background:rgba(0,95,65,.05)}
-.dark .unread{background:rgba(0,200,120,.07)}
-.dark .sb{background:#111}
-.dark .nb{background:#111}
-.dark .nb-pill{border-color:rgba(255,255,255,.14);background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.06));box-shadow:inset 0 1px 0 rgba(255,255,255,.12);color:rgba(255,255,245,.98)}
-.dark .nb-btn{border-color:rgba(255,255,255,.16);background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,.06));box-shadow:inset 0 1px 0 rgba(255,255,255,.14);color:rgba(255,255,245,.98)}
-.dark .nb-btn:active{background:rgba(255,255,255,.2)}
-.dark .nb-btn svg{color:rgba(255,255,245,.98);stroke:currentColor}
-.dark .nb-title{color:rgba(255,255,245,.98)}
-.dark .nb-txt{color:rgba(255,255,245,.92)}
+.dark .unread{background:color-mix(in srgb,var(--m3-primary) 8%,transparent)}
+.dark .sb{background:var(--bg1)}
+.dark .sb-t{color:var(--lp)}
+.dark .sb-i svg{fill:var(--lp)}
+.dark .nb{background:var(--bg1)}
+.dark .nb-logo img{filter:none}
+/* iOS 26–style liquid glass jen pro org pill + search (kulaté / kapsle), ne pro celou lištu */
+.dark .nb-pill{
+  border:0.5px solid rgba(255,255,255,.22);
+  border-radius:100px;
+  background:linear-gradient(180deg,rgba(255,255,255,.2),rgba(255,255,255,.06));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22);
+  backdrop-filter:blur(28px) saturate(180%);
+  -webkit-backdrop-filter:blur(28px) saturate(180%);
+  color:color-mix(in srgb,var(--m3-primary) 28%,#fff);
+  font-weight:500;
+}
+.dark .nb-pill:active{
+  background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.04));
+}
+.dark .nb-btn{
+  border:0.5px solid rgba(255,255,255,.2);
+  border-radius:50%;
+  background:linear-gradient(165deg,rgba(255,255,255,.18),rgba(255,255,255,.05));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.2);
+  backdrop-filter:blur(28px) saturate(180%);
+  -webkit-backdrop-filter:blur(28px) saturate(180%);
+  color:var(--lp);
+}
+.dark .nb-btn:active{
+  background:linear-gradient(165deg,rgba(255,255,255,.1),rgba(255,255,255,.04));
+}
+.dark .nb-btn svg{color:var(--lp);stroke:currentColor}
+.dark .nb-title{color:var(--lp)}
+.dark .nb-txt{color:var(--m3-primary)}
+
+/* Dark: obsah = matné plochy (bez skla); sklo jen tab bar + hlavičkové kontrolky výše */
+#phone.dark .cnt .card,
+#phone.dark .cnt .mt,
+#phone.dark .cnt .cht,
+#phone.dark .cnt .at,
+#phone.dark .cnt .fc{
+  background:var(--bg1);
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+  border:0.5px solid color-mix(in srgb,var(--m3-outline) 22%,transparent);
+  box-shadow:0 1px 3px rgba(0,0,0,.28);
+}
+#phone.dark .cnt .sst{
+  background:var(--bg2);
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+  border:0.5px solid color-mix(in srgb,var(--m3-outline) 22%,transparent);
+  box-shadow:0 1px 2px rgba(0,0,0,.22);
+}
+/* Sheet: grouped blok (.scard) = matná plocha, ne druhá vrstva skla přes .sheet */
+#phone.dark .sheet .scard{
+  background:var(--bg1);
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+  border:0.5px solid color-mix(in srgb,var(--m3-outline) 22%,transparent);
+  box-shadow:0 1px 3px rgba(0,0,0,.25);
+}
 
 /* PROFILE */
 .ph{display:flex;flex-direction:column;align-items:center;padding:28px 16px 20px;gap:10px}
@@ -472,8 +557,8 @@ a.__cf_email__,a.__cf_email__:visited{
 .tag{height:20px;padding:0 7px;border-radius:5px;font-size:12px;font-weight:600;display:inline-flex;align-items:center}
 .tg{background:var(--brand-light);color:var(--brand)}
 .tb2{background:rgba(0,122,255,.1);color:var(--blue)}
-.to{background:rgba(255,149,0,.12);color:var(--orange)}
-.tr{background:rgba(255,59,48,.1);color:var(--red)}
+.to{background:color-mix(in srgb,var(--orange) 14%,transparent);color:var(--orange)}
+.tr{background:color-mix(in srgb,var(--red) 12%,transparent);color:var(--red)}
 
 /* BADGE */
 .badge{min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:var(--red);color:#fff;font-size:12px;font-weight:600;display:inline-flex;align-items:center;justify-content:center}
@@ -512,7 +597,7 @@ a.__cf_email__,a.__cf_email__:visited{
 .pbtn:active{opacity:.88;transform:scale(.98)}
 .sbtn{display:block;width:100%;height:52px;border-radius:var(--r);border:1.5px solid rgba(0,95,65,.3);background:transparent;color:var(--brand);font-size:17px;font-weight:500;cursor:pointer;letter-spacing:-.3px;transition:opacity .12s}
 .sbtn:active{opacity:.7}
-.dark .sbtn{border-color:rgba(0,200,120,.42);color:var(--brand)}
+.dark .sbtn{border-color:color-mix(in srgb,var(--m3-primary) 42%,transparent);color:var(--brand)}
 
 /* SUCCESS */
 .swrap{display:flex;flex-direction:column;align-items:center;padding:44px 28px 28px;gap:14px;text-align:center}
@@ -561,7 +646,7 @@ a.__cf_email__,a.__cf_email__:visited{
 .nfc-ring{animation:nfcpulse 2s ease-in-out infinite}
 .dark .nfc-ring{animation:none;box-shadow:none}
 .dark .nfc-ring{animation:nfcpulse-dark 2s ease-in-out infinite}
-@keyframes nfcpulse-dark{0%,100%{box-shadow:0 0 0 0 rgba(0,200,120,.3)}50%{box-shadow:0 0 0 12px rgba(0,200,120,0)}}
+@keyframes nfcpulse-dark{0%,100%{box-shadow:0 0 0 0 rgba(129,214,180,.35)}50%{box-shadow:0 0 0 12px rgba(129,214,180,0)}}
 
 /* Prototype dev rail — rozcestník + přepínač rolí (mimo „telefon“) */
 .proto-rail{
@@ -599,8 +684,8 @@ a.__cf_email__,a.__cf_email__:visited{
   transition:background .15s,border-color .15s,color .15s;
 }
 .proto-rail-back:hover,.proto-rail-back:focus-visible{
-  background:rgba(0,200,120,.15);
-  border-color:rgba(0,200,120,.35);
+  background:rgba(129,214,180,.14);
+  border-color:rgba(129,214,180,.34);
   color:#fff;
   outline:none;
 }
@@ -635,9 +720,9 @@ a.__cf_email__,a.__cf_email__:visited{
   outline:none;
 }
 .proto-rail-chip[aria-current="page"]{
-  background:rgba(0,200,120,.18);
-  border-color:rgba(0,200,120,.4);
-  color:#34d399;
+  background:rgba(129,214,180,.18);
+  border-color:rgba(129,214,180,.4);
+  color:#9df2cf;
 }
 @media (max-width:520px){
   .proto-rail{
@@ -667,6 +752,68 @@ a.__cf_email__,a.__cf_email__:visited{
   .proto-rail-chip{padding:6px 8px;font-size:11px}
 }
 
+/* Mobilní náhled bez mockupu — celá výška viewportu, horní lišta prototypu */
+html.proto-view-mobile{
+  height:100%;
+}
+html.proto-view-mobile body{
+  min-height:100dvh;
+  min-height:100svh;
+  padding:0;
+  padding-bottom:env(safe-area-inset-bottom,0);
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  justify-content:flex-start;
+}
+html.proto-view-mobile .proto-rail{
+  position:relative;
+  right:auto;
+  left:auto;
+  top:auto;
+  bottom:auto;
+  transform:none;
+  max-height:none;
+  width:100%;
+  max-width:none;
+  flex:0 0 auto;
+  flex-direction:row;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:flex-start;
+  gap:8px 10px;
+  padding:max(8px,env(safe-area-inset-top,0px)) 12px 10px max(12px,env(safe-area-inset-left,0px));
+  padding-right:max(12px,env(safe-area-inset-right,0px));
+  border-radius:0;
+  margin:0;
+}
+html.proto-view-mobile .proto-rail-back{
+  flex:0 0 auto;
+}
+html.proto-view-mobile .proto-rail-seg{
+  flex:1 1 auto;
+  flex-direction:row;
+  flex-wrap:wrap;
+  gap:6px;
+  justify-content:flex-end;
+  align-items:center;
+  min-width:0;
+}
+html.proto-view-mobile .proto-rail-lbl{display:none}
+html.proto-view-mobile .phone{
+  width:100%;
+  max-width:100%;
+  flex:1 1 auto;
+  min-height:0;
+  height:auto;
+  border-radius:0;
+  border:0 solid transparent;
+  box-shadow:none;
+}
+html.proto-view-mobile #phone.dark.phone{
+  box-shadow:none;
+}
+
 /* Glass — prohlížeče bez backdrop-filter + snížená průhlednost (a11y) */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .card,.mt,.cht,.at,.fc,.sst,.scard,
@@ -694,6 +841,17 @@ a.__cf_email__,a.__cf_email__:visited{
   .tb-grp,.tb-fab{background:var(--brand);border-color:rgba(255,255,255,.22)}
   .dark .tb-grp,.dark .tb-fab{background:var(--bg1);border-color:var(--sep)}
   .dark .sheet{background:var(--bg0)}
+  #phone.dark .nb-pill{
+    background:color-mix(in srgb,var(--m3-primary) 22%,transparent);
+    border:0.5px solid color-mix(in srgb,var(--m3-outline) 32%,transparent);
+    box-shadow:none;
+    color:color-mix(in srgb,var(--m3-primary) 35%,#fff);
+  }
+  #phone.dark .nb-btn{
+    background:color-mix(in srgb,var(--m3-on-surface) 14%,transparent);
+    border:0.5px solid color-mix(in srgb,var(--m3-outline) 30%,transparent);
+    box-shadow:none;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .scr,.overlay,.sheet{transition-duration:.01ms !important}

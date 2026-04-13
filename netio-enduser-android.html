@@ -3,6 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){
+  try {
+    var q = new URLSearchParams(location.search).get('view');
+    var s = sessionStorage.getItem('netioProtoView');
+    if (q === 'desktop') {
+      sessionStorage.setItem('netioProtoView', 'desktop');
+    } else if (q === 'mobile') {
+      document.documentElement.classList.add('proto-view-mobile');
+      sessionStorage.setItem('netioProtoView', 'mobile');
+    } else if (s === 'mobile') {
+      document.documentElement.classList.add('proto-view-mobile');
+    }
+  } catch (e) {}
+})();
+</script>
 <title>NETIO · Android · User</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <link rel="stylesheet" href="styles-ios.css">
@@ -125,9 +141,9 @@
 
     <!-- 3 actions only -->
     <div class="astrip">
-      <button class="at"><div class="ai" style="background:var(--brand)"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><span class="alb">Turn On</span></button>
-      <button class="at"><div class="ai" style="background:#8e8e93"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><span class="alb">Turn Off</span></button>
-      <button class="at"><div class="ai" style="background:var(--orange)"><span class="ms ms-24" aria-hidden="true">restart_alt</span></div><span class="alb">Restart</span></button>
+      <button class="at" onclick="prototypeAction('Turn On')" type="button"><div class="ai" style="background:var(--brand)"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><span class="alb">Turn On</span></button>
+      <button class="at" onclick="prototypeAction('Turn Off')" type="button"><div class="ai" style="background:#8e8e93"><span class="ms ms-24" aria-hidden="true">power_settings_new</span></div><span class="alb">Turn Off</span></button>
+      <button class="at" onclick="prototypeAction('Restart')" type="button"><div class="ai" style="background:var(--orange)"><span class="ms ms-24" aria-hidden="true">restart_alt</span></div><span class="alb">Restart</span></button>
     </div>
 
     <!-- metering — simplified labels -->
@@ -141,7 +157,7 @@
     <!-- scheduler — read only for user -->
     <div class="sec"><div class="sec-hdr">Schedule</div>
       <div class="card">
-        <div class="trow">
+        <div class="trow" onclick="prototypeAction('Schedule is set by admin (prototype)')" role="button">
           <div class="ri ri-g"><span class="ms ms-24" aria-hidden="true">calendar_month</span></div>
           <div class="tb"><div class="tt">Automatic schedule</div><div class="tsb">Mon–Fri 07:00–19:00 · Set by admin</div></div>
           <!-- No toggle — user can only see, not change -->
@@ -157,7 +173,7 @@
 <!-- ═══════════ SCREEN: ENERGY (USER) ═══════════ -->
 <div class="scr" id="s-nrg">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">signal_cellular_4_bar</span><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">wifi</span><span class="ms ms-20" aria-hidden="true" style="transform:rotate(90deg)">battery_full_alt</span></div></div>
-  <div class="nb"><span class="nb-logo" onclick="tab('out')" style="cursor:pointer"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><div style="flex:1"></div><button class="nb-btn"><span class="ms ms-24" aria-hidden="true">search</span></button></div>
+  <div class="nb"><span class="nb-logo" onclick="tab('out')" style="cursor:pointer"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><div style="flex:1"></div><button class="nb-btn" onclick="go('s-search')"><span class="ms ms-24" aria-hidden="true">search</span></button></div>
   <div class="cnt">
     <!-- friendly summary -->
     <div style="margin:16px 16px 0;background:var(--bg1);border-radius:var(--r);padding:18px">
@@ -214,7 +230,7 @@
 <!-- ═══════════ SCREEN: ACCOUNT (USER — minimal) ═══════════ -->
 <div class="scr" id="s-acc">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">signal_cellular_4_bar</span><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">wifi</span><span class="ms ms-20" aria-hidden="true" style="transform:rotate(90deg)">battery_full_alt</span></div></div>
-  <div class="nb"><span class="nb-logo" onclick="tab('out')" style="cursor:pointer"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><div style="flex:1"></div><button class="nb-btn"><span class="ms ms-24" aria-hidden="true">search</span></button></div>
+  <div class="nb"><span class="nb-logo" onclick="tab('out')" style="cursor:pointer"><img src="assets/netio-logo.svg" alt="NETIO" width="117" height="22" decoding="async"/></span><div style="flex:1"></div><button class="nb-btn" onclick="go('s-search')"><span class="ms ms-24" aria-hidden="true">search</span></button></div>
   <div class="cnt">
     <!-- profile header -->
     <div class="ph">
@@ -311,10 +327,10 @@
           <div class="rv" id="appear-val">System</div>
           <span class="ms ms-ch" aria-hidden="true">chevron_right</span>
         </div>
-        <div class="row">
+        <div class="row" onclick="go('s-lang')" role="button">
           <div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">language</span></div>
           <div class="rb"><div class="rt">Language</div></div>
-          <div class="rv">English</div>
+          <div class="rv" id="lang-val">English</div>
           <span class="ms ms-ch" aria-hidden="true">chevron_right</span>
         </div>
       </div>
@@ -349,6 +365,19 @@
       <div class="aptile" onclick="setAppear('light')"><div class="ap-preview" style="background:#f2f2f7"><div style="height:50%;background:#fff"></div></div><div class="rb"><div class="rt">Light</div></div><div class="ap-check" id="ap-light"></div></div>
       <div class="aptile" onclick="setAppear('dark')"><div class="ap-preview" style="background:#000"><div style="height:50%;background:#1c1c1e"></div></div><div class="rb"><div class="rt">Dark</div></div><div class="ap-check" id="ap-dark"></div></div>
       <div class="aptile" onclick="setAppear('system')"><div class="ap-preview" style="background:linear-gradient(135deg,#f2f2f7 50%,#000 50%)"></div><div class="rb"><div class="rt">System</div></div><div class="ap-check" id="ap-system" style="color:var(--brand);font-size:20px;font-weight:700">✓</div></div>
+    </div></div>
+    <div class="spc"></div>
+  </div>
+</div>
+
+<div class="scr" id="s-lang">
+  <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">signal_cellular_4_bar</span><span class="ms ms-20" aria-hidden="true" style="margin-right:2px">wifi</span><span class="ms ms-20" aria-hidden="true" style="transform:rotate(90deg)">battery_full_alt</span></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><span class="ms ms-24" aria-hidden="true">arrow_back</span></button><span class="nb-title">Language</span><div class="nb-spc"></div></div>
+  <div class="cnt">
+    <div class="sec"><div class="card">
+      <div class="row" onclick="setLang('English')" role="button"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">language</span></div><div class="rb"><div class="rt">English</div></div></div>
+      <div class="row" onclick="setLang('Czech')" role="button"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">language</span></div><div class="rb"><div class="rt">Czech</div></div></div>
+      <div class="row" onclick="setLang('German')" role="button"><div class="ri ri-b"><span class="ms ms-24" aria-hidden="true">language</span></div><div class="rb"><div class="rt">German</div></div></div>
     </div></div>
     <div class="spc"></div>
   </div>

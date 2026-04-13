@@ -31,10 +31,54 @@
   .sub{
     font-size:15px;
     color:rgba(255,255,255,.6);
-    margin-bottom:48px;
+    margin-bottom:20px;
     text-align:center;
     max-width:520px;
     line-height:1.5;
+  }
+  .view-toggle{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0;
+    margin-bottom:36px;
+    padding:4px;
+    border-radius:14px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.1);
+    max-width:100%;
+  }
+  .view-toggle button{
+    flex:1;
+    min-width:140px;
+    padding:12px 18px;
+    border:none;
+    border-radius:10px;
+    font:inherit;
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:-.2px;
+    cursor:pointer;
+    color:rgba(255,255,255,.55);
+    background:transparent;
+    transition:background .15s,color .15s;
+  }
+  .view-toggle button[aria-pressed="true"]{
+    background:rgba(129,214,180,.2);
+    color:#fff;
+    box-shadow:0 1px 0 rgba(255,255,255,.08);
+  }
+  .view-toggle button[aria-pressed="false"]:hover,
+  .view-toggle button[aria-pressed="false"]:focus-visible{
+    color:rgba(255,255,255,.85);
+    outline:none;
+  }
+  .view-toggle-hint{
+    width:100%;
+    text-align:center;
+    font-size:12px;
+    color:rgba(255,255,255,.35);
+    padding:8px 4px 0;
+    line-height:1.4;
   }
   .grid{
     width:100%;
@@ -133,6 +177,12 @@
   <h1>App Prototypy</h1>
   <p class="sub">Vyber platformu a roli — otevře se interaktivní náhled (stejná složka jako tento soubor).</p>
 
+  <div class="view-toggle" role="group" aria-label="Režim náhledu prototypu">
+    <button type="button" id="vt-desktop" aria-pressed="true">Desktop (mockup)</button>
+    <button type="button" id="vt-mobile" aria-pressed="false">Mobil (bez mockupu)</button>
+    <p class="view-toggle-hint" id="vt-hint">Náhled v rámu telefonu v prohlížeči na desktopu.</p>
+  </div>
+
   <div class="grid" role="navigation" aria-label="Rozcestník podle platformy">
     <section class="col" aria-labelledby="col-ios">
       <h2 id="col-ios" class="col-title">iOS 26</h2>
@@ -206,5 +256,49 @@
   </div>
 
   <footer>iOS: styles-ios.css · Android: + styles-android.css · app.js</footer>
+  <script>
+(function () {
+  var KEY = 'netioProtoView';
+  var links = document.querySelectorAll('a[href^="netio-"][href$=".html"]');
+  var btnD = document.getElementById('vt-desktop');
+  var btnM = document.getElementById('vt-mobile');
+  var hint = document.getElementById('vt-hint');
+
+  function baseName(href) {
+    var s = typeof href === 'string' ? href : '';
+    var q = s.indexOf('?');
+    return q === -1 ? s : s.slice(0, q);
+  }
+
+  function applyView(mobile) {
+    try {
+      sessionStorage.setItem(KEY, mobile ? 'mobile' : 'desktop');
+    } catch (e) {}
+    var q = mobile ? '?view=mobile' : '';
+    links.forEach(function (a) {
+      a.href = baseName(a.getAttribute('href')) + q;
+    });
+    btnD.setAttribute('aria-pressed', mobile ? 'false' : 'true');
+    btnM.setAttribute('aria-pressed', mobile ? 'true' : 'false');
+    if (hint) {
+      hint.textContent = mobile
+        ? 'Celá obrazovka jako v aplikaci — vhodné pro mobilní prohlížeč.'
+        : 'Náhled v rámu telefonu v prohlížeči na desktopu.';
+    }
+  }
+
+  var mobile = false;
+  try {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('view') === 'mobile') mobile = true;
+    else if (params.get('view') === 'desktop') mobile = false;
+    else if (sessionStorage.getItem(KEY) === 'mobile') mobile = true;
+  } catch (e) {}
+
+  btnD.addEventListener('click', function () { applyView(false); });
+  btnM.addEventListener('click', function () { applyView(true); });
+  applyView(mobile);
+})();
+  </script>
 </body>
 </html>

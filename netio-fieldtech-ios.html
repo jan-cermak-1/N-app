@@ -3,6 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){
+  try {
+    var q = new URLSearchParams(location.search).get('view');
+    var s = sessionStorage.getItem('netioProtoView');
+    if (q === 'desktop') {
+      sessionStorage.setItem('netioProtoView', 'desktop');
+    } else if (q === 'mobile') {
+      document.documentElement.classList.add('proto-view-mobile');
+      sessionStorage.setItem('netioProtoView', 'mobile');
+    } else if (s === 'mobile') {
+      document.documentElement.classList.add('proto-view-mobile');
+    }
+  } catch (e) {}
+})();
+</script>
 <title>NETIO · iOS App</title>
 <link rel="stylesheet" href="styles-ios.css">
 </head>
@@ -222,9 +238,9 @@
       </div>
     </div></div>
     <div class="astrip">
-      <button class="at"><div class="ai" style="background:var(--brand)"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><span class="alb">Turn On</span></button>
-      <button class="at"><div class="ai" style="background:#8e8e93"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><span class="alb">Turn Off</span></button>
-      <button class="at"><div class="ai" style="background:var(--orange)"><svg viewBox="0 0 24 24"><use href="#i-restart"/></svg></div><span class="alb">Restart</span></button>
+      <button class="at" onclick="prototypeAction('Turn On')" type="button"><div class="ai" style="background:var(--brand)"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><span class="alb">Turn On</span></button>
+      <button class="at" onclick="prototypeAction('Turn Off')" type="button"><div class="ai" style="background:#8e8e93"><svg viewBox="0 0 24 24"><use href="#i-on"/></svg></div><span class="alb">Turn Off</span></button>
+      <button class="at" onclick="prototypeAction('Restart')" type="button"><div class="ai" style="background:var(--orange)"><svg viewBox="0 0 24 24"><use href="#i-restart"/></svg></div><span class="alb">Restart</span></button>
     </div>
     <div class="mgrid">
       <div class="mt"><div class="mlb">Power</div><div class="mv">48<span class="mu">W</span></div></div>
@@ -234,7 +250,7 @@
     </div>
     <div class="sec"><div class="sec-hdr">Setup</div>
       <div class="card">
-        <div class="row"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-tag"/></svg></div><div class="rb"><div class="rt">Output name</div><div class="rs">Tap to assign a name</div></div><div class="rv">Output 1</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="prototypeAction('Rename output (prototype)')" role="button"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-tag"/></svg></div><div class="rb"><div class="rt">Output name</div><div class="rs">Tap to assign a name</div></div><div class="rv">Output 1</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
         <div class="trow"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-cal"/></svg></div><div class="tb"><div class="tt">Scheduler</div><div class="tsb">Not configured</div></div><button class="tog" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
         <div class="row" onclick="go('s-sched')"><div style="width:30px;flex-shrink:0"></div><div class="rb"><div class="rt" style="font-size:15px">Configure schedule</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
         <div class="trow"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-dog"/></svg></div><div class="tb"><div class="tt">WatchDog</div><div class="tsb">Not configured</div></div><button class="tog" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div>
@@ -248,7 +264,7 @@
 <!-- ═══════════ SCREEN: DEVICE CONFIG (FIELD TECH) ═══════════ -->
 <div class="scr" id="s-dev-config">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Device config</span><button class="nb-txt">Save</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Device config</span><button class="nb-txt" onclick="back()" type="button">Save</button></div>
   <div class="cnt" style="padding-bottom:24px">
     <div class="sec"><div class="sec-hdr">Network</div>
       <div class="fc">
@@ -268,7 +284,7 @@
     </div>
     <div class="sec"><div class="sec-hdr">Assignment</div>
       <div class="card">
-        <div class="row"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">Group</div><div class="rs">Assign to a device group</div></div><div class="rv">None</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="openSheet('sh-pick-group')" role="button"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">Group</div><div class="rs">Assign to a device group</div></div><div class="rv">None</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div style="margin:16px 16px 0"><button class="pbtn" onclick="back()">Save configuration</button></div>
@@ -288,9 +304,9 @@
     <div class="sec"><div class="sec-hdr">Configuration to transfer</div>
       <div class="card">
         <div class="row" onclick="go('s-dev-config')"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-cloud"/></svg></div><div class="rb"><div class="rt">NETIO Cloud</div><div class="rs">broker.cloud.netio.eu</div></div><span class="tag tg" style="margin-right:6px">Enabled</span><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-t"><svg viewBox="0 0 24 24"><use href="#i-wifi"/></svg></div><div class="rb"><div class="rt">WiFi network</div></div><div class="rv" style="font-size:15px">DC_Internal</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="prototypeAction('WiFi network (prototype)')" role="button"><div class="ri ri-t"><svg viewBox="0 0 24 24"><use href="#i-wifi"/></svg></div><div class="rb"><div class="rt">WiFi network</div></div><div class="rv" style="font-size:15px">DC_Internal</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
         <div class="row row-nc"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-bld"/></svg></div><div class="rb"><div class="rt">Organization</div></div><div class="rv">DataCenter s.r.o.</div></div>
-        <div class="row"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">Assign to group</div><div class="rs">Select destination group</div></div><div class="rv">Server Room A</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="openSheet('sh-pick-group')" role="button"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">Assign to group</div><div class="rs">Select destination group</div></div><div class="rv">Server Room A</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="fn" style="margin-top:6px">NFC transfers: WiFi credentials, MQTT/Cloud config, and organization assignment. Device settings are applied on first boot.</div>
@@ -335,7 +351,7 @@
     </div></div>
     <div class="sec"><div class="sec-hdr">Assign</div>
       <div class="card">
-        <div class="row"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">Group</div><div class="rs">Select destination group</div></div><div class="rv">Server Room A</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="openSheet('sh-pick-group')" role="button"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">Group</div><div class="rs">Select destination group</div></div><div class="rv">Server Room A</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div style="margin:16px 16px 0"><button class="pbtn" onclick="go('s-add-ok')">Connect device</button></div>
@@ -400,12 +416,12 @@
 <!-- ═══════════ SCREEN: SCHEDULER ═══════════ -->
 <div class="scr" id="s-sched">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Scheduler</span><button class="nb-txt">Save</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Scheduler</span><button class="nb-txt" onclick="back()" type="button">Save</button></div>
   <div class="cnt">
     <div class="sec"><div class="sec-hdr">Weekly plan · Output 1</div></div>
     <div style="background:var(--bg1);border-radius:var(--r);padding:14px;margin:8px 16px 0;overflow-x:auto"><div class="sgrid" id="sgrid"></div></div>
-    <div class="sec"><div class="card"><div class="row"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-timer"/></svg></div><div class="rb"><div class="rt">Add interval</div><div class="rs">No intervals configured yet</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div></div></div>
-    <div style="margin:12px 16px 0"><button class="sbtn">+ Add interval</button></div>
+    <div class="sec"><div class="card"><div class="row" onclick="go('s-sched')" role="button"><div class="ri ri-g"><svg viewBox="0 0 24 24"><use href="#i-timer"/></svg></div><div class="rb"><div class="rt">Add interval</div><div class="rs">No intervals configured yet</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div></div></div>
+    <div style="margin:12px 16px 0"><button class="sbtn" onclick="prototypeAction('Add interval')" type="button">+ Add interval</button></div>
     <div class="spc"></div>
   </div>
 </div>
@@ -413,15 +429,15 @@
 <!-- ═══════════ SCREEN: WATCHDOG ═══════════ -->
 <div class="scr" id="s-wdog">
   <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
-  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">WatchDog</span><button class="nb-txt">Save</button></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">WatchDog</span><button class="nb-txt" onclick="back()" type="button">Save</button></div>
   <div class="cnt">
     <div class="sec"><div class="card"><div class="trow"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-dog"/></svg></div><div class="tb"><div class="tt">WatchDog enabled</div></div><button class="tog" onclick="this.classList.toggle('on')"><div class="kn"></div></button></div></div></div>
     <div class="sec"><div class="sec-hdr">Configuration</div>
       <div class="card">
-        <div class="row"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-ip"/></svg></div><div class="rb"><div class="rt">IP address to ping</div></div><div class="rv">—</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-t"><svg viewBox="0 0 24 24"><use href="#i-timer"/></svg></div><div class="rb"><div class="rt">Check interval</div></div><div class="rv">60 s</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-restart"/></svg></div><div class="rb"><div class="rt">Action on fail</div></div><div class="rv">Restart</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
-        <div class="row"><div class="ri ri-p"><svg viewBox="0 0 24 24"><use href="#i-timer"/></svg></div><div class="rb"><div class="rt">Restart delay</div></div><div class="rv">5 s</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="prototypeAction('WatchDog IP (prototype)')" role="button"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-ip"/></svg></div><div class="rb"><div class="rt">IP address to ping</div></div><div class="rv">—</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="prototypeAction('Check interval (prototype)')" role="button"><div class="ri ri-t"><svg viewBox="0 0 24 24"><use href="#i-timer"/></svg></div><div class="rb"><div class="rt">Check interval</div></div><div class="rv">60 s</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="prototypeAction('Action on fail (prototype)')" role="button"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-restart"/></svg></div><div class="rb"><div class="rt">Action on fail</div></div><div class="rv">Restart</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
+        <div class="row" onclick="prototypeAction('Restart delay (prototype)')" role="button"><div class="ri ri-p"><svg viewBox="0 0 24 24"><use href="#i-timer"/></svg></div><div class="rb"><div class="rt">Restart delay</div></div><div class="rv">5 s</div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div>
       </div>
     </div>
     <div class="spc"></div>
@@ -488,7 +504,7 @@
         <div class="row row-nc"><div class="ri ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div><div class="rb"><div class="rt">UPS &amp; Power</div><div class="pbar"><div class="pbf" style="width:10%"></div></div></div><div class="rv">13 kWh</div></div>
       </div>
     </div>
-    <div class="sec"><div class="card"><div class="row"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-export"/></svg></div><div class="rb"><div class="rt">Export data</div><div class="rs">Requires admin role</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div></div></div>
+    <div class="sec"><div class="card"><div class="row" onclick="go('s-export')" role="button"><div class="ri ri-b"><svg viewBox="0 0 24 24"><use href="#i-export"/></svg></div><div class="rb"><div class="rt">Export data</div><div class="rs">Requires admin role</div></div><svg class="ch" viewBox="0 0 10 18"><polyline points="1 1 9 9 1 17"/></svg></div></div></div>
     <div class="spc"></div>
   </div>
   <div class="tb-bar">
@@ -578,6 +594,18 @@
   </div>
 </div>
 
+<div class="scr" id="s-export">
+  <div class="sb"><span class="sb-t">9:41</span><div class="sb-i"></div></div>
+  <div class="nb"><button class="nb-btn" onclick="back()"><svg viewBox="0 0 24 24"><use href="#sf-back"/></svg></button><span class="nb-title">Export data</span><div class="nb-spc"></div></div>
+  <div class="cnt">
+    <p class="fn" style="margin:8px 16px">Export requires admin role in production. This screen is a mock.</p>
+    <div class="sec"><div class="card">
+      <div class="row row-nc"><div class="rb"><div class="rt">Format</div></div><div class="rv">CSV</div></div>
+    </div></div>
+    <div style="margin:16px"><button class="pbtn" onclick="prototypeAction('Export started (prototype)')" type="button">Export</button></div>
+    <div class="spc"></div>
+  </div>
+</div>
 
 <div class="overlay" id="sh-orgs-ft" onclick="if(event.target===this)closeSheet(this)">
   <div class="sheet">
@@ -623,6 +651,17 @@
       <div class="sr" onclick="closeSheet(document.getElementById('sh-add'));setTimeout(()=>go('s-add-man'),180)"><div class="srich ri-g"><svg viewBox="0 0 24 24"><use href="#i-plus"/></svg></div>Add manually<svg class="ch" viewBox="0 0 10 18" style="margin-left:auto"><polyline points="1 1 9 9 1 17"/></svg></div>
       <div class="sr" onclick="closeSheet(document.getElementById('sh-add'));setTimeout(()=>go('s-nfc'),180)"><div class="srich ri-p"><svg viewBox="0 0 24 24"><use href="#i-nfc"/></svg></div>NFC configuration<svg class="ch" viewBox="0 0 10 18" style="margin-left:auto"><polyline points="1 1 9 9 1 17"/></svg></div>
       <div class="sr" onclick="closeSheet(document.getElementById('sh-add'));setTimeout(()=>go('s-add-man'),180)"><div class="srich ri-t"><svg viewBox="0 0 24 24"><use href="#i-cloud"/></svg></div>From NETIO Cloud<svg class="ch" viewBox="0 0 10 18" style="margin-left:auto"><polyline points="1 1 9 9 1 17"/></svg></div>
+    </div>
+  </div>
+</div>
+<div class="overlay" id="sh-pick-group" onclick="if(event.target===this)closeSheet(this)">
+  <div class="sheet">
+    <div class="snotch"></div>
+    <div class="stitle">Select group</div>
+    <div class="scard">
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-pick-group'))"><div class="srich ri-o"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div>Server Room A<span class="sch" style="color:var(--brand)">✓</span></div>
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-pick-group'))"><div class="srich ri-b"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div>Network Cabinet</div>
+      <div class="sr" onclick="closeSheet(document.getElementById('sh-pick-group'))"><div class="srich ri-g"><svg viewBox="0 0 24 24"><use href="#i-folder"/></svg></div>UPS &amp; Power</div>
     </div>
   </div>
 </div>

@@ -247,6 +247,11 @@ html.platform-android .phone {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12), 0 0 0 10px #2a2a2a, 0 24px 48px rgba(0, 0, 0, 0.45);
 }
 
+html.platform-android.proto-view-mobile .phone {
+  border-radius: 0;
+  box-shadow: none;
+}
+
 html.platform-android .scr::before {
   display: none;
 }
@@ -540,6 +545,7 @@ html.platform-android .trow + .trow::before,
 html.platform-android .trow + .row::before,
 html.platform-android .row + .trow::before,
 html.platform-android .oc + .oc::before,
+html.platform-android .dc + .dc::before,
 html.platform-android .nc + .nc::before,
 html.platform-android .sr + .sr::before {
   display: block;
