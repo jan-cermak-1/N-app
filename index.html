@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NETIO · Prototypy</title>
+<title>NETIO · Prototypes</title>
 <style>
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{
@@ -174,38 +174,38 @@
   <div class="logo-wrap">
     <img src="assets/netio-logo.svg" alt="NETIO" height="28" style="display:block; margin:0 auto;">
   </div>
-  <h1>App Prototypy</h1>
-  <p class="sub">Vyber platformu a roli — otevře se interaktivní náhled (stejná složka jako tento soubor).</p>
+  <h1>App prototypes</h1>
+  <p class="sub">Pick a platform and role — opens an interactive preview (same folder as this file).</p>
 
-  <div class="view-toggle" role="group" aria-label="Režim náhledu prototypu">
+  <div class="view-toggle" role="group" aria-label="Prototype preview mode">
     <button type="button" id="vt-desktop" aria-pressed="true">Desktop (mockup)</button>
-    <button type="button" id="vt-mobile" aria-pressed="false">Mobil (bez mockupu)</button>
-    <p class="view-toggle-hint" id="vt-hint">Náhled v rámu telefonu v prohlížeči na desktopu.</p>
+    <button type="button" id="vt-mobile" aria-pressed="false">Mobile (full screen)</button>
+    <p class="view-toggle-hint" id="vt-hint">Preview in a phone frame in the desktop browser.</p>
   </div>
 
-  <div class="grid" role="navigation" aria-label="Rozcestník podle platformy">
+  <div class="grid" role="navigation" aria-label="Navigation by platform">
     <section class="col" aria-labelledby="col-ios">
       <h2 id="col-ios" class="col-title">iOS 26</h2>
-      <p class="col-meta">Aktuální HTML náhledy (liquid glass, stejné soubory jako v repu).</p>
-      <nav class="col-links" aria-label="iOS prototypy">
+      <p class="col-meta">Current HTML previews (liquid glass, same files as in the repo).</p>
+      <nav class="col-links" aria-label="iOS prototypes">
         <a href="netio-technician-ios.html">
           <div class="wrap">
             Admin
-            <span class="desc">Organizace, zařízení, skupiny, nastavení</span>
+            <span class="desc">Organization, devices, groups, settings</span>
           </div>
           <span class="arrow" aria-hidden="true">›</span>
         </a>
         <a href="netio-enduser-ios.html">
           <div class="wrap">
             User
-            <span class="desc">Výstupy, omezená správa</span>
+            <span class="desc">Outputs, limited management</span>
           </div>
           <span class="arrow" aria-hidden="true">›</span>
         </a>
         <a href="netio-fieldtech-ios.html">
           <div class="wrap">
-            Support technik
-            <span class="desc">Dočasný přístup, NFC, diagnostika</span>
+            Field technician
+            <span class="desc">Temporary access, NFC, diagnostics</span>
           </div>
           <span class="arrow" aria-hidden="true">›</span>
         </a>
@@ -214,26 +214,26 @@
 
     <section class="col" aria-labelledby="col-android">
       <h2 id="col-android" class="col-title">Android 16</h2>
-      <p class="col-meta">Material Design 3 + Material Symbols — <code style="font-size:11px">styles-android.css</code>, stejný markup jako iOS.</p>
-      <nav class="col-links" aria-label="Android prototypy">
+      <p class="col-meta">Material Design 3 + Material Symbols — <code style="font-size:11px">styles-android.css</code>, same markup as iOS.</p>
+      <nav class="col-links" aria-label="Android prototypes">
         <a href="netio-technician-android.html">
           <div class="wrap">
             Admin
-            <span class="desc">Organizace, zařízení, skupiny, nastavení</span>
+            <span class="desc">Organization, devices, groups, settings</span>
           </div>
           <span class="arrow" aria-hidden="true">›</span>
         </a>
         <a href="netio-enduser-android.html">
           <div class="wrap">
             User
-            <span class="desc">Výstupy, omezená správa</span>
+            <span class="desc">Outputs, limited management</span>
           </div>
           <span class="arrow" aria-hidden="true">›</span>
         </a>
         <a href="netio-fieldtech-android.html">
           <div class="wrap">
-            Support technik
-            <span class="desc">Dočasný přístup, NFC, diagnostika</span>
+            Field technician
+            <span class="desc">Temporary access, NFC, diagnostics</span>
           </div>
           <span class="arrow" aria-hidden="true">›</span>
         </a>
@@ -268,8 +268,8 @@
     btnM.setAttribute('aria-pressed', mobile ? 'true' : 'false');
     if (hint) {
       hint.textContent = mobile
-        ? 'Celá obrazovka jako v aplikaci — vhodné pro mobilní prohlížeč.'
-        : 'Náhled v rámu telefonu v prohlížeči na desktopu.';
+        ? 'Full screen like the app — best for mobile browsers.'
+        : 'Preview in a phone frame in the desktop browser.';
     }
   }
 
